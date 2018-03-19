@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="WpfApplication2.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Background="#FF134F66">
+    <Window.Resources>
+        <ControlTemplate x:Key="WindowControlTemplate1" TargetType="{x:Type Window}">
+            <Grid Margin="0,-27.546,0,0"/>
+        </ControlTemplate>
+
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#FF134F66" />
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF134F66" />
+
+        <SolidColorBrush x:Key="SelectedForegroundBrush" Color="#FFF" />
+
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+
+        <SolidColorBrush x:Key="UnselectedBackgroundBrush" Color="#FF002038" />
+
+        <SolidColorBrush x:Key="UnselectedForegroundBrush" Color="#FF8D8D8D" />
+
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+            Name="Border"
+            Margin="0,0,-4,0" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="2,12,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              ContentSource="Header"
+              Margin="12,2,12,2"
+              RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter Property="Foreground" Value="{StaticResource SelectedForegroundBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource UnselectedBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter Property="Foreground" Value="{StaticResource UnselectedForegroundBrush}" />
+                            </Trigger>
+                            <!--
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                            -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainGrid" Margin="-4.25,0,-4,-3.667" Background="#FF134F66">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle x:Name="TopBack" Height="25.75" Margin="0,0,0.25,0" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF1D2326"/>
+                    <GradientStop Color="#FF171C1F" Offset="0.766"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F1213" Offset="0.389"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <ed:Arc x:Name="ServerPic" ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Height="17.75" Margin="0,3.895,-12.281,0" Stretch="None" Stroke="Gray" StartAngle="0" VerticalAlignment="Top" Width="1.744" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <ed:Arc.Fill>
+                <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
+            </ed:Arc.Fill>
+        </ed:Arc>
+        <TextBox x:Name="ServerName" HorizontalAlignment="Right" Height="18.417" Margin="0,3.895,-12.365,0" TextWrapping="Wrap" Text="Sally" VerticalAlignment="Top" Width="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <TabControl x:Name="tabControl" Background="#FF134F66" BorderBrush="#FF134F66" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
+                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
+                    <local:TableIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table4_O" Width="Auto" Height="Auto" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" Foreground="#FF134F66"/>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Payment" Background="#FF134F66" Margin="94.5,-2,-120,0">
+                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
+                    <local:TableIcon x:Name="Table1_P" Height="Auto" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table2_P" Height="Auto" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table3_P" Height="Auto" Width="Auto" Margin="0,0.001,0,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table4_P" Height="Auto" Width="Auto" Margin="0,0.001,0,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                </UniformGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
