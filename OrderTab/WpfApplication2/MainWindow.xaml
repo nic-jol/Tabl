@@ -68,8 +68,30 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Storyboard x:Key="OnLoaded1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PaymentCancelButton">
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="PaymentProcessingText">
+                <DiscreteStringKeyFrame KeyTime="0:0:0.5" Value="Payment Processing."/>
+                <DiscreteStringKeyFrame KeyTime="0:0:1" Value="Payment Processing.."/>
+                <DiscreteStringKeyFrame KeyTime="0:0:1.5" Value="Payment Processing..."/>
+                <DiscreteStringKeyFrame KeyTime="0:0:2" Value="Payment Complete!"/>
+            </StringAnimationUsingKeyFrames>
+            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsEnabled)" Storyboard.TargetName="PaymentProcessingText">
+                <DiscreteBooleanKeyFrame KeyTime="0:0:2" Value="False"/>
+            </BooleanAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PaymentProcessingScreen">
+                <DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
-    <Grid x:Name="MainGrid" Margin="-4.25,0,-4,-3.667" Background="#FF134F66">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="MainGrid" Margin="-4.25,0,-28.75,-14.668" Background="#FF134F66">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -113,5 +135,13 @@
                 </UniformGrid>
             </TabItem>
         </TabControl>
+        <Grid x:Name="PaymentProcessingScreen" Margin="-4.25,0,4.25,0" Background="#FF134F66" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="PaymentProcessingText" HorizontalAlignment="Center" Height="55" Margin="0,0,0,50" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" TextAlignment="Center" FontSize="36" Foreground="White" Text="Payment Processing"/>
+            <Button x:Name="PaymentCancelButton" Content="Cancel" HorizontalAlignment="Center" Height="45" Margin="0,100,0,0" VerticalAlignment="Center" Width="170" BorderBrush="{x:Null}" Background="#FF002038" Foreground="White"/>
+        </Grid>
     </Grid>
 </Window>
