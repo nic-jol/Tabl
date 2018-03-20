@@ -68,80 +68,52 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Storyboard x:Key="OnLoaded1">
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PaymentCancelButton">
-                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-            <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="PaymentProcessingText">
-                <DiscreteStringKeyFrame KeyTime="0:0:0.5" Value="Payment Processing."/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1" Value="Payment Processing.."/>
-                <DiscreteStringKeyFrame KeyTime="0:0:1.5" Value="Payment Processing..."/>
-                <DiscreteStringKeyFrame KeyTime="0:0:2" Value="Payment Complete!"/>
-            </StringAnimationUsingKeyFrames>
-            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsEnabled)" Storyboard.TargetName="PaymentProcessingText">
-                <DiscreteBooleanKeyFrame KeyTime="0:0:2" Value="False"/>
-            </BooleanAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PaymentProcessingScreen">
-                <DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Collapsed}"/>
-            </ObjectAnimationUsingKeyFrames>
-        </Storyboard>
     </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
-        </EventTrigger>
-    </Window.Triggers>
-    <Grid x:Name="MainGrid" Margin="-4.25,0,-28.75,-14.668" Background="#FF134F66">
+    <Grid x:Name="MainGrid" Margin="-4.25,0,-4,-3.667" Background="#FF134F66">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle x:Name="TopBack" Height="25.75" Margin="0,0,0.25,0" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#FF1D2326"/>
-                    <GradientStop Color="#FF171C1F" Offset="0.766"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-            <Rectangle.Stroke>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF0F1213" Offset="0.389"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Stroke>
-        </Rectangle>
-        <ed:Arc x:Name="ServerPic" ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Height="17.75" Margin="0,3.895,-12.281,0" Stretch="None" Stroke="Gray" StartAngle="0" VerticalAlignment="Top" Width="1.744" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <ed:Arc.Fill>
-                <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
-            </ed:Arc.Fill>
-        </ed:Arc>
-        <TextBox x:Name="ServerName" HorizontalAlignment="Right" Height="18.417" Margin="0,3.895,-12.365,0" TextWrapping="Wrap" Text="Sally" VerticalAlignment="Top" Width="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <Grid x:Name="HeaderGrid" Height="26.645" Margin="0,-5,0,0" VerticalAlignment="Top">
+            <Rectangle x:Name="TopBack" Margin="0,0,0.25,0.895" d:LayoutOverrides="LeftMargin, RightMargin">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FF1D2326"/>
+                        <GradientStop Color="#FF171C1F" Offset="0.766"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F1213" Offset="0.389"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <ed:Arc x:Name="ServerPic" ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,5,53.135,5.283" Stretch="None" Stroke="Gray" StartAngle="0" Width="18" Height="18">
+                <ed:Arc.Fill>
+                    <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
+                </ed:Arc.Fill>
+            </ed:Arc>
+            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,2.695,0.25,5.533" TextWrapping="Wrap" Text="Sally" Width="52.885" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" VerticalAlignment="Top"/>
+        </Grid>
         <TabControl x:Name="tabControl" Background="#FF134F66" BorderBrush="#FF134F66" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table4_O" Width="Auto" Height="Auto" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" Foreground="#FF134F66"/>
+                    <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableOIcon_Reserv x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
+                    <local:TableOIcon_Full x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TableOIcon_Full x:Name="Table4_O" Width="Auto" Height="Auto" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height"/>
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="94.5,-2,-120,0">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableIcon x:Name="Table1_P" Height="Auto" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table2_P" Height="Auto" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table3_P" Height="Auto" Width="Auto" Margin="0,0.001,0,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table4_P" Height="Auto" Width="Auto" Margin="0,0.001,0,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Foreground="#FF134F66"/>
+                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
+                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height"/>
                 </UniformGrid>
             </TabItem>
         </TabControl>
-        <Grid x:Name="PaymentProcessingScreen" Margin="-4.25,0,4.25,0" Background="#FF134F66" Visibility="Collapsed">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock x:Name="PaymentProcessingText" HorizontalAlignment="Center" Height="55" Margin="0,0,0,50" TextWrapping="Wrap" VerticalAlignment="Center" Width="400" TextAlignment="Center" FontSize="36" Foreground="White" Text="Payment Processing"/>
-            <Button x:Name="PaymentCancelButton" Content="Cancel" HorizontalAlignment="Center" Height="45" Margin="0,100,0,0" VerticalAlignment="Center" Width="170" BorderBrush="{x:Null}" Background="#FF002038" Foreground="White"/>
-        </Grid>
     </Grid>
 </Window>

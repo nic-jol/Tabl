@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Violet\Documents\Visual Studio 2015\Projects\OrderTab\WpfApplication2\obj\Debug\
+F:\418-As3\OrderTab\WpfApplication2\obj\Debug\
 WpfApplication2
 none
 false
 DEBUG;TRACE
-C:\Users\Violet\Documents\Visual Studio 2015\Projects\OrderTab\WpfApplication2\App.xaml
-2-1250259045
+F:\418-As3\OrderTab\WpfApplication2\App.xaml
+7-2061798449
 
-10-242519860
+152059094723
 14-1061375871
-MainWindow.xaml;TableIcon.xaml;
+MainWindow.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;
 
-False
+True
 
