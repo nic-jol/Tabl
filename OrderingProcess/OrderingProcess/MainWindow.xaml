@@ -9,8 +9,16 @@
         Title="MainWindow" Background="#FFFFF1CE">
     <Window.Resources>
     </Window.Resources>
-    <Grid x:Name="MainViewGrid" Height="39" VerticalAlignment="Top">
-        <Grid x:Name="Header" Height="39" Margin="-4,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="TopMargin, BottomMargin">
+    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="Header" Height="39" Margin="-4,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <Rectangle x:Name="TopBack" Margin="0,0,-3.667,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -42,67 +50,115 @@
             <ed:BlockArrow HorizontalAlignment="Left" Margin="10,3,0,7" Orientation="Left" Width="60" Fill="#FF134F66"/>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="84,7,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="White" FontSize="18.667"/>
         </Grid>
-        <UniformGrid x:Name="SelectablesGrid" Margin="-4,0,-4,-469.083" Rows="1" Columns="2" Height="469.083" VerticalAlignment="Bottom">
-            <UniformGrid x:Name="SeatsGrid" HorizontalAlignment="Left" Margin="0,0,-2.5,0" d:LayoutOverrides="VerticalAlignment" Rows="5" Columns="1" Background="#FE00060A" Height="Auto">
-                <Button x:Name="Seat1Button" Content="Seat 1" Margin="13,22.5,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="366.5" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF244054" Offset="0"/>
-                            <GradientStop Color="#FF002038" Offset="1"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="Seat2Button" Content="Seat 2" Margin="13,22.5,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="366.5" FontSize="33.333" Foreground="#FFFFF1CE" BorderBrush="{x:Null}">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF002038" Offset="1"/>
-                            <GradientStop Color="#FF244054"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="Seat3Button" Content="Seat 3" Margin="13,22.5,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="366.5" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF002038" Offset="1"/>
-                            <GradientStop Color="#FF244054"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="Seat4Button" Content="Seat 4" Margin="13,22.5,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="366.5" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF002038" Offset="1"/>
-                            <GradientStop Color="#FF244054"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="KitchenButton" Content="Send Order to Kitchen" Margin="0,22.5,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="386.5" FontSize="33.333" Foreground="#FFFFF1CE" BorderBrush="{x:Null}" BorderThickness="2">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FFDC6428" Offset="1"/>
-                            <GradientStop Color="#FFE38759" Offset="0.017"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-            </UniformGrid>
-            <UniformGrid x:Name="CategoriesGrid" Margin="7.5,2.5,10,2.5" Rows="2" Columns="1" Height="464.083" VerticalAlignment="Center" HorizontalAlignment="Center" Width="366.5">
-                <Button x:Name="button" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFFFF1CE">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF134F66" Offset="1"/>
-                            <GradientStop Color="#FF527987"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="button_Copy" Content="Drinks" Margin="30,27,33,41.041" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFFFF1CE">
-                    <Button.Background>
-                        <RadialGradientBrush>
-                            <GradientStop Color="#FF3F7082" Offset="0"/>
-                            <GradientStop Color="#FF134F66" Offset="1"/>
-                        </RadialGradientBrush>
-                    </Button.Background>
-                </Button>
-            </UniformGrid>
+        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,39,0,2.668" Rows="5" Columns="1" Background="#FE00060A" Height="Auto" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" HorizontalAlignment="Left" Width="364.5">
+            <Button x:Name="Seat1Button" Content="Seat 1" Margin="13,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF244054" Offset="0"/>
+                        <GradientStop Color="#FF002038" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Seat2Button" Content="Seat 2" Margin="13,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" FontSize="33.333" Foreground="#FFFFF1CE" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF002038" Offset="1"/>
+                        <GradientStop Color="#FF244054"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Seat3Button" Content="Seat 3" Margin="13,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF002038" Offset="1"/>
+                        <GradientStop Color="#FF244054"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Seat4Button" Content="Seat 4" Margin="13,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF002038" Offset="1"/>
+                        <GradientStop Color="#FF244054"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="KitchenButton" Content="See Full Order" Margin="0,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="364.5" FontSize="33.333" Foreground="#FFFFF1CE" BorderBrush="{x:Null}" BorderThickness="2">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFDC6428" Offset="1"/>
+                        <GradientStop Color="#FFE38759" Offset="0.017"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+        </UniformGrid>
+        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,39,0,0" Rows="2" Columns="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" d:IsHidden="True">
+            <Button x:Name="button" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFFFF1CE">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                        <GradientStop Color="#FF527987"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Copy" Content="Drinks" Margin="30,27,33,41.041" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFFFF1CE">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF3F7082" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+        </UniformGrid>
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsHidden="True">
+            <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="tunaButton" Content="Tuna Sandwich" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="steakButton" Content="Steak" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                        <GradientStop Color="#FF527987"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="pizzaButton" Content="Margherita Pizza" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="cajunButton" Content="Cajun Chicken Sandwich" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="cancelButton" Content="Cancel" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF972E23" Offset="0"/>
+                        <GradientStop Color="#FF870D00" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
         </UniformGrid>
 
     </Grid>
