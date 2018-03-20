@@ -29,7 +29,8 @@ namespace OrderingProcess
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
             ItemAddedGrid.Visibility = Visibility.Hidden;
-            //OrderSentGrid.Visibility = Visibility.Hidden;
+            OrderSentGrid.Visibility = Visibility.Hidden;
+            //ViewOrderGrid.Visibility = Visibility.Hidden;
         }
     }
 }
