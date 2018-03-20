@@ -23,6 +23,9 @@ namespace OrderingProcess
         public MainWindow()
         {
             InitializeComponent();
+            CategoriesGrid.Visibility = Visibility.Hidden;
+            DrinksGrid.Visibility = Visibility.Hidden;
+
         }
     }
 }

@@ -50,7 +50,7 @@
             <ed:BlockArrow HorizontalAlignment="Left" Margin="10,3,0,7" Orientation="Left" Width="60" Fill="#FF134F66"/>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="84,7,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="White" FontSize="18.667"/>
         </Grid>
-        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,39,0,2.668" Rows="5" Columns="1" Background="#FE00060A" Height="Auto" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" HorizontalAlignment="Left" Width="364.5">
+        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,39,0,2.668" Rows="5" Columns="1" Background="#FE00060A" Height="Auto" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" HorizontalAlignment="Left" Width="364.5" d:IsHidden="True" d:IsLocked="True">
             <Button x:Name="Seat1Button" Content="Seat 1" Margin="13,22.5,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="344" FontSize="33.333" BorderBrush="{x:Null}" Foreground="#FFFFF1CE">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -92,7 +92,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,39,0,0" Rows="2" Columns="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" d:IsHidden="True">
+        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,39,0,0" Rows="2" Columns="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" d:IsHidden="True" d:IsLocked="True">
             <Button x:Name="button" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFFFF1CE">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -110,7 +110,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsHidden="True">
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -151,7 +151,7 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="cancelButton" Content="Cancel" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+            <Button x:Name="cancelFButton" Content="Cancel" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF972E23" Offset="0"/>
@@ -160,6 +160,66 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
+        <UniformGrid x:Name="DrinksGrid" Margin="363.829,39,0,2.668" Columns="1" Rows="6" d:IsHidden="True" d:IsLocked="True">
+            <Button x:Name="cokeButton" Content="Coke" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="orangeButton" Content="Orange Crush" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="spriteButton" Content="Sprite" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="milkButton" Content="Milk" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="coffeeButton" Content="Coffee" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF527987" Offset="0"/>
+                        <GradientStop Color="#FF134F66" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="cancelDButton" Content="Cancel" Margin="10,22.5,10,3" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF972E23" Offset="0"/>
+                        <GradientStop Color="#FF870D00" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+        </UniformGrid>
+        <Grid x:Name="SidesGrid" Margin="368.829,46.668,0,0" d:IsHidden="True" d:IsLocked="True" >
+            <UniformGrid Margin="194.671,172,25,83.332" Background="#FE00060A" Columns="1" Rows="5">
+                <Button x:Name="regFriesButton" Content="Regular Fries" BorderBrush="{x:Null}" Background="#FFFFF1CE" Foreground="#FF01070B" Margin="10,10.2,10,4.2"/>
+                <Button x:Name="yamFriesButton" Content="Sweet Potato Fries" BorderBrush="{x:Null}" Background="#FFFFF1CE" Foreground="#FF01070B" Margin="10,10.2,10,4.2"/>
+                <Button x:Name="gardenButton" Content="Garden Salad" BorderBrush="{x:Null}" Background="#FFFFF1CE" Foreground="#FF01070B" Margin="10,11.2,10,3.2"/>
+                <Button x:Name="caesarButton" Content="Caesar Salad" BorderBrush="{x:Null}" Background="#FFFFF1CE" Foreground="#FF01070B" Margin="10,11.2,10,3.2"/>
+                <Button x:Name="closeSidesButton" Content="Cancel" BorderBrush="{x:Null}" Background="#FF8B160A" Foreground="White"/>
+            </UniformGrid>
+        </Grid>
+        <UniformGrid x:Name="ItemAddedGrid" Margin="0,34,0,2.668"/>
 
     </Grid>
 </Window>
