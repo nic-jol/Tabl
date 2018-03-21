@@ -27,9 +27,8 @@ namespace WpfApplication2
 
         private void checkCredentials(object sender, RoutedEventArgs e)
         {
-            if (canLogin(AddressBox.Text, PasswordBox.Text))
+            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text))
             {
-                //this.Close();
                 MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
@@ -38,12 +37,14 @@ namespace WpfApplication2
             else
             {
                 MessageBox.Show("Username or password do not match, please try again");
+                invalidUser.Visibility = Visibility.Visible;
             }
         }
 
-        private Boolean canLogin(String login, String pass)
+        private void orderNotification(object sender, RoutedEventArgs e)
         {
-            return true;
+            OrderNotification order = new OrderNotification();
+            order.Show();
         }
     }
 }

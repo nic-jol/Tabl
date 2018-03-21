@@ -20,9 +20,16 @@ namespace WpfApplication2
     /// </summary>
     public partial class TableOIcon_Reserv : UserControl
     {
+        CustomerTable tabl;
         public TableOIcon_Reserv()
         {
             InitializeComponent();
+        }
+
+        private void UnassignTable(object sender, MouseButtonEventArgs e)
+        {
+            UnassignTable assign = new UnassignTable(tabl);
+            assign.Show();
         }
     }
 }

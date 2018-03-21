@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MockSecurity.cs" />
+    <Compile Include="CustomerTable.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -75,6 +77,15 @@
     </Compile>
     <Compile Include="TableOIcon.xaml.cs">
       <DependentUpon>TableOIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTable.xaml.cs">
+      <DependentUpon>AssignTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnassignTable.xaml.cs">
+      <DependentUpon>UnassignTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderNotification.xaml.cs">
+      <DependentUpon>OrderNotification.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +124,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TableOIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssignTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UnassignTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,14 +20,14 @@ namespace WpfApplication2
     /// </summary>
     public partial class TableOIcon_Full : UserControl
     {
-        Table tabl = new Table();
+        CustomerTable tabl = new CustomerTable();
 
         public TableOIcon_Full()
         {
             InitializeComponent();
         }
 
-        public TableOIcon_Full(Table passedTable)
+        public TableOIcon_Full(CustomerTable passedTable)
         {
             InitializeComponent();
             tabl = passedTable;
@@ -35,7 +35,8 @@ namespace WpfApplication2
 
         private void UnnasignTable(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Full Click");
+            UnassignTable assign = new UnassignTable(tabl);
+            assign.Show();
         }
     }
 }
