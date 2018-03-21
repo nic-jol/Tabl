@@ -25,13 +25,13 @@ namespace OrderingProcess
             InitializeComponent();
             //SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
-            //FoodGrid.Visibility = Visibility.Hidden;
+            FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
             ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
-            //ConfirmationGrid.Visibility = Visibility.Hidden;
+            ConfirmationGrid.Visibility = Visibility.Hidden;
         }
     }
 }
