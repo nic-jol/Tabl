@@ -203,3 +203,13 @@ C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\Tab
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\TableOIcon_Ready.baml
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.g.cs
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\TableOIcon_Ready.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\AssignTable.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\UnassignTable.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\OrderNotification.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\TableOIcon_Ready.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\AssignTable.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\UnassignTable.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\OrderNotification.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.baml
