@@ -60,6 +60,9 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TableOIcon_Ready.xaml.cs">
+      <DependentUpon>TableOIcon_Ready.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TableOIcon_Reserv.xaml.cs">
       <DependentUpon>TableOIcon_Reserv.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     <Compile Include="OrderNotification.xaml.cs">
       <DependentUpon>OrderNotification.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PickUpOrder.xaml.cs">
+      <DependentUpon>PickUpOrder.xaml</DependentUpon>
+    </Compile>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TableOIcon_Ready.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TableOIcon_Reserv.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PickUpOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="tablLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CookedMeal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

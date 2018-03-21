@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\App.xaml
-111790221248
+13-1011803505
 
-21-404372880
+23319560820
 141728228773
-LoginWindow.xaml;MainWindow.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;
+LoginWindow.xaml;MainWindow.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
 
 True
 

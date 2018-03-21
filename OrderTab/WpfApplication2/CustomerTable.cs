@@ -8,6 +8,7 @@ namespace WpfApplication2
 {
     public class CustomerTable
     {
+        String tableNumber;
         int currentCount;
         int capacity;
         String status;

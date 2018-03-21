@@ -199,3 +199,7 @@ C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\Una
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\UnassignTable.baml
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\OrderNotification.g.cs
 C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\OrderNotification.baml
+C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\TableOIcon_Ready.g.cs
+C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\TableOIcon_Ready.baml
+C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.g.cs
+C:\Users\aiwanisz\Source\Repos\TablArthur\OrderTab\WpfApplication2\obj\Debug\PickUpOrder.baml
