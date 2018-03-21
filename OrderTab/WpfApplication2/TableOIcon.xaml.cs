@@ -20,9 +20,22 @@ namespace WpfApplication2
     /// </summary>
     public partial class TableOIcon : UserControl
     {
+        Table tabl = new Table();
+
         public TableOIcon()
         {
             InitializeComponent();
+        }
+
+        public TableOIcon(Table passedTable)
+        {
+            InitializeComponent();
+            this.tabl = passedTable;
+        }
+
+        private void AssignTable(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Assign Table");
         }
     }
 }

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TableOIcon_Reserv.xaml.cs">
       <DependentUpon>TableOIcon_Reserv.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
     <Compile Include="TableOIcon.xaml.cs">
       <DependentUpon>TableOIcon.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="regular - Copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tablLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
