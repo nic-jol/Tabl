@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Roman\Documents\Tabl\OrderTab\WpfApplication2\obj\Debug\
+C:\Users\austi\OneDrive\CPSC 481\project\p3\program\Tabl\OrderTab\WpfApplication2\obj\Debug\
 WpfApplication2
 none
 false
 DEBUG;TRACE
-C:\Users\Roman\Documents\Tabl\OrderTab\WpfApplication2\App.xaml
-14464029846
+C:\Users\austi\OneDrive\CPSC 481\project\p3\program\Tabl\OrderTab\WpfApplication2\App.xaml
+151868137955
 
-24926141314
-141875380236
-LoginWindow.xaml;MainWindow.xaml;OneBill.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
+251138428214
+14-1148024279
+LoginWindow.xaml;MainWindow.xaml;OneBill.xaml;Payment.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
 
-False
+True
 
