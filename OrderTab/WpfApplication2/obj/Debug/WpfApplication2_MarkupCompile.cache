@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\austi\OneDrive\CPSC 481\project\p3\program\Tabl\OrderTab\WpfApplication2\App.xaml
-14464029846
+16507089198
 
-241535999905
+221422546045
 14-1148024279
-LoginWindow.xaml;MainWindow.xaml;OneBill.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
+LoginWindow.xaml;MainWindow.xaml;OneBill.xaml;Payment.xaml;ServerProfile.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
 
-True
+False
 

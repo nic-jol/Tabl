@@ -23,7 +23,7 @@ namespace WpfApplication2
         public MainWindow()
         {
             InitializeComponent();
-            
+            /*
             Table1_O.tableNum.Text = "20";
            
 
@@ -61,7 +61,7 @@ namespace WpfApplication2
             Table3_P.Visibility = Visibility.Visible;
             Table4_P.Visibility = Visibility.Visible;
             OneBill.Visibility = Visibility.Hidden;
-
+            */
         }
     }
    
