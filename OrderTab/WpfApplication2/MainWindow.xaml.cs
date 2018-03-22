@@ -25,6 +25,8 @@ namespace WpfApplication2
             InitializeComponent();
             
             Table1_O.tableNum.Text = "20";
+           
+
             Table2_O.tableNum.Text = "21";
             Table3_O.tableNum.Text = "22";
             Table4_O.tableNum.Text = "23";
@@ -35,9 +37,32 @@ namespace WpfApplication2
             Table4_O.seatsFilled.Text = "4/4";
 
             Table1_P.tableNum.Text = "20";
+            Table1_P.MouseDown += new MouseButtonEventHandler(oneBillMouse);
             Table2_P.tableNum.Text = "21";
             Table3_P.tableNum.Text = "22";
             Table4_P.tableNum.Text = "23";
+
+            OneBill.MouseDown += new MouseButtonEventHandler(cancelMouse);
+        }
+
+        private void oneBillMouse(object e, MouseButtonEventArgs a)
+        {
+            Table1_P.Visibility = Visibility.Hidden;
+            Table2_P.Visibility = Visibility.Hidden;
+            Table3_P.Visibility = Visibility.Hidden;
+            Table4_P.Visibility = Visibility.Hidden;
+            OneBill.Visibility = Visibility.Visible;
+
+        }
+        public void cancelMouse(object e, MouseButtonEventArgs a)
+        {
+            Table1_P.Visibility = Visibility.Visible;
+            Table2_P.Visibility = Visibility.Visible;
+            Table3_P.Visibility = Visibility.Visible;
+            Table4_P.Visibility = Visibility.Visible;
+            OneBill.Visibility = Visibility.Hidden;
+
         }
     }
+   
 }

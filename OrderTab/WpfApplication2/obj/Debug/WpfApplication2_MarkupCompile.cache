@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\obj\Debug\
+C:\Users\Roman\Documents\Tabl\OrderTab\WpfApplication2\obj\Debug\
 WpfApplication2
 none
 false
 DEBUG;TRACE
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderTab\WpfApplication2\App.xaml
-13-1011803505
+C:\Users\Roman\Documents\Tabl\OrderTab\WpfApplication2\App.xaml
+14464029846
 
-19-797656462
-14876563331
-LoginWindow.xaml;MainWindow.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
+20854777506
+141875380236
+LoginWindow.xaml;MainWindow.xaml;OneBill.xaml;TableOIcon_Ready.xaml;TableOIcon_Reserv.xaml;TableOIcon_Full.xaml;TablePIcon_Reserv.xaml;TablePIcon_Full.xaml;TablePIcon.xaml;TableOIcon.xaml;AssignTable.xaml;UnassignTable.xaml;OrderNotification.xaml;PickUpOrder.xaml;
 
 False
 

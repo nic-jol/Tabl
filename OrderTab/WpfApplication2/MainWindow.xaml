@@ -107,12 +107,15 @@
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="94.5,-2,-120,0">
-                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
-                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
-                    <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height"/>
-                </UniformGrid>
+                <Grid Margin="371.125,458.707,20,-209.353" Height="229.353" VerticalAlignment="Top">
+                    <UniformGrid x:Name="UniformGrid" Margin="-368.5,-459.5,-19.5,208" Rows="2" Columns="2">
+                        <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                        <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
+                        <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
+                        <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    </UniformGrid>
+                    <local:OneBill x:Name ="OneBill" HorizontalAlignment="Left" Height="450.73" VerticalAlignment="Top" Width="483.5" Margin="-223.5,-459.5,0,0" Visibility="Hidden"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

@@ -30,7 +30,7 @@
                     <TextBlock x:Name="tableNum" Margin="57.333,10,56.272,0" TextWrapping="Wrap" Text="##" VerticalAlignment="Top" FontSize="18.667" d:LayoutOverrides="Width"/>
                 </Grid>
                 <TextBlock x:Name="textBlock" Canvas.Left="68" TextWrapping="Wrap" Text="Order Preview" Canvas.Top="77.332"/>
-                <Button x:Name="button" Content=" One Bill " Height="23.333" Canvas.Left="47.834" Canvas.Top="98.292" Width="108" Background="#FF191F22" BorderBrush="{x:Null}" Foreground="White"/>
+                <Button x:Name="button" Content=" One Bill " Height="23.333" Canvas.Left="47.834" Canvas.Top="98.292" Width="108" Background="#FF191F22" BorderBrush="{x:Null}" Foreground="White" Click="button_Click"/>
                 <Button x:Name="button1" Content="Split Bill" Height="25.137" Canvas.Left="47.834" Canvas.Top="130.363" Width="108" Foreground="White" BorderBrush="{x:Null}" Background="#FF191F22"/>
             </Canvas>
         </Grid>
