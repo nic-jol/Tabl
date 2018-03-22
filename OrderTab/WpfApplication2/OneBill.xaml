@@ -5,12 +5,63 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApplication2"
              mc:Ignorable="d" Width="448" Height="470">
-    <Grid Background="#FF2C95BD" Margin="0,0,-2,-42" MinWidth="0.3" Width="450">
-        <TextBlock HorizontalAlignment="Center" Height="47" Margin="112.5,23.5,121.5,0" TextWrapping="Wrap" Text="Table 1 Total: $34.57" VerticalAlignment="Top" Width="216" FontSize="24"/>
-        <Button Content="Cash" HorizontalAlignment="Left" Height="57" Margin="127.5,70.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36"/>
-        <Button Content="Credit" HorizontalAlignment="Left" Height="57" Margin="127.5,155.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36"/>
-        <Button Content="Debit" HorizontalAlignment="Left" Height="57" Margin="127.5,241.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36"/>
-        <Button Content="Gift Card" HorizontalAlignment="Left" Height="57" Margin="127.5,328,0,0" VerticalAlignment="Top" Width="201" FontSize="36"/>
-        <Button Content="Cancel" x:Name="cancelButton" HorizontalAlignment="Left" Height="57" Margin="127.5,407,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Foreground="#FFE62727" Click="cancelButton_Click"/>
+    <UserControl.Resources>
+        <Color x:Key="Color1">#FF4C5856</Color>
+        <Color x:Key="Color2">#FFFFF1CE</Color>
+        <Color x:Key="Color3">#FFFFF1CE</Color>
+        <Color x:Key="Color4">#FFFFF1CE</Color>
+    </UserControl.Resources>
+    <Grid Background="#FFEFF4EF" Margin="0,0,-2,-42" MinWidth="0.3" Width="450">
+        <TextBlock HorizontalAlignment="Center" Height="47" Margin="112.5,23.5,121.5,0" TextWrapping="Wrap" Text="Table 1 Total: $34.57" VerticalAlignment="Top" Width="216" FontSize="22" Foreground="#FF293835" FontWeight="Bold"/>
+        <Button Content="Cash" HorizontalAlignment="Left" Height="57" Margin="127.5,70.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </Button.Foreground>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                    <GradientStop Color="#FF4C5856"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Credit" HorizontalAlignment="Left" Height="57" Margin="127.5,155.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Foreground="#FFFFF1CE" BorderBrush="{x:Null}">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                    <GradientStop Color="#FF4C5856"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Debit" HorizontalAlignment="Left" Height="57" Margin="127.5,241.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                    <GradientStop Color="#FF4C5856"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color3}"/>
+            </Button.Foreground>
+        </Button>
+
+        <Button Content="Gift Card" HorizontalAlignment="Left" Height="57" Margin="127.5,328,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color4}"/>
+            </Button.Foreground>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                    <GradientStop Color="#FF4C5856"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Cancel" x:Name="cancelButton" HorizontalAlignment="Left" Height="57" Margin="127.5,407,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Click="cancelButton_Click" Foreground="#FFFF7900">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                    <GradientStop Color="#FF4C5856"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </UserControl>
