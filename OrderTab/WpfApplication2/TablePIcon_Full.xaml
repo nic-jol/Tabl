@@ -18,11 +18,11 @@
                 <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF191F22" Stretch="None" Stroke="#FF191F22" StartAngle="0" Width="69.333" Height="69.333" Canvas.Left="122.001" Canvas.Top="70" RenderTransformOrigin="0.44,0.464"/>
                 <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF191F22" Stretch="None" Stroke="#FF191F22" StartAngle="0" Width="69.333" Height="69.333" Canvas.Left="68" Canvas.Top="119.333" RenderTransformOrigin="0.44,0.464"/>
                 <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF191F22" Stretch="None" Stroke="#FF191F22" StartAngle="0" Width="69.333" Height="69.333" Canvas.Left="10.667" Canvas.Top="70" RenderTransformOrigin="0.44,0.464"/>
-                <Rectangle x:Name="tableRectangle" RadiusY="6.625" RadiusX="6.625" RenderTransformOrigin="0.512,0.519" Stroke="#FF870D00" HorizontalAlignment="Left" Width="140" Height="140" VerticalAlignment="Top" Canvas.Left="31.333" Canvas.Top="28">
+                <Rectangle x:Name="tableRectangle" RadiusY="6.625" RadiusX="6.625" RenderTransformOrigin="0.512,0.519" Stroke="#FF3F241E" HorizontalAlignment="Left" Width="140" Height="140" VerticalAlignment="Top" Canvas.Left="31.333" Canvas.Top="28">
                     <Rectangle.Fill>
                         <RadialGradientBrush>
-                            <GradientStop Color="#FF972E23" Offset="0"/>
-                            <GradientStop Color="#FF870D00" Offset="1"/>
+                            <GradientStop Color="#FF563F39" Offset="0.017"/>
+                            <GradientStop Color="#FF3F241E" Offset="1"/>
                         </RadialGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
