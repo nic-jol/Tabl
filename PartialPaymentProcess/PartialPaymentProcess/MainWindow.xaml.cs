@@ -23,6 +23,7 @@ namespace PartialPaymentProcess
         public MainWindow()
         {
             InitializeComponent();
+            AllFourGrid.Visibility = Visibility.Hidden;
         }
     }
 }
