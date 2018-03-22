@@ -46,3 +46,27 @@ F:\418-P3\OrderingProcess\OrderingProcess\obj\Debug\MainWindow.baml
 F:\418-P3\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.g.resources
 F:\418-P3\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.Properties.Resources.resources
 F:\418-P3\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.csproj.GenerateResource.Cache
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\OrderingProcess.exe.config
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.exe
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.pdb
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\OrderingProcess.exe
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\OrderingProcess.pdb
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.csprojResolveAssemblyReference.cache
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\MainWindow.g.cs
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\App.g.cs
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess_MarkupCompile.cache
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess_MarkupCompile.lref
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\MainWindow.baml
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.g.resources
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.Properties.Resources.resources
+C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\OrderingProcess\OrderingProcess\obj\Debug\OrderingProcess.csproj.GenerateResource.Cache
