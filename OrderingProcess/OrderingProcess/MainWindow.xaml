@@ -8,6 +8,66 @@
         mc:Ignorable="d"
         Title="MainWindow" Background="#FFEFF4EF" Width="1024" Height="768">
     <Window.Resources>
+        <ControlTemplate x:Key="WindowControlTemplate1" TargetType="{x:Type Window}">
+            <Grid Margin="0,-27.546,0,0"/>
+        </ControlTemplate>
+
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#FF134F66" />
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF597C77" />
+
+        <SolidColorBrush x:Key="SelectedForegroundBrush" Color="#FFF" />
+
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+
+        <SolidColorBrush x:Key="UnselectedBackgroundBrush" Color="#FF212E2C" />
+
+        <SolidColorBrush x:Key="UnselectedForegroundBrush" Color="#FFC6CFD3" />
+
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+            Name="Border"
+            Margin="0,0,-4,0" 
+            BorderThickness="1,1,1,1" 
+            CornerRadius="2,12,0,0" >
+                                <ContentPresenter x:Name="ContentSite"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              ContentSource="Header"
+              Margin="12,2,12,2"
+              RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter Property="Foreground" Value="{StaticResource SelectedForegroundBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource UnselectedBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                                <Setter Property="Foreground" Value="{StaticResource UnselectedForegroundBrush}" />
+                            </Trigger>
+                            <!--
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1,1,1,0" />
+                            </Trigger>
+                            -->
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid x:Name="MainViewGrid" Margin="0,0,0,-3">
         <Grid.RowDefinitions>
@@ -47,8 +107,8 @@
                     </LinearGradientBrush>
                 </ed:Arc.Stroke>
             </ed:Arc>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="138,9.757,0,24.895" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24"/>
-            <ed:BlockArrow HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25">
+            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="138,0.757,0,0" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" Height="25.348" VerticalAlignment="Top"/>
+            <ed:BlockArrow x:Name="backArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25" Cursor="Hand">
                 <ed:BlockArrow.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF597C77" Offset="1"/>
@@ -217,7 +277,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <Grid x:Name="SidesGrid" Margin="368.829,46.668,0,0" >
+        <Grid x:Name="SidesGrid" Margin="368.829,46.668,0,0" d:IsHidden="True" d:IsLocked="True" >
             <UniformGrid Margin="209.671,254,196,211.332" Background="#FF0B0B0B" Columns="1" Rows="5">
                 <Button x:Name="regFriesButton" Content="Regular Fries" BorderBrush="{x:Null}" Background="#FFEFF4EF" Foreground="#FF0B0B0B" Margin="10,10.2,10,4.2" FontSize="18.667"/>
                 <Button x:Name="yamFriesButton" Content="Sweet Potato Fries" BorderBrush="{x:Null}" Background="#FFEFF4EF" Foreground="#FF0B0B0B" Margin="10,10.2,10,4.2" FontSize="18.667"/>
@@ -246,10 +306,10 @@
                 <TextBlock x:Name="textBlock1" Margin="35.5,28,-16.24,30.5" TextWrapping="Wrap" Text="Item Added to Order" FontSize="32" RenderTransformOrigin="0.497,0.993" Foreground="#FF0B0B0B" FontWeight="Bold" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
             </Grid>
         </Grid>
-        <UniformGrid x:Name="OrderSentGrid" Margin="0,39,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsHidden="True">
+        <UniformGrid x:Name="OrderSentGrid" Margin="0,39,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsLocked="True">
             <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FF597C77" Height="256.5" Width="471"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
         </UniformGrid>
-        <Grid x:Name="ViewOrderGrid" Margin="0,60,0,0" Background="#FF597C77" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+        <Grid x:Name="ViewOrderGrid" Margin="0,60,0,0" Background="#FF597C77" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" d:IsLocked="True">
             <ScrollViewer Margin="49.123,10,42,0" Background="#FFEFF4EF" Foreground="#FF01070B" Height="418.5" VerticalAlignment="Top">
                 <UniformGrid Height="408.5" Width="914.877" Columns="1">
                     <TextBlock x:Name="seat1Label" Height="30" TextWrapping="Wrap" Text="Seat 1" FontSize="21.333" FontWeight="Bold" VerticalAlignment="Top" Margin="5,0,0,0" Foreground="#FF313031"/>
@@ -345,7 +405,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsHidden="True">
+        <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsHidden="True" d:IsLocked="True">
             <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B">
                 <Grid.Effect>
                     <DropShadowEffect/>
@@ -369,6 +429,33 @@
                 </Button>
             </Grid>
         </Grid>
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,34,0,0" d:IsHidden="True" d:IsLocked="True">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
+                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
+                    <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableOIcon_Reserv x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
+                    <local:TableOIcon_Full x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TableOIcon_Ready x:Name="Table4_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-100.5,-2" HorizontalAlignment="Right" Width="93.603">
+                <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
+                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
+                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
+                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                </UniformGrid>
+                <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="73*"/>
+                        <RowDefinition Height="156*"/>
+                    </Grid.RowDefinitions>
+                    <local:OneBill x:Name ="OneBill" HorizontalAlignment="Left" Height="450.73" VerticalAlignment="Top" Width="483.5" Margin="-223.5,-459.5,0,0" Visibility="Hidden"/>
+                </Grid>
+                -->
+
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

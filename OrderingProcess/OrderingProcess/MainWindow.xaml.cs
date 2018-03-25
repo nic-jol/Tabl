@@ -24,7 +24,7 @@ namespace OrderingProcess
         public MainWindow()
         {
             InitializeComponent();
-            //SeatsGrid.Visibility = Visibility.Hidden;
+            SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
@@ -33,6 +33,27 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            // Hide parts of Header
+            backArrow.Visibility = Visibility.Hidden;
+            backToTables.Visibility = Visibility.Hidden;
+
+            // Set Table Numbers
+            Table1_O.tableNum.Text = "20";
+            Table2_O.tableNum.Text = "21";
+            Table3_O.tableNum.Text = "22";
+            Table4_O.tableNum.Text = "23";
+
+            Table1_O.seatsFilled.Text = "0/4";
+            Table2_O.seatsFilled.Text = "R-2";
+            Table3_O.seatsFilled.Text = "2/4";
+            Table4_O.seatsFilled.Text = "4/4";
+
+            Table1_P.tableNum.Text = "20";
+            //Table1_P.MouseDown += new MouseButtonEventHandler(oneBillMouse);
+            Table2_P.tableNum.Text = "21";
+            Table3_P.tableNum.Text = "22";
+            Table4_P.tableNum.Text = "23";
 
             Seat1Button.Click += seatButton_Click;
             Seat2Button.Click += seatButton_Click;
@@ -71,6 +92,8 @@ namespace OrderingProcess
 
 
             ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
+
+            Table2_O.MouseDown += new MouseButtonEventHandler(startOrdering);
 
             
 
@@ -151,6 +174,7 @@ namespace OrderingProcess
             ConfirmationGrid.Visibility = Visibility.Hidden;
 
             // THen it will probably go back to table view...
+            OrderSentGrid.MouseDown += new MouseButtonEventHandler(goBack);
         }
 
         private void backToMain_Click(object e, RoutedEventArgs a)
@@ -163,6 +187,46 @@ namespace OrderingProcess
             ItemAddedGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
+        }
+
+
+        private void startOrdering(object e, MouseButtonEventArgs a)
+        {
+            SeatsGrid.Visibility = Visibility.Visible;
+            tabControl.Visibility = Visibility.Hidden;
+            CategoriesGrid.Visibility = Visibility.Hidden;
+            FoodGrid.Visibility = Visibility.Hidden;
+            DrinksGrid.Visibility = Visibility.Hidden;
+            SidesGrid.Visibility = Visibility.Hidden;
+            ItemAddedGrid.Visibility = Visibility.Hidden;
+            OrderSentGrid.Visibility = Visibility.Hidden;
+            ViewOrderGrid.Visibility = Visibility.Hidden;
+            ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            // Show parts of Header
+            backArrow.Visibility = Visibility.Visible;
+            backToTables.Visibility = Visibility.Visible;
+
+            // Setup Back Arrow
+            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
+        }
+
+        private void goBack(object e, MouseButtonEventArgs a)
+        {
+            tabControl.Visibility = Visibility.Visible;
+            SeatsGrid.Visibility = Visibility.Hidden;
+            CategoriesGrid.Visibility = Visibility.Hidden;
+            FoodGrid.Visibility = Visibility.Hidden;
+            DrinksGrid.Visibility = Visibility.Hidden;
+            SidesGrid.Visibility = Visibility.Hidden;
+            ItemAddedGrid.Visibility = Visibility.Hidden;
+            OrderSentGrid.Visibility = Visibility.Hidden;
+            ViewOrderGrid.Visibility = Visibility.Hidden;
+            ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            // Hide parts of Header
+            backArrow.Visibility = Visibility.Hidden;
+            backToTables.Visibility = Visibility.Hidden;
         }
     }
 }
