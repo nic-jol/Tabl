@@ -78,7 +78,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="Header" Height="60" Margin="-4,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+        <Grid x:Name="Header" Height="60" Margin="-4,0,0,0" VerticalAlignment="Top">
             <Rectangle x:Name="TopBack" Margin="0,0,-3.667,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -96,7 +96,7 @@
             </Rectangle>
 
             <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,11,0,3" TextWrapping="Wrap" Text="Sally" Width="86" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24"/>
-            <ed:Arc ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3.347,91,7.652" Stretch="None" StartAngle="0" Width="49" Height="49" d:LayoutOverrides="TopMargin, BottomMargin">
+            <ed:Arc ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3.347,91,7.652" Stretch="None" StartAngle="0" Width="49" Height="49" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -117,7 +117,7 @@
                 </ed:BlockArrow.Fill>
             </ed:BlockArrow>
         </Grid>
-        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Rows="5" Columns="1" Height="Auto" d:LayoutOverrides="LeftMargin, RightMargin" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
+        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Rows="5" Columns="1" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
             <Button x:Name="Seat1Button" Content="Seat 1" HorizontalAlignment="Left" Width="344.5" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Margin="10,21,0,-2.511">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -159,7 +159,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:LayoutOverrides="LeftMargin, RightMargin" d:IsHidden="True">
+        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1"  d:IsHidden="True">
             <Button x:Name="foodButton" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFEFF4EF">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -303,7 +303,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="textBlock1" Margin="35.5,28,-16.24,30.5" TextWrapping="Wrap" Text="Item Added to Order" FontSize="32" RenderTransformOrigin="0.497,0.993" Foreground="#FF0B0B0B" FontWeight="Bold" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+                <TextBlock x:Name="textBlock1" Margin="35.5,28,-16.24,30.5" TextWrapping="Wrap" Text="Item Added to Order" FontSize="32" RenderTransformOrigin="0.497,0.993" Foreground="#FF0B0B0B" FontWeight="Bold" Grid.ColumnSpan="2" />
             </Grid>
         </Grid>
         <UniformGrid x:Name="OrderSentGrid" Margin="0,39,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsLocked="True">
@@ -429,21 +429,21 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,34,0,0" d:IsHidden="True" d:IsLocked="True">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,34,0,0" d:IsHidden="True" d:IsLocked="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TableOIcon_Reserv x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
-                    <local:TableOIcon_Full x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
-                    <local:TableOIcon_Ready x:Name="Table4_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TableIcon x:Name="Table1_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableIcon x:Name="Table2_O" Width="Auto" Height="Auto"/>
+                    <local:TableIcon x:Name="Table3_O" Width="Auto" Height="Auto" />
+                    <local:TableIcon x:Name="Table4_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-100.5,-2" HorizontalAlignment="Right" Width="93.603">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
-                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
                     <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
-                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
-                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto"/>
+                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto"/>
                 </UniformGrid>
                 <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
                     <Grid.RowDefinitions>

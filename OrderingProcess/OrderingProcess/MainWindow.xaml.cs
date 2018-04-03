@@ -37,6 +37,14 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
+            
+            
+            //Set states
+            Table1_O.setTable("Empty");
+            Table2_O.setTable("Reserved");
+            Table3_O.setTable("Full");
+            Table4_O.setTable("Ready");
+
 
             // Set Table Numbers
             Table1_O.tableNum.Text = "20";

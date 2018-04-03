@@ -19,7 +19,7 @@ namespace OrderingProcess
     /// </summary>
     public partial class PickUpOrder : Window
     {
-        public PickUpOrder()
+        public PickUpOrder(CustomerTable tabl)
         {
             InitializeComponent();
         }

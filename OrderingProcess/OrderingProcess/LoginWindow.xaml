@@ -79,6 +79,6 @@
         <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="24" Margin="381.867,467,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="291.348"/>
         <Image x:Name="LogoImage" Margin="268.24,123.66,268.953,0" Source="tablLogo.png" VerticalAlignment="Top"/>
         <TextBlock x:Name="invalidUser" HorizontalAlignment="Left" Height="45.272" Margin="534.966,571.97,0,0" TextWrapping="Wrap" Text="Invalid username or password" VerticalAlignment="Top" Width="238.331" Foreground="#FF858685" FontSize="18" Visibility="Hidden"/>
-        <Button x:Name="hiddenButton" Content="" HorizontalAlignment="Left" Height="147.806" Margin="-0.717,758.996,-258.698,-166.135" VerticalAlignment="Top" Width="1283.665" Click="orderNotification" Background="#FFB1CABE" BorderBrush="#FFB1CABE" Grid.ColumnSpan="2"/>
+        <Button x:Name="hiddenButton" Content="" HorizontalAlignment="Left" Height="73.609" Margin="315.979,836.813,0,-169.755" VerticalAlignment="Top" Width="201.468" Click="orderNotification" Background="#FFB1CABE" BorderBrush="#FFB1CABE"/>
     </Grid>
 </Window>

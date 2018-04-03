@@ -46,3 +46,27 @@ C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputer
 C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.g.resources
 C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.Properties.Resources.resources
 C:\Users\Violet\Documents\1-UNIVERSITY\2nd Year\WINTER2018\CPSC481-HumanComputerInteraction\Final Project\P3\Tabl-master\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csproj.GenerateResource.Cache
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.exe.config
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.exe
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.pdb
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csprojResolveAssemblyReference.cache
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\MainWindow.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\App.g.cs
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess_MarkupCompile.cache
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess_MarkupCompile.lref
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\MainWindow.baml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.g.resources
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.Properties.Resources.resources
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csproj.GenerateResource.Cache
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csproj.CoreCompileInputs.cache
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.exe
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.pdb

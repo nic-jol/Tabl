@@ -74,18 +74,6 @@
     <Compile Include="TableIcon.xaml.cs">
       <DependentUpon>TableIcon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TableOIcon.xaml.cs">
-      <DependentUpon>TableOIcon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TableOIcon_Full.xaml.cs">
-      <DependentUpon>TableOIcon_Full.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TableOIcon_Ready.xaml.cs">
-      <DependentUpon>TableOIcon_Ready.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TableOIcon_Reserv.xaml.cs">
-      <DependentUpon>TableOIcon_Reserv.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TablePIcon.xaml.cs">
       <DependentUpon>TablePIcon.xaml</DependentUpon>
     </Compile>
@@ -142,22 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TableIcon.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TableOIcon.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TableOIcon_Full.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TableOIcon_Ready.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TableOIcon_Reserv.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
