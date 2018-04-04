@@ -81,13 +81,13 @@ namespace OrderingProcess
 
         private void reservedClick()
         {
-            UnassignTable assign = new UnassignTable(index);
+            UnassignTable assign = new UnassignTable(index, this);
             assign.Show();
         }
 
         private void emptyClick()
         {
-            UnassignTable assign = new UnassignTable(index);
+            UnassignTable assign = new UnassignTable(index, this);
             assign.Show();
         }
         private void readyClick()
@@ -97,7 +97,7 @@ namespace OrderingProcess
         }
         private void fullClick()
         {
-            UnassignTable assign = new UnassignTable(index);
+            UnassignTable assign = new UnassignTable(index, this);
             assign.Show();
         }
     }

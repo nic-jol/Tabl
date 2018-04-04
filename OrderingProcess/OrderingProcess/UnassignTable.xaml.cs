@@ -20,19 +20,27 @@ namespace OrderingProcess
     public partial class UnassignTable : Window
     {
         int index;
+        TableOIcon tableIcon;
+
         public UnassignTable()
         {
             InitializeComponent();
         }
-        public UnassignTable(int newIndex)
+        public UnassignTable(int newIndex, TableOIcon newTableIcon)
         {
             InitializeComponent();
             index = newIndex;
+            tableIcon = newTableIcon;
 
         }
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
+
+            //code for updating
+            MainWindow.tables[index].setState("Empty");
+            MainWindow.tables[index].setCurrentCount(0);
+            tableIcon.updateFormWithTable();
             this.Close();
         }
 
