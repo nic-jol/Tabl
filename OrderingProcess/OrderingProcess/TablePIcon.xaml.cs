@@ -20,24 +20,51 @@ namespace OrderingProcess
     /// </summary>
     public partial class TablePIcon : UserControl
     {
+        int index;
         public TablePIcon()
         {
             InitializeComponent();
+        }
+
+        public void updateIndex(int newIndex)
+        {
+            this.index = newIndex;
+            updateFormWithTable();
+        }
+
+        public void updateFormWithTable()
+        {
+            if (MainWindow.tables[index].getState() == "Empty")
+            {
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(196, 190, 179));
+            }
+            else if (MainWindow.tables[index].getState() == "Reserved")
+            {
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(45, 71, 90));
+            }
+            else if (MainWindow.tables[index].getState() == "Ready")
+            {
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(33, 46, 44));
+            }
+            else if (MainWindow.tables[index].getState() == "Full")
+            {
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(86, 63, 57));
+            }
+
+            tableNum.Text = MainWindow.tables[index].getTableNumber().ToString();
+            tableState.Text = MainWindow.tables[index].getState().ToString();
         }
 
         private void oneBillProcess(object sender, RoutedEventArgs e)
         {
             OneBill one = new OneBill();
             one.Show();
-           // this.Close();
            
         }
         private void splitBillProcess(object sender, RoutedEventArgs e)
         {
             SplitBill split = new SplitBill();
             split.Show();
-            // this.Close();
-
         }
     }
 }

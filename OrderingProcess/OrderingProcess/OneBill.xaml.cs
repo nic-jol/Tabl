@@ -19,9 +19,17 @@ namespace OrderingProcess
     /// </summary>
     public partial class OneBill : Window
     {
+        int index;
+
         public OneBill()
         {
             InitializeComponent();
+        }
+
+        public OneBill(int newIndex)
+        {
+            InitializeComponent();
+            this.index = newIndex;
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

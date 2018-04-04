@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderingProcess\OrderingProcess\obj\Debug\
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablSource\OrderingProcess\OrderingProcess\obj\Debug\
 OrderingProcess
 none
 false
 DEBUG;TRACE
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablArthur\OrderingProcess\OrderingProcess\App.xaml
-131970409685
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablSource\OrderingProcess\OrderingProcess\App.xaml
+111329754866
 
-23-524083491
-14376246580
-AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;OneBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SplitBill.xaml;TableIcon.xaml;TablePIcon.xaml;TablePIcon_Full.xaml;TablePIcon_Reserv.xaml;UnassignTable.xaml;
+21-213825985
+141925774474
+AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;OneBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SplitBill.xaml;TableOIcon.xaml;TablePIcon.xaml;UnassignTable.xaml;
 
-False
+True
 

@@ -100,10 +100,10 @@
         <TabControl x:Name="tabControl" Background="#FF134F66" BorderBrush="#FF134F66" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableIcon x:Name="Table1_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment, Height" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table2_O" Width="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="Auto"/>
-                    <local:TableIcon x:Name="Table3_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
-                    <local:TableIcon x:Name="Table4_O" Width="Auto" Height="Auto" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+                    <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableOIcon x:Name="Table2_O" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table3_O" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table4_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="94.5,-2,-120,0"/>

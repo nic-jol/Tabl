@@ -19,21 +19,20 @@ namespace OrderingProcess
     /// </summary>
     public partial class UnassignTable : Window
     {
-        CustomerTable tabl;
+        int index;
         public UnassignTable()
         {
             InitializeComponent();
         }
-        public UnassignTable(CustomerTable passedTable)
+        public UnassignTable(int newIndex)
         {
             InitializeComponent();
-            tabl = passedTable;
+            index = newIndex;
 
         }
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
-            //tabl.
             this.Close();
         }
 

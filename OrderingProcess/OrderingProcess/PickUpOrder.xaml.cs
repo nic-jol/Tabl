@@ -19,14 +19,15 @@ namespace OrderingProcess
     /// </summary>
     public partial class PickUpOrder : Window
     {
-        public PickUpOrder(CustomerTable tabl)
+        int index;
+        public PickUpOrder(int newIndex)
         {
             InitializeComponent();
+            index = newIndex;
         }
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
-            //tabl.
             this.Close();
         }
 

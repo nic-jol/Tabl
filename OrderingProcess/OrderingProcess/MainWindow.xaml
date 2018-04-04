@@ -432,18 +432,18 @@
         <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,34,0,0" d:IsHidden="True" d:IsLocked="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableIcon x:Name="Table1_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TableIcon x:Name="Table2_O" Width="Auto" Height="Auto"/>
-                    <local:TableIcon x:Name="Table3_O" Width="Auto" Height="Auto" />
-                    <local:TableIcon x:Name="Table4_O" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table2_O" Width="Auto" Height="Auto" />
+                    <local:TableOIcon x:Name="Table3_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-100.5,-2" HorizontalAlignment="Right" Width="93.603">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
-                    <local:TablePIcon x:Name="Table1_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TablePIcon_Full x:Name="Table4_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
-                    <local:TablePIcon_Reserv x:Name="Table2_P" Width="Auto"/>
-                    <local:TablePIcon_Full x:Name="Table3_P" Width="Auto" Height="Auto"/>
+                    <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
+                    <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
+                    <local:TablePIcon x:Name="Table1_P" Width="Auto"/>
+                    <local:TablePIcon x:Name="Table2_P" Width="Auto" Height="Auto"/>
                 </UniformGrid>
                 <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
                     <Grid.RowDefinitions>

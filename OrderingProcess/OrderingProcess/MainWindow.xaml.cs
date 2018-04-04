@@ -21,6 +21,8 @@ namespace OrderingProcess
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static CustomerTable[] tables = new CustomerTable[4];
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,31 +39,26 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
-            
-            
-            //Set states
-            Table1_O.setTable("Empty");
-            Table2_O.setTable("Reserved");
-            Table3_O.setTable("Full");
-            Table4_O.setTable("Ready");
 
+            tables[0] = new CustomerTable("Empty", 20, 0, 4);
+            tables[1] = new CustomerTable("Reserved", 21, 0, 4);
+            tables[2] = new CustomerTable("Full", 22, 2, 4);
+            tables[3] = new CustomerTable("Ready", 23, 4, 4);
 
-            // Set Table Numbers
-            Table1_O.tableNum.Text = "20";
-            Table2_O.tableNum.Text = "21";
-            Table3_O.tableNum.Text = "22";
-            Table4_O.tableNum.Text = "23";
+            //String newState, int newTableNum, int newCurrentCount, int newCapacity
 
-            Table1_O.seatsFilled.Text = "0/4";
-            Table2_O.seatsFilled.Text = "R-2";
-            Table3_O.seatsFilled.Text = "2/4";
-            Table4_O.seatsFilled.Text = "4/4";
+            Table0_O.updateIndex(0);
+            Table0_P.updateIndex(0);
 
-            Table1_P.tableNum.Text = "20";
-            //Table1_P.MouseDown += new MouseButtonEventHandler(oneBillMouse);
-            Table2_P.tableNum.Text = "21";
-            Table3_P.tableNum.Text = "22";
-            Table4_P.tableNum.Text = "23";
+            Table1_O.updateIndex(1);
+            Table1_P.updateIndex(1);
+
+            Table2_O.updateIndex(2);
+            Table2_P.updateIndex(2);
+
+            Table3_O.updateIndex(3);
+            Table3_P.updateIndex(3);
+
 
             Seat1Button.Click += seatButton_Click;
             Seat2Button.Click += seatButton_Click;
@@ -102,11 +99,6 @@ namespace OrderingProcess
             ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
 
             Table2_O.MouseDown += new MouseButtonEventHandler(startOrdering);
-
-            
-
-
-
         }
 
         private void seatButton_Click(object sender, RoutedEventArgs e)
@@ -181,7 +173,7 @@ namespace OrderingProcess
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
 
-            // THen it will probably go back to table view...
+            // Then it will probably go back to table view...
             OrderSentGrid.MouseDown += new MouseButtonEventHandler(goBack);
         }
 

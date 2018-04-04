@@ -19,9 +19,19 @@ namespace OrderingProcess
     /// </summary>
     public partial class SplitBill : Window
     {
+        int index;
+
         public SplitBill()
         {
             InitializeComponent();
+            ChangeSplitGrid.Visibility = Visibility.Hidden;
+            backArrow.Visibility = Visibility.Hidden;
+        }
+
+        public SplitBill(int newIndex)
+        {
+            InitializeComponent();
+            index = newIndex;
             ChangeSplitGrid.Visibility = Visibility.Hidden;
             backArrow.Visibility = Visibility.Hidden;
         }
