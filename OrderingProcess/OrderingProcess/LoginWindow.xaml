@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrderingProcess"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="OrderingProcess.LoginWindow"
         mc:Ignorable="d"
-        Title="LoginWindow" Background="#FF134F66" Height="768" Width="1024">
+        Title="LoginWindow" Background="#FF134F66" Height="768" Width="1024" ResizeMode="NoResize">
     <Window.Resources>
         <ControlTemplate x:Key="WindowControlTemplate1" TargetType="{x:Type Window}">
             <Grid Margin="0,-27.546,0,0"/>
@@ -74,11 +74,10 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="LoginButton" Content="Login" Margin="381.867,540.01,351.035,0" VerticalAlignment="Top" Background="#FF858685" Click="checkCredentials" Height="31.96" Width="291.348"/>
+        <Button x:Name="LoginButton" Content="Login" Margin="401.867,540.01,370.035,0" VerticalAlignment="Top" Background="#FF858685" Click="checkCredentials" Height="31.96" BorderBrush="{x:Null}"/>
         <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Height="24" Margin="381.867,418,0,0" TextWrapping="Wrap" Text="Email Address" VerticalAlignment="Top" Width="291.348"/>
         <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="24" Margin="381.867,467,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="291.348"/>
         <Image x:Name="LogoImage" Margin="268.24,123.66,268.953,0" Source="tablLogo.png" VerticalAlignment="Top"/>
         <TextBlock x:Name="invalidUser" HorizontalAlignment="Left" Height="45.272" Margin="534.966,571.97,0,0" TextWrapping="Wrap" Text="Invalid username or password" VerticalAlignment="Top" Width="238.331" Foreground="#FF858685" FontSize="18" Visibility="Hidden"/>
-        <Button x:Name="hiddenButton" Content="" HorizontalAlignment="Left" Height="73.609" Margin="315.979,836.813,0,-169.755" VerticalAlignment="Top" Width="201.468" Click="orderNotification" Background="#FFB1CABE" BorderBrush="#FFB1CABE"/>
     </Grid>
 </Window>

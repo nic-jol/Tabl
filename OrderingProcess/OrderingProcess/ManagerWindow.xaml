@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrderingProcess"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="OrderingProcess.ManagerWindow"
         mc:Ignorable="d"
-        Title="ManagerWindow" Background="#FF134F66">
+        Title="ManagerWindow" Background="#FF134F66" ResizeMode="NoResize" Width="1024" Height="768">
     <Window.Resources>
         <ControlTemplate x:Key="WindowControlTemplate1" TargetType="{x:Type Window}">
             <Grid Margin="0,-27.546,0,0"/>
@@ -74,7 +74,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="HeaderGrid" Height="26.645" Margin="0,-5,0,0" VerticalAlignment="Top">
+        <Grid x:Name="HeaderGrid" Height="50.133" Margin="0,-5,0,0" VerticalAlignment="Top">
             <Rectangle x:Name="TopBack" Margin="0,0,0.25,0.895" d:LayoutOverrides="LeftMargin, RightMargin">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -90,15 +90,15 @@
                     </LinearGradientBrush>
                 </Rectangle.Stroke>
             </Rectangle>
-            <ed:Arc x:Name="ServerPic" ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,5,53.135,5.283" Stretch="None" Stroke="Gray" StartAngle="0" Width="18" Height="18">
+            <ed:Arc x:Name="ServerPic" ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,10,82.928,0" Stretch="None" Stroke="Gray" StartAngle="0" Width="35" Height="35" RenderTransformOrigin="-2.465,0.341" VerticalAlignment="Top">
                 <ed:Arc.Fill>
-                    <ImageBrush ImageSource="newmike.jpg" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
             </ed:Arc>
-            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,2.695,0.25,5.533" TextWrapping="Wrap" Text="Mike" Width="52.885" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" VerticalAlignment="Top"/>
+            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,6.607,10,0" TextWrapping="Wrap" Text="Mike" Width="67.928" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" VerticalAlignment="Top" FontSize="24"/>
         </Grid>
         <TabControl x:Name="tabControl" Background="#FF134F66" BorderBrush="#FF134F66" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
                     <local:TableOIcon x:Name="Table2_O" Width="Auto" Height="Auto"/>
@@ -106,19 +106,23 @@
                     <local:TableOIcon x:Name="Table4_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
-            <TabItem Header="Payment" Background="#FF134F66" Margin="94.5,-2,-120,0"/>
-            <TabItem Header="Queue" Margin="122,-2,-158.082,0">
+            <TabItem Header="Payment" Background="#FF134F66" Margin="104.939,0,-130.439,-2" FontSize="28"/>
+            <TabItem Header="Queue" Margin="141.573,0,-177.655,-2" FontSize="28">
                 <Grid Background="#FF134F66">
                     <TextBlock HorizontalAlignment="Center" Height="408" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="678" FontSize="16" Background="#FF191E21"><Run Foreground="#FF6A6A6A" FontSize="14" Text=" "/><Run Foreground="#FF6A6A6A" FontSize="14" Text=" "/><Run Foreground="#FF6A6A6A" FontSize="14" Text="Number"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="&#x9;"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="&#x9;Tablenum"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="&#x9;&#x9;"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="Contents&#x9;&#x9;"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="Time Received&#x9;&#x9;"/><Run Foreground="#FF6A6A6A" FontSize="14" Text="Status"/><LineBreak/><Run FontSize="14" Text="&#x9;"/><LineBreak/><Run FontSize="14" Text=" "/><Run FontSize="14" Text=" "/><Run FontSize="14" Text="Order 1&#x9;&#x9;"/><Run FontSize="14" Text="6&#x9;&#x9;"/><Run FontSize="14" Text="Pizza, Salad"/><Run FontSize="14" Text="&#x9;"/><Run FontSize="14" Text="7:25pm&#x9;&#x9;&#x9;Sent"/><LineBreak/><Run FontSize="14" Text=" "/><Run FontSize="14" Text=" "/><Run FontSize="14" Text="Order 2&#x9;&#x9;"/><Run FontSize="14" Text="7&#x9;&#x9;Burger&#x9;"/><Run FontSize="14" Text="&#x9;"/><Run FontSize="14" Text="7:29pm&#x9;&#x9;&#x9;Ready"/><LineBreak/><Run FontSize="14" Text=" "/><Run FontSize="14" Text=" "/><Run FontSize="14" Text="Order 3&#x9;&#x9;"/><Run FontSize="14" Text="8"/><Run FontSize="14" Text="&#x9;"/><Run FontSize="14" Text="&#x9;"/><Run FontSize="14" Text="Nachos&#x9;&#x9;7:32pm&#x9;&#x9;&#x9;Pending"/><LineBreak/><Run/><LineBreak/></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Reports" Margin="160.084,-2,-189.833,0">
+            <TabItem Header="Reports" Margin="191.401,0,-221.15,-2" FontSize="28">
                 <Grid Background="#FF134F66">
-                    <Button Content="Print Report" HorizontalAlignment="Center" Height="60" Margin="181.125,118.354,181.125,300.353" VerticalAlignment="Center" Width="400" FontSize="18"/>
-                    <Button Content="Email Report" HorizontalAlignment="Center" Height="60" Margin="181.125,191.354,181.125,227.353" VerticalAlignment="Center" Width="400" FontSize="18"/>
-                    <Button Content="Save Report" HorizontalAlignment="Center" Height="60" Margin="181.125,265.354,181.125,153.353" VerticalAlignment="Center" Width="400" FontSize="18"/>
-                    <Button Content="View Report History" HorizontalAlignment="Center" Height="60" Margin="181.125,339.354,181.125,79.353" VerticalAlignment="Center" Width="400" FontSize="18"/>
-                    <TextBlock HorizontalAlignment="Center" Height="50" Margin="0,0,0,300" TextWrapping="Wrap" VerticalAlignment="Center" Width="530" FontSize="22" Text="Daily Report: March 12th, 2018" TextAlignment="Center"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="771*"/>
+                        <ColumnDefinition Width="250*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Print Report" HorizontalAlignment="Center" Height="60" Margin="310.125,225.212,60.613,407.212" VerticalAlignment="Center" Width="400" FontSize="18"/>
+                    <Button Content="Email Report" HorizontalAlignment="Center" Height="60" Margin="310.125,298.212,60.613,334.212" VerticalAlignment="Center" Width="400" FontSize="18"/>
+                    <Button Content="Save Report" HorizontalAlignment="Center" Height="60" Margin="310.125,372.212,60.613,260.212" VerticalAlignment="Center" Width="400" FontSize="18"/>
+                    <Button Content="View Report History" HorizontalAlignment="Center" Height="60" Margin="310.125,446.212,60.613,186.212" VerticalAlignment="Center" Width="400" FontSize="18"/>
+                    <TextBlock HorizontalAlignment="Center" Height="50" Margin="245.125,171.212,-4.387,471.212" TextWrapping="Wrap" VerticalAlignment="Center" Width="530" FontSize="22" Text="Daily Report: March 12th, 2018" TextAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>

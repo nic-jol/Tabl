@@ -13,14 +13,22 @@ namespace OrderingProcess
         {
         }
 
-        public static Boolean canLogin(String userName, String password)
+        public static String canLogin(String userName, String password)
         {
-            /*
-            if(!(userName.Equals("user1", StringComparison.OrdinalIgnoreCase)) || !(password.Equals("user1", StringComparison.OrdinalIgnoreCase)))
+            
+            if((userName.Equals("server", StringComparison.OrdinalIgnoreCase)) && (password.Equals("server", StringComparison.OrdinalIgnoreCase)))
             {
-                return false;
-            }*/
-            return true;
+                return "s";
+            }
+            else if ((userName.Equals("manager", StringComparison.OrdinalIgnoreCase)) && (password.Equals("manager", StringComparison.OrdinalIgnoreCase)))
+            {
+                return "m";
+            }
+            else
+            {
+                return "not";
+            }
+            
         }
 
     }

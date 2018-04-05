@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrderingProcess"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="OrderingProcess.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Background="#FFEFF4EF" Width="1024" Height="768">
+        Title="MainWindow" Background="#FFEFF4EF" Width="1024" Height="768" ResizeMode="NoResize">
     <Window.Resources>
         <ControlTemplate x:Key="WindowControlTemplate1" TargetType="{x:Type Window}">
             <Grid Margin="0,-27.546,0,0"/>
@@ -69,7 +69,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3">
+    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
@@ -96,7 +96,7 @@
             </Rectangle>
 
             <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,11,0,3" TextWrapping="Wrap" Text="Sally" Width="86" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24"/>
-            <ed:Arc ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3.347,91,7.652" Stretch="None" StartAngle="0" Width="49" Height="49" >
+            <ed:Arc ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3.347,91,7.652" Stretch="None" StartAngle="0" Width="35" Height="35" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -107,8 +107,8 @@
                     </LinearGradientBrush>
                 </ed:Arc.Stroke>
             </ed:Arc>
-            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="138,0.757,0,0" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" Height="25.348" VerticalAlignment="Top"/>
-            <ed:BlockArrow x:Name="backArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25" Cursor="Hand">
+            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" d:IsHidden="True"/>
+            <ed:BlockArrow x:Name="backArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25" Cursor="Hand" d:IsHidden="True">
                 <ed:BlockArrow.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF597C77" Offset="1"/>
@@ -117,7 +117,7 @@
                 </ed:BlockArrow.Fill>
             </ed:BlockArrow>
         </Grid>
-        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Rows="5" Columns="1" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
+        <UniformGrid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Rows="5" Columns="1" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="Seat1Button" Content="Seat 1" HorizontalAlignment="Left" Width="344.5" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Margin="10,21,0,-2.511">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -306,10 +306,10 @@
                 <TextBlock x:Name="textBlock1" Margin="35.5,28,-16.24,30.5" TextWrapping="Wrap" Text="Item Added to Order" FontSize="32" RenderTransformOrigin="0.497,0.993" Foreground="#FF0B0B0B" FontWeight="Bold" Grid.ColumnSpan="2" />
             </Grid>
         </Grid>
-        <UniformGrid x:Name="OrderSentGrid" Margin="0,39,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsLocked="True">
-            <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FF597C77" Height="256.5" Width="471"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
+        <UniformGrid x:Name="OrderSentGrid" Margin="0,60,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="680" Width="1016" Background="#FF243330" d:IsLocked="True" d:IsHidden="True">
+            <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FFEFF4EF" Height="256.5" Width="471"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
         </UniformGrid>
-        <Grid x:Name="ViewOrderGrid" Margin="0,60,0,0" Background="#FF597C77" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" d:IsLocked="True">
+        <Grid x:Name="ViewOrderGrid" Margin="0,60,0,0" Background="#FF597C77" RenderTransformOrigin="0.5,0.5" d:IsLocked="True" d:IsHidden="True">
             <ScrollViewer Margin="49.123,10,42,0" Background="#FFEFF4EF" Foreground="#FF01070B" Height="418.5" VerticalAlignment="Top">
                 <UniformGrid Height="408.5" Width="914.877" Columns="1">
                     <TextBlock x:Name="seat1Label" Height="30" TextWrapping="Wrap" Text="Seat 1" FontSize="21.333" FontWeight="Bold" VerticalAlignment="Top" Margin="5,0,0,0" Foreground="#FF313031"/>
@@ -429,8 +429,8 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,34,0,0" d:IsHidden="True" d:IsLocked="True">
-            <TabItem Header="Orders" Background="#FF134F66" Margin="50.5,-2,-92.5,0">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
                     <local:TableOIcon x:Name="Table1_O" Width="Auto" Height="Auto"/>
@@ -438,7 +438,7 @@
                     <local:TableOIcon x:Name="Table3_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
-            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-100.5,-2" HorizontalAlignment="Right" Width="93.603">
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-109.898,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
                     <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
                     <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
