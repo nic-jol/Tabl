@@ -95,7 +95,7 @@
                 </Rectangle.Stroke>
             </Rectangle>
 
-            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,11,0,3" TextWrapping="Wrap" Text="Sally" Width="86" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24"/>
+            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,11,0,3" TextWrapping="Wrap" Text="Sally" Width="86" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True"/>
             <ed:Arc ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3.347,91,7.652" Stretch="None" StartAngle="0" Width="35" Height="35" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
@@ -107,8 +107,8 @@
                     </LinearGradientBrush>
                 </ed:Arc.Stroke>
             </ed:Arc>
-            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" d:IsHidden="True"/>
-            <ed:BlockArrow x:Name="backArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25" Cursor="Hand" d:IsHidden="True">
+            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24"/>
+            <ed:BlockArrow x:Name="backArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,5.25" Cursor="Hand">
                 <ed:BlockArrow.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF597C77" Offset="1"/>
@@ -405,7 +405,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsHidden="True" d:IsLocked="True">
+        <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsLocked="True" d:IsHidden="True">
             <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B">
                 <Grid.Effect>
                     <DropShadowEffect/>
@@ -429,7 +429,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0" d:IsLocked="True" d:IsHidden="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
@@ -440,10 +440,10 @@
             </TabItem>
             <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-109.898,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
-                    <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66"/>
-                    <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001"/>
-                    <local:TablePIcon x:Name="Table1_P" Width="Auto"/>
-                    <local:TablePIcon x:Name="Table2_P" Width="Auto" Height="Auto"/>
+                    <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Foreground="#FF134F66" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table1_P" Width="Auto" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table2_P" Width="Auto" Height="Auto" FontSize="12"/>
                 </UniformGrid>
                 <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
                     <Grid.RowDefinitions>

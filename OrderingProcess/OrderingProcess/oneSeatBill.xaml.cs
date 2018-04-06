@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OrderingProcess
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for oneSeatBill.xaml
     /// </summary>
-    public partial class OrderNotification : Window
+    public partial class OneSeatBill : UserControl
     {
-        public OrderNotification()
+        public OneSeatBill()
         {
             InitializeComponent();
-        }
-
-        private void okClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

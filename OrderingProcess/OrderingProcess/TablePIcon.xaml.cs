@@ -20,7 +20,7 @@ namespace OrderingProcess
     /// </summary>
     public partial class TablePIcon : UserControl
     {
-        int index;
+        private int index;
         public TablePIcon()
         {
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace OrderingProcess
         }
         private void splitBillProcess(object sender, RoutedEventArgs e)
         {
-            SplitBill split = new SplitBill();
+            SplitBill split = new SplitBill(index);
             split.Show();
         }
     }
