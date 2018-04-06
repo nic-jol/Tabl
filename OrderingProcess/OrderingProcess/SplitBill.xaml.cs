@@ -90,7 +90,9 @@ namespace OrderingProcess
             int curCount = MainWindow.tables[index].getCurrentCount();
 
             //TODO: remove this
-            curCount = 6;
+            curCount = 2;
+
+            SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
 
             // Loop through and create an item for each
             for (int i = 0; i < curCount; ++i)
@@ -98,21 +100,18 @@ namespace OrderingProcess
                 OneSeatBill bill = new OneSeatBill();
                 bill.seatTitle.Text = "" + (seatCount + 1);
 
-                bill.seatTitle.FontSize = 16;
-                bill.seatTitle.Height = 20;
+                //bill.seatTitle.FontSize = 16;
+                //bill.seatTitle.Height = 20;
 
                 SplitsGrid.Children.Add(bill);
 
-                // TODO: Add items on bill to scroller
+                // TODO: Add items on bill to item scroller
                 // bill.seatScrollerGrid
 
                 ++seatCount;
             }
 
             backArrowBills.MouseDown += new MouseButtonEventHandler(notChange);
-
-
-            
         }
 
 

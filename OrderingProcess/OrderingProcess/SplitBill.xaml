@@ -52,7 +52,7 @@
             <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,10.75,0,3.25" TextWrapping="Wrap" Text="Sally" Width="87.667" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFC6CFD3" FontWeight="Bold" FontSize="24" IsReadOnly="True"/>
         </Grid>
         <Grid x:Name="ChangeSplitGrid" Margin="0,61,0,-5">
-            <TextBlock x:Name="tableTitle" HorizontalAlignment="Left" Height="43" Margin="10,-3.5,0,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" Width="138" FontSize="26.667" Foreground="#FF313031"/>
+            <TextBlock x:Name="tableTitle" Height="43" Margin="432,1.5,448,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" FontSize="32" Foreground="#FF313031" FontWeight="Bold"/>
             <UniformGrid x:Name="SplitsGrid" Margin="0,307,0,5.25" Background="#FF313031" Columns="2"/>
             <ScrollViewer x:Name="ItemScroller" Height="262.5" Margin="4,44.5,0,0" VerticalAlignment="Top">
                 <UniformGrid x:Name="ItemsGrid" Height="262.5" Width="1012"/>
