@@ -1,0 +1,117 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrderingProcess"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="OrderingProcess.SplitBill"
+        mc:Ignorable="d"
+        Title="SplitBill" Height="768" Width="1024" Background="#FFEFF4EF" ResizeMode="NoResize">
+    <Grid x:Name="MainGrid">
+        <Grid x:Name="HeaderGrid" Height="59" Margin="-10,-3,0,0" VerticalAlignment="Top" d:IsLocked="True">
+
+            <Rectangle x:Name="TopBack" Margin="6.25,0,-3.667,0">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#FF313031"/>
+                        <GradientStop Color="#FF171C1F" Offset="0.766"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F1213" Offset="0.389"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+            </Rectangle>
+            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" d:IsHidden="True" d:IsLocked="True"/>
+            <TextBlock x:Name="backToBills" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Width="272" Foreground="#FFEFF4EF" FontSize="24" d:IsLocked="True"><Run Text="Back to Original S"/><Run Text="p"/><Run Text="lit"/></TextBlock>
+
+            <ed:Arc x:Name="serverPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3,92.667,7" Stretch="None" StartAngle="0" Width="49" Stroke="Black">
+                <ed:Arc.Fill>
+                    <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
+                </ed:Arc.Fill>
+            </ed:Arc>
+            <ed:BlockArrow x:Name="backArrowTable" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand" d:IsLocked="True">
+                <ed:BlockArrow.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                        <GradientStop Color="#FFA7B9B7"/>
+                    </RadialGradientBrush>
+                </ed:BlockArrow.Fill>
+            </ed:BlockArrow>
+            <ed:BlockArrow x:Name="backArrowBills" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand" d:IsLocked="True">
+                <ed:BlockArrow.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                        <GradientStop Color="#FFA7B9B7"/>
+                    </RadialGradientBrush>
+                </ed:BlockArrow.Fill>
+            </ed:BlockArrow>
+            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,10.75,0,3.25" TextWrapping="Wrap" Text="Sally" Width="87.667" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFC6CFD3" FontWeight="Bold" FontSize="24" IsReadOnly="True"/>
+        </Grid>
+        <Grid x:Name="ChangeSplitGrid" Margin="0,61,0,-5">
+            <TextBlock x:Name="tableTitle" Height="43" Margin="432,1.5,448,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" FontSize="32" Foreground="#FF313031" FontWeight="Bold"/>
+            <UniformGrid x:Name="SplitsGrid" Margin="0,307,0,5.25" Background="#FF313031" Columns="2"/>
+            <ScrollViewer x:Name="ItemScroller" Height="262.5" Margin="4,44.5,0,0" VerticalAlignment="Top">
+                <UniformGrid x:Name="ItemsGrid" Height="262.5" Width="1012"/>
+            </ScrollViewer>
+            <Button x:Name="button" Content="Classic Burger &amp; Regular Fries" HorizontalAlignment="Left" Height="66" Margin="30,60,0,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" d:IsLocked="True">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FE90A8A4" Offset="0"/>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Copy" Content="Sprite" HorizontalAlignment="Left" Height="66" Margin="30,177,0,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" d:IsLocked="True">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FE90A8A4" Offset="0"/>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Copy1" Content="Tuna Sandwich &amp; Garden Salad" HorizontalAlignment="Right" Height="66" Margin="0,60,33.5,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" d:IsLocked="True">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FE90A8A4" Offset="0"/>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button_Copy2" Content="Milk" HorizontalAlignment="Right" Height="66" Margin="0,177,33.5,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" d:IsLocked="True">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FE90A8A4" Offset="0"/>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsHidden="True" d:IsLocked="True">
+            <TextBlock x:Name="titleText" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000" Text="[seat]"/>
+            <Button x:Name="changeButton" Content="Change Split" HorizontalAlignment="Left" Height="103.5" Margin="0,0,0,18" VerticalAlignment="Bottom" Width="493" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="changeSplitScreen">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                        <GradientStop Color="#FE90A8A4"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="keepButton" Content="Keep Split &amp; Pay" Height="103.5" Margin="0,0,20,18" VerticalAlignment="Bottom" FontSize="48" HorizontalAlignment="Right" Width="493" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="keepSplitScreen">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FE90A8A4" Offset="0"/>
+                        <GradientStop Color="#FF597C77" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+            <ScrollViewer x:Name="eachSeatScroller" Margin="0,95,20,130.5">
+                <UniformGrid x:Name="eachSeatGrid" Background="#FF313031" Height="457.5" Width="971.5" Columns="2" HorizontalAlignment="Left"/>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>
