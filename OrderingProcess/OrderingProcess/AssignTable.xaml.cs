@@ -39,6 +39,7 @@ namespace OrderingProcess
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
             //tabl.
+            // TODO: set count for this table
             this.Close();
         }
 

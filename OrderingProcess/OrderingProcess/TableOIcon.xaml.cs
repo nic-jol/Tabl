@@ -33,6 +33,11 @@ namespace OrderingProcess
             updateFormWithTable();
         }
 
+        public int getIndex()
+        {
+            return index;
+        }
+
         public void updateFormWithTable()
         {
             if (MainWindow.tables[index].getState() == "Empty")
@@ -56,7 +61,7 @@ namespace OrderingProcess
             seatsFilled.Text = MainWindow.tables[index].getCurrentCount().ToString() + "/" + MainWindow.tables[index].getCapacity().ToString();
             tableState.Text = MainWindow.tables[index].getState().ToString();
         }
-
+        /*
         //This function decides which method to call depending on the state of the table objects state
         private void TableClick(object sender, MouseButtonEventArgs e)
         {
@@ -68,9 +73,10 @@ namespace OrderingProcess
             {
                 reservedClick();
             }
+            
             else if (MainWindow.tables[index].getState() == "Full")
             {
-                fullClick();
+                MainWindow.
             }
             else if (MainWindow.tables[index].getState() == "Ready")
             {
@@ -100,5 +106,6 @@ namespace OrderingProcess
             UnassignTable assign = new UnassignTable(index, this);
             assign.Show();
         }
+        */
     }
 }

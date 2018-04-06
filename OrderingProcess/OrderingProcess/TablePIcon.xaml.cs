@@ -32,6 +32,11 @@ namespace OrderingProcess
             updateFormWithTable();
         }
 
+        public int getIndex()
+        {
+            return index;
+        }
+
         public void updateFormWithTable()
         {
             if (MainWindow.tables[index].getState() == "Empty")

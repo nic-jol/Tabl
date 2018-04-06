@@ -35,31 +35,39 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
+            ReserveClickGrid.Visibility = Visibility.Hidden;
+            FullClickGrid.Visibility = Visibility.Hidden;
 
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
 
+
+            //###TABLES###//
+            //String newState, int newTableNum, int newCurrentCount, int newCapacity
             tables[0] = new CustomerTable("Empty", 20, 0, 4);
             tables[1] = new CustomerTable("Reserved", 21, 0, 4);
             tables[2] = new CustomerTable("Full", 22, 2, 4);
             tables[3] = new CustomerTable("Ready", 23, 4, 4);
-
-            //String newState, int newTableNum, int newCurrentCount, int newCapacity
-
+            
             Table0_O.updateIndex(0);
+            Table0_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table0_P.updateIndex(0);
 
             Table1_O.updateIndex(1);
+            Table1_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table1_P.updateIndex(1);
 
             Table2_O.updateIndex(2);
+            Table2_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table2_P.updateIndex(2);
 
             Table3_O.updateIndex(3);
+            Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_P.updateIndex(3);
+            
 
-
+            //###SEATS###//
             Seat1Button.Click += seatButton_Click;
             Seat2Button.Click += seatButton_Click;
             Seat3Button.Click += seatButton_Click;
@@ -95,10 +103,103 @@ namespace OrderingProcess
             kitchenButton.Click += orderSent_Click;
             moreItemsButton.Click += backToMain_Click;
 
-
             ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
+        }
+/*
+        private void tableClick(object e, MouseButtonEventArgs a)
+        {
+            SeatsGrid.Visibility = Visibility.Visible;
+            tabControl.Visibility = Visibility.Hidden;
+            CategoriesGrid.Visibility = Visibility.Hidden;
+            FoodGrid.Visibility = Visibility.Hidden;
+            DrinksGrid.Visibility = Visibility.Hidden;
+            SidesGrid.Visibility = Visibility.Hidden;
+            ItemAddedGrid.Visibility = Visibility.Hidden;
+            OrderSentGrid.Visibility = Visibility.Hidden;
+            ViewOrderGrid.Visibility = Visibility.Hidden;
+            ConfirmationGrid.Visibility = Visibility.Hidden;
 
-            Table2_O.MouseDown += new MouseButtonEventHandler(startOrdering);
+            // Show parts of Header
+            backArrow.Visibility = Visibility.Visible;
+            backToTables.Visibility = Visibility.Visible;
+
+            // Setup Back Arrow
+            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
+        }
+*/
+        //This function decides which method to call depending on the state of the table objects state
+        private void tableClick(object sender, MouseButtonEventArgs e)
+        {
+            if (tables[(((TableOIcon)sender).getIndex())].getState() == "Empty")
+            {
+                // Assign only
+                //AssignTable assign = new AssignTable((((TableOIcon)sender).getIndex()), ((TableOIcon)sender));
+                AssignTable assign = new AssignTable();
+                assign.Show();
+
+                //emptyClick();
+            }
+            else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Reserved")
+            {
+                // Assign or Unassign Option popup
+                ReserveClickGrid.Visibility = Visibility.Visible;
+                // Add in table number to it
+                reserveTitle.Text = "Reserved: Table " + tables[(((TableOIcon)sender).getIndex())].getTableNumber();
+                // TODO: Button click functions
+
+                /*
+                UnassignTable assign = new UnassignTable((((TableOIcon)sender).getIndex()), );
+                assign.Show();
+                */
+                //reservedClick();
+            }
+
+            else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Full")
+            {
+                // Order or unassign
+                FullClickGrid.Visibility = Visibility.Visible;
+
+                reserveTitle.Text = "Full: Table " + tables[(((TableOIcon)sender).getIndex())].getTableNumber();
+
+                //fullClick();
+            }
+            else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Ready")
+            {
+                PickUpOrder pickUp = new PickUpOrder((((TableOIcon)sender).getIndex()));
+                pickUp.Show();
+            }
+            ((TableOIcon)sender).updateFormWithTable();
+        }
+
+        /*
+        private void reservedClick(int index)
+        {
+            
+        }*/
+        /*
+        private void emptyClick()
+        {
+            
+            UnassignTable assign = new UnassignTable(index, this);
+            assign.Show();
+            
+        }
+        */
+        /*
+        private void readyClick()
+        {
+            
+            PickUpOrder pickUp = new PickUpOrder(index);
+            pickUp.Show();
+            
+        }
+        */
+        private void fullClick()
+        {
+            /*
+            UnassignTable assign = new UnassignTable(index, this);
+            assign.Show();
+            */
         }
 
         private void seatButton_Click(object sender, RoutedEventArgs e)
@@ -188,29 +289,7 @@ namespace OrderingProcess
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
         }
-
-
-        private void startOrdering(object e, MouseButtonEventArgs a)
-        {
-            SeatsGrid.Visibility = Visibility.Visible;
-            tabControl.Visibility = Visibility.Hidden;
-            CategoriesGrid.Visibility = Visibility.Hidden;
-            FoodGrid.Visibility = Visibility.Hidden;
-            DrinksGrid.Visibility = Visibility.Hidden;
-            SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
-            OrderSentGrid.Visibility = Visibility.Hidden;
-            ViewOrderGrid.Visibility = Visibility.Hidden;
-            ConfirmationGrid.Visibility = Visibility.Hidden;
-
-            // Show parts of Header
-            backArrow.Visibility = Visibility.Visible;
-            backToTables.Visibility = Visibility.Visible;
-
-            // Setup Back Arrow
-            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
-        }
-
+        
         private void goBack(object e, MouseButtonEventArgs a)
         {
             tabControl.Visibility = Visibility.Visible;
