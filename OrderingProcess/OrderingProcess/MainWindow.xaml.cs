@@ -22,6 +22,7 @@ namespace OrderingProcess
     public partial class MainWindow : Window
     {
         public static CustomerTable[] tables = new CustomerTable[4];
+        public TableOIcon curTable;
 
         public MainWindow()
         {
@@ -145,23 +146,26 @@ namespace OrderingProcess
                 ReserveClickGrid.Visibility = Visibility.Visible;
                 // Add in table number to it
                 reserveTitle.Text = "Reserved: Table " + tables[(((TableOIcon)sender).getIndex())].getTableNumber();
-                // TODO: Button click functions
 
-                /*
-                UnassignTable assign = new UnassignTable((((TableOIcon)sender).getIndex()), );
-                assign.Show();
-                */
-                //reservedClick();
+                // Button click functions
+                curTable = (TableOIcon)sender;   // use this as index in assign and unassign
+                assignButtonR.Click += assignRes_Click;
+                unassignButtonR.Click += unassignRes_Click;
+                cancelButtonR.Click += hide_resOptions;
             }
 
             else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Full")
             {
                 // Order or unassign
                 FullClickGrid.Visibility = Visibility.Visible;
-
+                // Add table number to it
                 reserveTitle.Text = "Full: Table " + tables[(((TableOIcon)sender).getIndex())].getTableNumber();
 
-                //fullClick();
+                // Button click functions
+                curTable = (TableOIcon)sender;   // use this as index in assign and unassign
+                orderButtonF.Click += orderFull_Click;
+                unassignButtonF.Click += unassignFull_Click;
+                cancelButtonF.Click += hide_fullOptions;
             }
             else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Ready")
             {
@@ -170,37 +174,65 @@ namespace OrderingProcess
             }
             ((TableOIcon)sender).updateFormWithTable();
         }
+       
+        
+        //###Reserved Table Functions###//    
+        private void assignRes_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: pass curTable (see Unassign below)
+            AssignTable assign = new AssignTable();
+            assign.Show();
 
-        /*
-        private void reservedClick(int index)
+            ReserveClickGrid.Visibility = Visibility.Hidden;
+        }
+        private void unassignRes_Click(object sender, RoutedEventArgs e)
         {
-            
-        }*/
-        /*
-        private void emptyClick()
-        {
-            
-            UnassignTable assign = new UnassignTable(index, this);
+            UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
             assign.Show();
-            
+
+            ReserveClickGrid.Visibility = Visibility.Hidden;
         }
-        */
-        /*
-        private void readyClick()
+        private void hide_resOptions(object sender, RoutedEventArgs e)
         {
-            
-            PickUpOrder pickUp = new PickUpOrder(index);
-            pickUp.Show();
-            
+            ReserveClickGrid.Visibility = Visibility.Hidden;
         }
-        */
-        private void fullClick()
+
+        //###Full Table Functions###//    
+        private void orderFull_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            UnassignTable assign = new UnassignTable(index, this);
+            // Show Ordering
+            SeatsGrid.Visibility = Visibility.Visible;
+            tabControl.Visibility = Visibility.Hidden;
+            CategoriesGrid.Visibility = Visibility.Hidden;
+            FoodGrid.Visibility = Visibility.Hidden;
+            DrinksGrid.Visibility = Visibility.Hidden;
+            SidesGrid.Visibility = Visibility.Hidden;
+            ItemAddedGrid.Visibility = Visibility.Hidden;
+            OrderSentGrid.Visibility = Visibility.Hidden;
+            ViewOrderGrid.Visibility = Visibility.Hidden;
+            ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            // Show parts of Header
+            backArrow.Visibility = Visibility.Visible;
+            backToTables.Visibility = Visibility.Visible;
+
+            // Setup Back Arrow
+            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
+
+            FullClickGrid.Visibility = Visibility.Hidden;
+        }
+        private void unassignFull_Click(object sender, RoutedEventArgs e)
+        {
+            UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
             assign.Show();
-            */
+
+            FullClickGrid.Visibility = Visibility.Hidden;
         }
+        private void hide_fullOptions(object sender, RoutedEventArgs e)
+        {
+            FullClickGrid.Visibility = Visibility.Hidden;
+        }
+
 
         private void seatButton_Click(object sender, RoutedEventArgs e)
         {

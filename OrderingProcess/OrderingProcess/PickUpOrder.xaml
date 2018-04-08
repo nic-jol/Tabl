@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderingProcess"
         mc:Ignorable="d"
-        Title="PickUpOrder" Height="300" Width="300" Background="#FF313031">
+        Title="PickUpOrder" Height="300" Width="300" Background="#FF313031" ResizeMode="NoResize">
     <Grid x:Name="PickUpOrderGrid">
         <TextBlock x:Name="QuestionBox" HorizontalAlignment="Left" Height="53.186" Margin="74.117,46.13,0,0" TextWrapping="Wrap" Text="Pick Up Order?" VerticalAlignment="Top" Width="179.501" Foreground="#FFEFF4EF" FontSize="20"/>
         <Button x:Name="OkButton" Content="Ok" HorizontalAlignment="Left" Height="36.565" Margin="163.866,174.939,0,0" VerticalAlignment="Top" Width="107.203" Click="buttonOkClick"/>

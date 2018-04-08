@@ -457,7 +457,7 @@
 
             </TabItem>
         </TabControl>
-        <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031" d:IsHidden="True" d:IsLocked="True">
+        <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031">
             <TextBlock x:Name="reserveTitle" Height="33.5" Margin="23.5,10,25,0" TextWrapping="Wrap" Text="Reserved Table ##" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF"/>
             <Button x:Name="assignButtonR" Content="Assign" Margin="10,48.5,10,0" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
             <Button x:Name="unassignButtonR" Content="Unassign" Margin="10,119.5,10,86" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60"/>
