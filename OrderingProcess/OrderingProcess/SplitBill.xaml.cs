@@ -44,7 +44,7 @@ namespace OrderingProcess
             int curCount = MainWindow.tables[index].getCurrentCount();
 
             //TODO: remove this
-            curCount = 6;
+            //curCount = 6;
 
             titleText.Text = "Table " + tableNum + " Current Split ";
 
@@ -90,7 +90,7 @@ namespace OrderingProcess
             int curCount = MainWindow.tables[index].getCurrentCount();
 
             //TODO: remove this
-            curCount = 2;
+            //curCount = 2;
 
             SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
 

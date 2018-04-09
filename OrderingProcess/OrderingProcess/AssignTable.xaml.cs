@@ -19,16 +19,22 @@ namespace OrderingProcess
     /// </summary>
     public partial class AssignTable : Window
     {
-        CustomerTable tabl = new CustomerTable();
+        //CustomerTable tabl = new CustomerTable();
+        int index;
+        TableOIcon tableIcon;
+
         public AssignTable()
         {
             InitializeComponent();
         }
 
-        public AssignTable(CustomerTable passedTable)
+        //public AssignTable(CustomerTable passedTable)
+        public AssignTable(int newIndex, TableOIcon newTableIcon)
         {
             InitializeComponent();
-            tabl = passedTable;
+            //tabl = passedTable;
+            index = newIndex;
+            tableIcon = newTableIcon;
         }
 
         private void updateCount(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -38,8 +44,9 @@ namespace OrderingProcess
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
-            //tabl.
-            // TODO: set count for this table
+            MainWindow.tables[index].setState("Full");
+            MainWindow.tables[index].setCurrentCount((int)slider.Value);
+            tableIcon.updateFormWithTable();
             this.Close();
         }
 

@@ -36,7 +36,6 @@ namespace OrderingProcess
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
-
             //code for updating
             MainWindow.tables[index].setState("Empty");
             MainWindow.tables[index].setCurrentCount(0);
