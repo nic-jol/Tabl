@@ -33,6 +33,8 @@ namespace OrderingProcess
             ConfirmationGrid.Visibility = Visibility.Hidden;
             ReserveClickGrid.Visibility = Visibility.Hidden;
             FullClickGrid.Visibility = Visibility.Hidden;
+            PickUpGrid.Visibility = Visibility.Hidden;
+            UnassignGrid.Visibility = Visibility.Hidden;
 
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
@@ -156,8 +158,11 @@ namespace OrderingProcess
             }
             else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Pick Up")
             {
+                PickUpGrid.Visibility = Visibility.Visible;
+                /*
                 PickUpOrder pickUp = new PickUpOrder((((TableOIcon)sender).getIndex()));
                 pickUp.Show();
+                */
             }
             ((TableOIcon)sender).updateFormWithTable();
         }
@@ -167,6 +172,7 @@ namespace OrderingProcess
         private void assignRes_Click(object sender, RoutedEventArgs e)
         {
             //TODO: pass curTable (see Unassign below)
+
             AssignTable assign = new AssignTable(curTable.getIndex(), curTable);
             assign.Show();
 
@@ -174,9 +180,11 @@ namespace OrderingProcess
         }
         private void unassignRes_Click(object sender, RoutedEventArgs e)
         {
+            /*
             UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
             assign.Show();
-
+            */
+            UnassignGrid.Visibility = Visibility.Visible;
             ReserveClickGrid.Visibility = Visibility.Hidden;
         }
         private void hide_resOptions(object sender, RoutedEventArgs e)
@@ -238,8 +246,11 @@ namespace OrderingProcess
         }
         private void unassignFull_Click(object sender, RoutedEventArgs e)
         {
+            UnassignGrid.Visibility = Visibility.Visible;
+            /*
             UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
             assign.Show();
+            */
 
             FullClickGrid.Visibility = Visibility.Hidden;
         }
@@ -421,6 +432,33 @@ namespace OrderingProcess
             LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();
+        }
+
+        //#### TODO: Pick Up Order PopUP ####//
+        private void buttonOkClick(object sender, RoutedEventArgs e)
+        {
+            PickUpGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void buttonCancelClick(object sender, RoutedEventArgs e)
+        {
+            PickUpGrid.Visibility = Visibility.Hidden;
+        }
+
+        //#### TODO: Unassign PopUP ####//
+        private void okUnassignClick(object sender, RoutedEventArgs e)
+        {
+            //code for updating
+            tables[curTable.getIndex()].setState("Empty");
+            tables[curTable.getIndex()].setCurrentCount(0);
+            curTable.updateFormWithTable();
+
+            UnassignGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void cancelUnassignClick(object sender, RoutedEventArgs e)
+        {
+            UnassignGrid.Visibility = Visibility.Hidden;
         }
 
 
