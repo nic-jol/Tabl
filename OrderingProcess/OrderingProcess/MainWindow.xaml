@@ -119,7 +119,7 @@
         </Grid>
         <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
             <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,-0.671,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
-            <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105"/>
+            <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105" Columns="1"/>
             <Button x:Name="Seat1Button" Content="Seat 1" HorizontalAlignment="Left" Width="344.5" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Margin="154,-244.751,-134,0" Height="65.977" VerticalAlignment="Top">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -203,7 +203,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsHidden="True" d:IsLocked="True">
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,30.5,10,-5" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Background>
                     <RadialGradientBrush>

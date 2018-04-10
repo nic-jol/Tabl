@@ -9,10 +9,14 @@ namespace OrderingProcess
 {
     public class CustomerTable
     {
+        public const int maxSeats = 6;
+
+        // Attributes
         int tableNumber;
         int currentCount;
         int capacity;
         String state;
+        List<MenuItem>[] seatOrders;
 
         //add list for orders
 
@@ -20,9 +24,10 @@ namespace OrderingProcess
         public CustomerTable()
         {
             this.currentCount = 0;
-            this.capacity = 10;
+            this.capacity = maxSeats;
             this.tableNumber = 0;
             this.state = "Empty";
+            seatOrders = new List<MenuItem>[maxSeats];
         }
 
         public CustomerTable(String newState, int newTableNum, int newCurrentCount, int newCapacity)
@@ -31,6 +36,7 @@ namespace OrderingProcess
             this.capacity = newCapacity;
             this.tableNumber = newTableNum;
             this.state = newState;
+            seatOrders = new List<MenuItem>[maxSeats];
         }
 
 
@@ -93,6 +99,17 @@ namespace OrderingProcess
         public String getState()
         {
             return this.state;
+        }
+
+        // Seats numbered 1 to max
+        // Specifies a new order for a seat
+        public void setSeatOrder (int seatNum, MenuItem newOrder)
+        {
+            // Check if it's a valid seat first
+            if (seatNum<=currentCount)
+            {
+                seatOrders[seatNum - 1].Add(newOrder);
+            }
         }
     }
 }

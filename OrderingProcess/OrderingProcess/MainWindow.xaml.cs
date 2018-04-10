@@ -23,6 +23,9 @@ namespace OrderingProcess
     {
         public static CustomerTable[] tables = new CustomerTable[4];
         public TableOIcon curTable;
+        private String foodName;  // For transfering food name to side function
+        private String sideName;
+        private int itemSize;
 
         public MainWindow()
         {
@@ -77,36 +80,43 @@ namespace OrderingProcess
             foodButton.Click += foodButton_Click;
             drinkButton.Click += drinkButton_Click;
 
-            // These are temporary
-            rotiButton.Click += tempFoodButton_Click;
-            tunaButton.Click += tempFoodButton_Click;
-            steakButton.Click += tempFoodButton_Click;
-            burgerButton.Click += tempFoodButton_Click;
-            pizzaButton.Click += tempFoodButton_Click;
+            // TODO: Move button clicks to XAML? -> Maybe move all of these things there, even in function
+            // Food clicks (maybe add to xaml?)
+            rotiButton.Click += addFood_Click;
+            tunaButton.Click += addFood_Click;
+            steakButton.Click += addFood_Click;
+            burgerButton.Click += addFood_Click;
+            pizzaButton.Click += addFood_Click;
             cancelFButton.Click += orderFull_Click;
 
             // These are temporary
-            regFriesButton.Click += tempSideAddedButton_Click;
-            yamFriesButton.Click += tempSideAddedButton_Click;
-            gardenButton.Click += tempSideAddedButton_Click;
-            caesarButton.Click += tempSideAddedButton_Click;
-            closeSidesButton.Click += tempCloseSides_Click;
+            regFriesButton.Click += sideAddedButton_Click;
+            yamFriesButton.Click += sideAddedButton_Click;
+            gardenButton.Click += sideAddedButton_Click;
+            caesarButton.Click += sideAddedButton_Click;
+            closeSidesButton.Click += closeSides_Click;
 
             // These are temporary
-            cokeButton.Click += tempSideAddedButton_Click;
-            orangeButton.Click += tempSideAddedButton_Click;
-            spriteButton.Click += tempSideAddedButton_Click;
-            milkButton.Click += tempSideAddedButton_Click;
-            coffeeButton.Click += tempSideAddedButton_Click;
+            cokeButton.Click += addDrink_Click;
+            orangeButton.Click += addDrink_Click;
+            spriteButton.Click += addDrink_Click;
+            milkButton.Click += addDrink_Click;
+            coffeeButton.Click += addDrink_Click;
             cancelDButton.Click += orderFull_Click;
 
             KitchenButton.Click += viewOrder_Click;
             kitchenButton.Click += orderSent_Click;
             moreItemsButton.Click += backToMain_Click;
 
-            ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
-        }
+            // Confirmation Buttons
+            yesButton.Click += addItem_Click;
+            noButton.Click += closeSides_Click;
 
+            ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
+            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
+            OrderSentGrid.MouseDown += new MouseButtonEventHandler(goBack);
+        }
+        
         //This function decides which method to call depending on the state of the table objects state
         private void tableClick(object sender, MouseButtonEventArgs e)
         {
@@ -187,6 +197,7 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
+            FullClickGrid.Visibility = Visibility.Hidden;
 
             // Show parts of Header
             backArrow.Visibility = Visibility.Visible;
@@ -196,9 +207,33 @@ namespace OrderingProcess
             tableNumTitle.Text = "Table " + tables[curTable.getIndex()].getTableNumber();
 
             // Setup Back Arrow
-            backArrow.MouseDown += new MouseButtonEventHandler(goBack);
+            //
 
-            FullClickGrid.Visibility = Visibility.Hidden;
+            SeatButtonsGrid.Children.Clear();
+
+            // Display Correct number of seats
+            int curCount = MainWindow.tables[curTable.getIndex()].getCurrentCount();
+            int seatCount = 1;
+
+            // Loop through and create an item for each seat
+            for (int i = 0; i < curCount; ++i)
+            {
+                Button button = new Button();
+                button.Content = "Seat " + seatCount;
+                RadialGradientBrush radialGradient = new RadialGradientBrush();
+                radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(36, 51, 48), 1.0));
+                radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(76, 88, 86), 0.0));
+                
+                button.Background = radialGradient;
+                button.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+                button.FontSize = 36;
+                button.BorderThickness = new Thickness(0);
+                button.Margin = new Thickness(2);
+                
+                SeatButtonsGrid.Children.Add(button);
+
+                ++seatCount;
+            }
         }
         private void unassignFull_Click(object sender, RoutedEventArgs e)
         {
@@ -242,22 +277,59 @@ namespace OrderingProcess
             DrinksGrid.Visibility = Visibility.Visible;
         }
 
-        private void tempFoodButton_Click(object sender, RoutedEventArgs e)
+        private void addFood_Click(object sender, RoutedEventArgs e)
         {
+            foodName = ((Button)sender).Content.ToString();
+            itemSize = -1;
+
             SidesGrid.Visibility = Visibility.Visible;
         }
 
-        private void tempSideAddedButton_Click(object sender, RoutedEventArgs e)
+        private void sideAddedButton_Click(object sender, RoutedEventArgs e)
         {
+            // Create Menu Item for that seat
+            // Might change around with drag
+            sideName = ((Button)sender).Content.ToString();
+
+            //MenuItem foodItem = new MenuItem(foodName, itemSize, sideName);
+
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Visible;
-            CategoriesGrid.Visibility = Visibility.Visible;
-            DrinksGrid.Visibility = Visibility.Hidden;
-            FoodGrid.Visibility = Visibility.Hidden;
+            //ItemAddedGrid.Visibility = Visibility.Visible;
+            //CategoriesGrid.Visibility = Visibility.Visible;
+            ConfirmationGrid.Visibility = Visibility.Visible;
+            //DrinksGrid.Visibility = Visibility.Hidden;
+            //FoodGrid.Visibility = Visibility.Hidden;
         }
-        
-        private void tempCloseSides_Click(object sender, RoutedEventArgs e)
+
+        private void addDrink_Click(object sender, RoutedEventArgs e)
         {
+            foodName = ((Button)sender).Content.ToString();
+            sideName = null;
+            itemSize = -1;
+
+            //MenuItem drinkItem = new MenuItem(drinkName, -1, null);
+
+            SidesGrid.Visibility = Visibility.Hidden;
+            //ItemAddedGrid.Visibility = Visibility.Visible;
+            //CategoriesGrid.Visibility = Visibility.Visible;
+            ConfirmationGrid.Visibility = Visibility.Visible;
+            //DrinksGrid.Visibility = Visibility.Hidden;
+            //FoodGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void addItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Create Menu Item for that seat
+            // TODO: Might change around with drag
+            MenuItem orderItem = new MenuItem(foodName, itemSize, sideName);
+
+            ConfirmationGrid.Visibility = Visibility.Hidden;
+            ItemAddedGrid.Visibility = Visibility.Visible;
+        }
+
+        private void closeSides_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmationGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
         }
 
@@ -289,9 +361,6 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Visible;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
-
-            // Then it will probably go back to table view...
-            OrderSentGrid.MouseDown += new MouseButtonEventHandler(goBack);
         }
 
         private void backToMain_Click(object e, RoutedEventArgs a)
@@ -308,6 +377,19 @@ namespace OrderingProcess
         
         private void goBack(object e, MouseButtonEventArgs a)
         {
+            List<Button> remove = new List<Button>();
+            foreach (var children in SeatButtonsGrid.Children)
+            {
+                if ((children.GetType() == typeof(Button)))
+                {
+                    remove.Add(children as Button);
+                }
+            }
+            foreach (var ch in remove)
+            {
+                SeatButtonsGrid.Children.Remove(ch as Button);
+            }
+
             tabControl.Visibility = Visibility.Visible;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
@@ -318,7 +400,7 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
-
+            
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
