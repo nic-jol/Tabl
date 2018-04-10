@@ -48,7 +48,7 @@ namespace OrderingProcess
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(45, 71, 90));
             }
-            else if (MainWindow.tables[index].getState() == "Ready")
+            else if (MainWindow.tables[index].getState() == "Pick Up")
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(33, 46, 44));
             }
