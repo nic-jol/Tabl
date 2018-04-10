@@ -8,6 +8,8 @@ namespace OrderingProcess
 {
     public class MenuItem
     {
+        public const int menuSize = 10;
+
         //Attributes
         string name;
         int size;
@@ -65,6 +67,7 @@ namespace OrderingProcess
             validSide.Add("Sweet Potato Fries");
             validSide.Add("Garden Salad");
             validSide.Add("Caesar Salad");
+            validSide.Add(null);
         }
 
 
@@ -106,6 +109,11 @@ namespace OrderingProcess
         public int getSize()
         {
             return size;
+        }
+
+        public int getMenuSize()
+        {
+            return menuSize;
         }
     }
 }

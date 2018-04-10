@@ -48,12 +48,12 @@ namespace OrderingProcess
 
             titleText.Text = "Table " + tableNum + " Current Split ";
 
-            int seatCount = 0;
+            int seatCount = 1;
             // Loop through and create an item for each
             for (int i=0; i<curCount; ++i)
             {
                 OneSeatBill bill = new OneSeatBill();
-                bill.seatTitle.Text = "Seat " + (seatCount+1);
+                bill.seatTitle.Text = "Seat " + seatCount;
 
                 eachSeatGrid.Children.Add(bill);
 

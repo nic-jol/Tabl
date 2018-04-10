@@ -62,6 +62,7 @@
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuItem.cs" />
     <Compile Include="OneBill.xaml.cs">
       <DependentUpon>OneBill.xaml</DependentUpon>
     </Compile>
