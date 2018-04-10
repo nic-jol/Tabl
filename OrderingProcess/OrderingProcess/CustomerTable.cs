@@ -89,7 +89,7 @@ namespace OrderingProcess
             validStates.Add("Empty");
             validStates.Add("Reserved");
             validStates.Add("Full");
-            validStates.Add("Ready");
+            validStates.Add("Pick Up");
 
             if (validStates.Contains(newState)){
                 this.state = newState;

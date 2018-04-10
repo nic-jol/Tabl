@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Timers;
 
 namespace OrderingProcess
 {
@@ -26,6 +17,7 @@ namespace OrderingProcess
         private String foodName;  // For transfering food name to side function
         private String sideName;
         private int itemSize;
+
 
         public MainWindow()
         {
@@ -45,6 +37,11 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
+            LogoutButton.Visibility = Visibility.Hidden;
+
+            // Logout controls
+            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(logoutAppear);
+            LogoutButton.Click += logout_Click;
 
 
             //###TABLES###//
@@ -52,7 +49,7 @@ namespace OrderingProcess
             tables[0] = new CustomerTable("Empty", 20, 0, 4);
             tables[1] = new CustomerTable("Reserved", 21, 0, 4);
             tables[2] = new CustomerTable("Full", 22, 2, 4);
-            tables[3] = new CustomerTable("Ready", 23, 4, 4);
+            tables[3] = new CustomerTable("Pick Up", 23, 4, 4);
             
             Table0_O.updateIndex(0);
             Table0_O.MouseDown += new MouseButtonEventHandler(tableClick);
@@ -82,7 +79,11 @@ namespace OrderingProcess
 
             // TODO: Move button clicks to XAML? -> Maybe move all of these things there, even in function
             // Food clicks (maybe add to xaml?)
-            rotiButton.Click += addFood_Click;
+            //rotiButton.Click += addFood_Click;
+
+
+
+
             tunaButton.Click += addFood_Click;
             steakButton.Click += addFood_Click;
             burgerButton.Click += addFood_Click;
@@ -153,7 +154,7 @@ namespace OrderingProcess
                 unassignButtonF.Click += unassignFull_Click;
                 cancelButtonF.Click += hide_fullOptions;
             }
-            else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Ready")
+            else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Pick Up")
             {
                 PickUpOrder pickUp = new PickUpOrder((((TableOIcon)sender).getIndex()));
                 pickUp.Show();
@@ -324,6 +325,9 @@ namespace OrderingProcess
             MenuItem orderItem = new MenuItem(foodName, itemSize, sideName);
 
             ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            //ToolTip added = new ToolTip();
+            //added.Show("Item Added", this, 512, 384, 1000);
             ItemAddedGrid.Visibility = Visibility.Visible;
         }
 
@@ -366,7 +370,7 @@ namespace OrderingProcess
         private void backToMain_Click(object e, RoutedEventArgs a)
         {
             SeatsGrid.Visibility = Visibility.Visible;
-            CategoriesGrid.Visibility = Visibility.Hidden;
+            CategoriesGrid.Visibility = Visibility.Visible;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
@@ -404,6 +408,53 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
+        }
+
+        //#### Logout Controls ####//
+        private void logoutAppear(object sender, MouseButtonEventArgs e)
+        {
+            LogoutButton.Visibility = Visibility.Visible;
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            this.Close();
+        }
+
+
+
+        //#### Drag and Drop ####//
+        // Idea: drag food item over to seat; once over seat, side option will popup
+        // source: https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/drag-and-drop-overview#drag-and-drop-support-in-wpf
+        private void item_MouseMove(object sender, MouseEventArgs e)
+        {
+            Button foodBtn = sender as Button;
+            if (foodBtn != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(foodBtn,
+                                     foodBtn.Content.ToString(),
+                                     DragDropEffects.Copy);
+            }
+        }
+
+        private void item_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.None;
+
+            // If the DataObject contains string data, extract it.
+            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+
+                // If the string can be converted into a Brush, allow copying.
+                BrushConverter converter = new BrushConverter();
+                if (converter.IsValid(dataString))
+                {
+                    e.Effects = DragDropEffects.Copy | DragDropEffects.Move;
+                }
+            }
         }
     }
 }
