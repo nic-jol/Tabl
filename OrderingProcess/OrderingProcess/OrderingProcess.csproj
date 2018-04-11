@@ -89,6 +89,9 @@
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuItem.cs" />
+    <Compile Include="MenuItemWithDelete.xaml.cs">
+      <DependentUpon>MenuItemWithDelete.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OneBill.xaml.cs">
       <DependentUpon>OneBill.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,9 @@
     </Compile>
     <Compile Include="PickUpOrder.xaml.cs">
       <DependentUpon>PickUpOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeatMenuDisplayControl.xaml.cs">
+      <DependentUpon>SeatMenuDisplayControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SplitBill.xaml.cs">
       <DependentUpon>SplitBill.xaml</DependentUpon>
@@ -137,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MenuItemWithDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OneBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +162,10 @@
     <Page Include="PickUpOrder.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeatMenuDisplayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplitBill.xaml">
       <SubType>Designer</SubType>

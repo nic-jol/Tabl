@@ -69,7 +69,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
@@ -150,7 +150,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:IsLocked="True">
+        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="foodButton" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFEFF4EF">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -317,7 +317,7 @@
                 </Button>
             </UniformGrid>
         </Grid>
-        <Grid x:Name="ItemAddedGrid" Background="#FFC6CFD3" RenderTransformOrigin="0.5,0.5" Margin="363.829,352,279.457,286.936" d:LayoutOverrides="Height">
+        <Grid x:Name="ItemAddedGrid" Background="#FFC6CFD3" RenderTransformOrigin="0.5,0.5" Margin="363.829,352,279.457,286.936" d:LayoutOverrides="Height" d:IsHidden="True">
             <Grid.Effect>
                 <DropShadowEffect Color="#FF0B0B0B" ShadowDepth="7"/>
             </Grid.Effect>
@@ -329,32 +329,12 @@
             <TextBlock x:Name="textBlock" Height="37.5" Margin="148.164,0,148.536,10" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Background="#FF243330" Foreground="#FFEFF4EF" HorizontalAlignment="Center" Width="78.014" Cursor="Hand"><Run Text=" "/><Run Text=" "/><Run Text=" OK"/><Run Text=" "/></TextBlock>
         </Grid>
         <UniformGrid x:Name="OrderSentGrid" Margin="-4,60,0,0" HorizontalAlignment="Center" Columns="1" VerticalAlignment="Center" Height="680" Width="1022" Background="#FF243330" d:IsHidden="True">
-
-            <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FFEFF4EF" Width="471" Margin="20,102.313,20,-17.687" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
-            <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Foreground="#FF243330" Background="#FFEFF4EF" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center"><Run FontSize="48" Text=" To Tables "/></TextBlock>
-
+            <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FFEFF4EF" Width="471" Margin="20,102.313,20,-17.687" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsHidden="True"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
+            <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Foreground="#FF243330" Background="#FFEFF4EF" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" d:IsHidden="True"><Run FontSize="48" Text=" To Tables "/></TextBlock>
         </UniformGrid>
         <Grid x:Name="ViewOrderGrid" Margin="0,60,0,0" Background="#FF597C77" RenderTransformOrigin="0.5,0.5">
-            <ScrollViewer Margin="49.123,10,42,0" Background="#FFEFF4EF" Foreground="#FF01070B" Height="418.5" VerticalAlignment="Top">
+            <ScrollViewer Margin="-968.877,335.5,0,-74" Background="#FFEFF4EF" Foreground="#FF01070B" Height="418.5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="926.877">
                 <UniformGrid Height="408.5" Width="914.877" Columns="1">
-                    <TextBlock x:Name="seat1Label" Height="30" TextWrapping="Wrap" Text="Seat 1" FontSize="21.333" FontWeight="Bold" VerticalAlignment="Top" Margin="5,0,0,0" Foreground="#FF313031"/>
-                    <Grid x:Name="item1" Height="56.5" VerticalAlignment="Top" Margin="10,0,33.5,0">
-                        <Grid.Background>
-                            <RadialGradientBrush>
-                                <GradientStop Color="#FF597C77" Offset="1"/>
-                                <GradientStop Color="#FE90A8A4"/>
-                            </RadialGradientBrush>
-                        </Grid.Background>
-                        <TextBlock x:Name="textBlock3" Margin="10,0,0,0" TextWrapping="Wrap" FontSize="21.333" Foreground="#FFEFF4EF" HorizontalAlignment="Left" Width="432.376" d:IsHidden="True"><Run Text="Classic Burger"/><LineBreak/><Run FontSize="18.667" Text="    Side: Regular Fries"/></TextBlock>
-                        <Button x:Name="button1" Content="Delete" Width="88" HorizontalAlignment="Right" FontSize="21.333" BorderBrush="{x:Null}" Foreground="#FF313031" d:IsHidden="True">
-                            <Button.Background>
-                                <RadialGradientBrush>
-                                    <GradientStop Color="#FEECEAE7" Offset="0"/>
-                                    <GradientStop Color="#FFB3AB9C" Offset="1"/>
-                                </RadialGradientBrush>
-                            </Button.Background>
-                        </Button>
-                    </Grid>
                     <Grid x:Name="item2" Height="56.5" VerticalAlignment="Top" Margin="10,0,33.5,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="119*"/>
@@ -366,8 +346,8 @@
                                 <GradientStop Color="#FE90A8A4"/>
                             </RadialGradientBrush>
                         </Grid.Background>
-                        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="-108.877,0,0,0" TextWrapping="Wrap" Width="432.376" FontSize="21.333" Foreground="#FFEFF4EF" Text="Sprite" Grid.Column="1" Height="46.5" VerticalAlignment="Bottom" d:IsHidden="True"/>
-                        <Button x:Name="button2" Content="Delete" Width="88" HorizontalAlignment="Right" FontSize="21.333" BorderBrush="{x:Null}" Foreground="#FF313031" Grid.Column="1" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="-108.877,0,0,0" TextWrapping="Wrap" Width="432.376" FontSize="21.333" Foreground="#FFEFF4EF" Text="Sprite" Grid.Column="1" Height="46.5" VerticalAlignment="Bottom"/>
+                        <Button x:Name="button2" Content="Delete" Width="88" HorizontalAlignment="Right" FontSize="21.333" BorderBrush="{x:Null}" Foreground="#FF313031" Grid.Column="1">
                             <Button.Background>
                                 <RadialGradientBrush>
                                     <GradientStop Color="#FEECEAE7" Offset="0"/>
@@ -413,7 +393,12 @@
                     </Grid>
                 </UniformGrid>
             </ScrollViewer>
-            <Button x:Name="kitchenButton" Content="Send Order to Kitchen" Height="95.75" Margin="184.5,440.992,190.623,0" VerticalAlignment="Top" FontSize="53.333" Foreground="#FFEFF4CE" BorderBrush="{x:Null}">
+            <local:MenuItemWithDelete Height="56.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="430" Margin="-350,0,0,-214.5"/>
+            <local:SeatMenuDisplayControl Margin="265.5,102,302.5,278"/>
+            <ScrollViewer x:Name="EachSeatOrderScroller" Margin="10,34,10,142" Background="#FF313031">
+                <UniformGrid x:Name="OrderScrollerGrid" Height="504" Width="980.584" Columns="2"/>
+            </ScrollViewer>
+            <Button x:Name="kitchenButton" Content="Send Order to Kitchen" Height="95.75" Margin="10,574.25,0,0" VerticalAlignment="Top" FontSize="48" Foreground="#FFEFF4CE" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="494.877">
                 <Button.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF313031" Offset="1"/>
@@ -421,7 +406,7 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="moreItemsButton" Content="Enter More Items" Height="95.75" Margin="184.5,554.25,190.623,0" VerticalAlignment="Top" FontSize="53.333" Foreground="#FFEFF4CE" BorderBrush="{x:Null}">
+            <Button x:Name="moreItemsButton" Content="Enter More Items" Height="95.75" Margin="0,574.25,10,0" VerticalAlignment="Top" FontSize="53.333" Foreground="#FFEFF4CE" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="478.877">
                 <Button.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF151A1E" Offset="0"/>
@@ -431,12 +416,12 @@
             </Button>
         </Grid>
         <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsHidden="True">
-            <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B" d:IsHidden="True" d:IsEffectDisabled="True">
+            <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B">
                 <Grid.Effect>
                     <DropShadowEffect/>
                 </Grid.Effect>
-                <TextBlock x:Name="textBlock7" Height="70" Margin="10,10,10,0" TextWrapping="Wrap" Text="Are you sure you want to add this Item?" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" FontWeight="Bold" d:IsHidden="True"/>
-                <Button x:Name="yesButton" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" d:IsHidden="True">
+                <TextBlock x:Name="textBlock7" Height="70" Margin="10,10,10,0" TextWrapping="Wrap" Text="Are you sure you want to add this Item?" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" FontWeight="Bold"/>
+                <Button x:Name="yesButton" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="#FE90A8A4" Offset="0"/>
@@ -444,7 +429,7 @@
                         </RadialGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="noButton" Content="No" HorizontalAlignment="Right" Margin="0,0,42,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" d:IsHidden="True">
+                <Button x:Name="noButton" Content="No" HorizontalAlignment="Right" Margin="0,0,42,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="#FE90A8A4" Offset="0"/>
@@ -494,7 +479,7 @@
             <Button x:Name="cancelButtonF" Content="Cancel" Height="44.079" Margin="10,0,10,10" VerticalAlignment="Bottom" Background="#FF7B7A7B" FontSize="26.667" Foreground="#FF313031"/>
         </Grid>
         <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
-            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" >
+            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" d:IsHidden="True" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -505,8 +490,8 @@
                     </LinearGradientBrush>
                 </ed:Arc.Stroke>
             </ed:Arc>
-            <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand"/>
-            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
+            <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand" d:IsHidden="True"/>
+            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423" d:IsHidden="True"/>
         </Grid>
         <UniformGrid x:Name="PickUpGrid" Margin="0,60,0,0" Columns="1" d:IsLocked="True" d:IsHidden="True">
             <Grid x:Name="PickUpMessage" Margin="321.105,233.687,317.159,284.26" RenderTransformOrigin="0.5,0.5" Background="#FF0B0B0B">
@@ -550,11 +535,11 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <UniformGrid x:Name="AssignGrid" Margin="0,65,0,0" d:IsHidden="True" d:IsLocked="True">
+        <UniformGrid x:Name="AssignGrid" Margin="0,65,0,0">
             <Grid x:Name="AssignMessage" Margin="300.053,173.264,265.65,210.142" Background="#FF0B0B0B">
                 <TextBlock x:Name="assignTitle" Height="54" Margin="137.947,53.236,171.85,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF"><Run Text="Customers"/><Run Text=": "/></TextBlock>
-                <Slider x:Name="slider" HorizontalAlignment="Left" Height="33.721" Margin="61.447,141.222,0,0" VerticalAlignment="Top" Width="327" Maximum="4" ValueChanged="updateCount" IsSnapToTickEnabled="True"/>
-                <TextBlock x:Name="selectedCount" Height="54" Margin="0,54.736,111.85,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="59.5">
+                <Slider x:Name="slider" HorizontalAlignment="Left" Height="33.721" Margin="61.447,141.222,0,0" VerticalAlignment="Top" Width="327" Minimum="1"  Maximum="4" ValueChanged="updateCount" IsSnapToTickEnabled="True"/>
+                <TextBlock x:Name="selectedCount" Height="54" Margin="0,54.736,111.85,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="59.5">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -582,7 +567,7 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <TextBlock x:Name="errors" Margin="159,226,423,316" TextWrapping="Wrap" Text="ERRORS" FontSize="48"/>
+        <TextBlock x:Name="errors" Margin="0,197.782,-830.829,344.218" TextWrapping="Wrap" Text="ERRORS" FontSize="48" Grid.Column="1" HorizontalAlignment="Right" Width="436"/>
 
     </Grid>
 </Window>
