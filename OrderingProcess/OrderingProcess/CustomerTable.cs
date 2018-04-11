@@ -12,11 +12,11 @@ namespace OrderingProcess
         public const int maxSeats = 4;
 
         // Attributes
-        int tableNumber;
-        int currentCount;
-        int capacity;
-        String state;
-        List<MenuItem>[] seatOrders;
+        private int tableNumber;
+        private int currentCount;
+        private int capacity;
+        private String state;
+        private List<MenuItem>[] seatOrders;
 
         //add list for orders
 
@@ -120,6 +120,11 @@ namespace OrderingProcess
             {
                 seatOrders[seatNum - 1].Add(newOrder);
             }
+        }
+
+        public List<MenuItem>[] getSeatOrder()
+        {
+            return seatOrders;
         }
     }
 }

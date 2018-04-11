@@ -43,10 +43,8 @@ namespace OrderingProcess
             backToTables.Visibility = Visibility.Hidden;
             LogoutButton.Visibility = Visibility.Hidden;
 
-
             // Logout controls
             ServerInfoGrid.MouseDown += new MouseButtonEventHandler(logoutAppear);
-            tabControl.MouseDown += new MouseButtonEventHandler(logout_ClickAway);
             LogoutButton.Click += logout_Click;
 
             //###TABLES###//
@@ -395,6 +393,7 @@ namespace OrderingProcess
             SidesGrid.Visibility = Visibility.Hidden;
         }
 
+        // TODO: timed popup or popup on seat
         private void itemAddedMouse(object e, MouseButtonEventArgs a)
         {
             ItemAddedGrid.Visibility = Visibility.Hidden;
@@ -402,6 +401,8 @@ namespace OrderingProcess
 
         private void viewOrder_Click(object e, RoutedEventArgs a)
         {
+            OrderScrollerGrid.Children.Clear();
+
             // Change seat color back
             RadialGradientBrush radialGradient = new RadialGradientBrush();
             radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(36, 51, 48), 1.0));
@@ -426,8 +427,56 @@ namespace OrderingProcess
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Visible;
             ConfirmationGrid.Visibility = Visibility.Hidden;
+
+            // Loop through each seat and add to uniform grid
+            int numSeats = tables[curTable.getIndex()].getCurrentCount();
+            for (int i=0; i<numSeats; ++i)
+            {
+                // Create new menu for seat
+                SeatMenuDisplayControl seat = new SeatMenuDisplayControl();
+                seat.seatLabel.Text = "Seat " + (i + 1);
+
+                int itemCount = 0;   // count how many items were ordered for that seat
+
+                // Loop through each menu item for that seat and add to its uniform grid
+                List<MenuItem>[] orderForAll = tables[curTable.getIndex()].getSeatOrder();
+                List<MenuItem > orderForSeat = orderForAll[i];
+                errors.Text = "" + orderForSeat.Count;
+                foreach (MenuItem item in orderForSeat)
+                {
+                    // change title
+                    MenuItemWithDelete itemDisplay = new MenuItemWithDelete();
+                    
+                    string title = item.getName();
+
+                    if (item.getSide() != null)
+                    {
+                        title += "\n    " + item.getSide();
+                    }
+
+                    itemDisplay.itemName.Text = title;
+                    
+                    // Add each item to uniform grid
+                    seat.orderItemsGrid.Children.Add(itemDisplay);
+                    //.Text += "" + item.getName();
+
+                    ++itemCount;
+                }
+
+                // Adjust height based on number of items
+                seat.Height = 90+70 * itemCount;
+
+                if( ( (90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats)/2))) > OrderScrollerGrid.Height)
+                {
+                    OrderScrollerGrid.Height = (90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2));
+                }
+
+                // Actually add to uniform grid
+                OrderScrollerGrid.Children.Add(seat);
+            }
         }
 
+        // TODO: ordering after this? 
         private void orderSent_Click(object sender, RoutedEventArgs e)
         {
             SeatsGrid.Visibility = Visibility.Hidden;
@@ -487,10 +536,7 @@ namespace OrderingProcess
         //#### Logout Controls ####//
         private void logoutAppear(object sender, MouseButtonEventArgs e)
         {
-            if (LogoutButton.Visibility == Visibility.Hidden)
-                LogoutButton.Visibility = Visibility.Visible;
-            else
-                LogoutButton.Visibility = Visibility.Hidden;
+            LogoutButton.Visibility = Visibility.Visible;
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
@@ -498,12 +544,6 @@ namespace OrderingProcess
             LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();
-        }
-
-        private void logout_ClickAway(object sender, RoutedEventArgs e)
-        {
-            if (LogoutButton.Visibility == Visibility.Visible)
-                LogoutButton.Visibility = Visibility.Hidden;
         }
 
         //#### TODO: Pick Up Order PopUP ####//
@@ -518,12 +558,15 @@ namespace OrderingProcess
         }
 
         //#### TODO: Unassign PopUP ####//
+        
         private void okUnassignClick(object sender, RoutedEventArgs e)
         {
             //code for updating
             tables[curTable.getIndex()].setState("Empty");
             tables[curTable.getIndex()].setCurrentCount(0);
             curTable.updateFormWithTable();
+
+            // TODO: clear previous orders
 
             UnassignGrid.Visibility = Visibility.Hidden;
         }
@@ -537,7 +580,10 @@ namespace OrderingProcess
         // For slider - updates number display on popup when slider changes
         private void updateCount(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            selectedCount.Text = slider.Value.ToString();
+            if (slider != null && selectedCount != null)  // they are both null when window opens
+            {
+                selectedCount.Text = slider.Value.ToString();
+            }
         }
         private void okAssignClick(object sender, RoutedEventArgs e)
         {

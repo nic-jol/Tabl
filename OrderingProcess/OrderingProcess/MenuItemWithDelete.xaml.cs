@@ -10,31 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OrderingProcess
 {
     /// <summary>
-    /// Interaction logic for OneBill.xaml
+    /// Interaction logic for MenuItemWithDelete.xaml
     /// </summary>
-    public partial class OneBill : Window
+    public partial class MenuItemWithDelete : UserControl
     {
-        int index;
-
-        public OneBill()
+        public MenuItemWithDelete()
         {
             InitializeComponent();
         }
 
-        public OneBill(int newIndex)
-        {
-            InitializeComponent();
-            this.index = newIndex;
-        }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        // TODO: Delete button
     }
 }
