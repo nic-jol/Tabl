@@ -9,7 +9,7 @@ namespace OrderingProcess
 {
     public class CustomerTable
     {
-        public const int maxSeats = 6;
+        public const int maxSeats = 4;
 
         // Attributes
         int tableNumber;
@@ -28,6 +28,11 @@ namespace OrderingProcess
             this.tableNumber = 0;
             this.state = "Empty";
             seatOrders = new List<MenuItem>[maxSeats];
+
+            for (int i=0; i<maxSeats; ++i)
+            {
+                seatOrders[i] = new List<MenuItem>();
+            }
         }
 
         public CustomerTable(String newState, int newTableNum, int newCurrentCount, int newCapacity)
@@ -37,6 +42,11 @@ namespace OrderingProcess
             this.tableNumber = newTableNum;
             this.state = newState;
             seatOrders = new List<MenuItem>[maxSeats];
+
+            for (int i = 0; i < maxSeats; ++i)
+            {
+                seatOrders[i] = new List<MenuItem>();
+            }
         }
 
 
