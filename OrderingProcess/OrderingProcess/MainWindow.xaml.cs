@@ -43,8 +43,10 @@ namespace OrderingProcess
             backToTables.Visibility = Visibility.Hidden;
             LogoutButton.Visibility = Visibility.Hidden;
 
+
             // Logout controls
             ServerInfoGrid.MouseDown += new MouseButtonEventHandler(logoutAppear);
+            tabControl.MouseDown += new MouseButtonEventHandler(logout_ClickAway);
             LogoutButton.Click += logout_Click;
 
             //###TABLES###//
@@ -485,7 +487,10 @@ namespace OrderingProcess
         //#### Logout Controls ####//
         private void logoutAppear(object sender, MouseButtonEventArgs e)
         {
-            LogoutButton.Visibility = Visibility.Visible;
+            if (LogoutButton.Visibility == Visibility.Hidden)
+                LogoutButton.Visibility = Visibility.Visible;
+            else
+                LogoutButton.Visibility = Visibility.Hidden;
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
@@ -493,6 +498,12 @@ namespace OrderingProcess
             LoginWindow login = new LoginWindow();
             login.Show();
             this.Close();
+        }
+
+        private void logout_ClickAway(object sender, RoutedEventArgs e)
+        {
+            if (LogoutButton.Visibility == Visibility.Visible)
+                LogoutButton.Visibility = Visibility.Hidden;
         }
 
         //#### TODO: Pick Up Order PopUP ####//

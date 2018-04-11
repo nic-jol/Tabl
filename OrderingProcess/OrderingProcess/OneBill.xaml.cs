@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,10 +21,21 @@ namespace OrderingProcess
     public partial class OneBill : Window
     {
         int index;
+        List<Timer> TimerList;
 
         public OneBill()
         {
             InitializeComponent();
+            TimerList = new List<Timer>();
+            Timer timer1 = new Timer();
+            Timer timer2 = new Timer();
+            TimerList.Add(timer1);
+            TimerList.Add(timer2);
+
+            OneBillCash.MouseDown += new MouseButtonEventHandler(showPayment);
+            PaymentCancel.MouseDown += new MouseButtonEventHandler(cancelPayment);
+
+            PaymentGrid.Visibility = Visibility.Hidden;
         }
 
         public OneBill(int newIndex)
@@ -35,6 +47,35 @@ namespace OrderingProcess
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void showPayment(object sender, MouseButtonEventArgs e)
+        {
+            PaymentGrid.Visibility = Visibility.Visible;
+            TimerList[0].Elapsed += new ElapsedEventHandler(FirstTimedEvent);
+            TimerList[0].Interval = 3000;
+            TimerList[0].Start();
+        }
+
+        private void FirstTimedEvent(object source, ElapsedEventArgs e)
+        {
+            TimerList[0].Stop();
+            PaymentStatus.Text = "Payment Complete!";
+            Timer timer2 = new Timer();
+            TimerList[1].Elapsed += new ElapsedEventHandler(SecondTimedEvent);
+            TimerList[1].Interval = 1000;
+            TimerList[1].Start();
+        }
+
+        private void SecondTimedEvent(object source, ElapsedEventArgs e)
+        {
+            TimerList[1].Stop();
+            PaymentGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void cancelPayment(object sender, MouseButtonEventArgs e)
+        {
+            PaymentGrid.Visibility = Visibility.Hidden;
         }
     }
 }
