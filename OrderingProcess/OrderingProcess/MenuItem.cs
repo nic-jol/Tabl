@@ -28,7 +28,14 @@ namespace OrderingProcess
 
         public MenuItem(string newName)
         {
-            name = newName;
+            if (validMenuItem.Contains(newName))
+            {
+                name = newName;
+            }
+            else
+            {
+                name = null;
+            }
             size = -1;
             side = null;
             buildValidMenu();
@@ -37,11 +44,27 @@ namespace OrderingProcess
 
         public MenuItem(string newName, int newSize, string newSide)
         {
-            name = newName;
-            size = newSize;
-            side = newSide;
             buildValidMenu();
             buildValidSides();
+            if (validMenuItem.Contains(newName))
+            {
+                name = newName;
+            }
+            else
+            {
+                name = null;
+            }
+            
+            size = newSize;
+
+            if (validSide.Contains(newSide))
+            {
+                side = newSide;
+            }
+            else
+            {
+                side = null;
+            }
         }
 
         private void buildValidMenu()
@@ -114,6 +137,11 @@ namespace OrderingProcess
         public int getMenuSize()
         {
             return menuSize;
+        }
+
+        public override String ToString()
+        {
+            return "" + name + side + size;
         }
     }
 }
