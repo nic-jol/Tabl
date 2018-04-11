@@ -41,7 +41,7 @@ namespace OrderingProcess
         {
             if (MainWindow.tables[index].getState() == "Empty")
             {
-                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(196, 190, 179));
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(153, 153, 153));
             }
             else if (MainWindow.tables[index].getState() == "Reserved")
             {
@@ -49,11 +49,11 @@ namespace OrderingProcess
             }
             else if (MainWindow.tables[index].getState() == "Pick Up")
             {
-                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(33, 46, 44));
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(110, 94, 123));
             }
             else if (MainWindow.tables[index].getState() == "Full")
             {
-                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(86, 63, 57));
+                tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(49, 48, 49));
             }
 
             tableNum.Text = MainWindow.tables[index].getTableNumber().ToString();
