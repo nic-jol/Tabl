@@ -45,12 +45,12 @@ namespace OrderingProcess
         }
         private void FirstTimedEvent(object source, ElapsedEventArgs e)
         {
-            TimerList[0].Stop(); this.Dispatcher.Invoke(() =>
+            TimerList[0].Stop();
+            this.Dispatcher.Invoke(() =>
             {
                 PaymentStatus.Text = "Payment Complete!";
                 PaymentCancel.Visibility = Visibility.Hidden;
             });
-            Timer timer2 = new Timer();
             TimerList[1].Elapsed += new ElapsedEventHandler(SecondTimedEvent);
             TimerList[1].Interval = 1000;
             TimerList[1].Start();
