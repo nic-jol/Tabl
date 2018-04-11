@@ -540,7 +540,7 @@ namespace OrderingProcess
             if (LogoutButton.Visibility == Visibility.Hidden)
                 LogoutButton.Visibility = Visibility.Visible;
             else
-                LogoutButton.Visibility = Visibility.Visible;
+                LogoutButton.Visibility = Visibility.Hidden;
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
