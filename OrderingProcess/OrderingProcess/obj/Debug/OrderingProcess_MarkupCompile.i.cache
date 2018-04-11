@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\samba.cs.ucalgary.ca\austin.brodeur\Documents\CPSC481\project\Tabl\OrderingProcess\OrderingProcess\obj\Debug\
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\Tabl\OrderingProcess\OrderingProcess\obj\Debug\
 OrderingProcess
 none
 false
 DEBUG;TRACE
-\\samba.cs.ucalgary.ca\austin.brodeur\Documents\CPSC481\project\Tabl\OrderingProcess\OrderingProcess\App.xaml
+\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\Tabl\OrderingProcess\OrderingProcess\App.xaml
 14-743148931
 
-25812361052
-15-1069501495
+25-1759382062
+15-910516602
 AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;MenuItemWithDelete.xaml;OneBill.xaml;OneSeatBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SeatMenuDisplayControl.xaml;SplitBill.xaml;TableOIcon.xaml;TablePIcon.xaml;UnassignTable.xaml;
 
 True
