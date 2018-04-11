@@ -21,11 +21,6 @@ namespace OrderingProcess
     {
         int index;
 
-        public OneBill()
-        {
-            InitializeComponent();
-        }
-
         public OneBill(int newIndex)
         {
             InitializeComponent();

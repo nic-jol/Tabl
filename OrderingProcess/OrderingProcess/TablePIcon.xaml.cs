@@ -62,7 +62,7 @@ namespace OrderingProcess
 
         private void oneBillProcess(object sender, RoutedEventArgs e)
         {
-            OneBill one = new OneBill();
+            OneBill one = new OneBill(index);
             one.Show();
            
         }

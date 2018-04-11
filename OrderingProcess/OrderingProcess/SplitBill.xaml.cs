@@ -24,16 +24,6 @@ namespace OrderingProcess
         //private int tableNum;
         //private int curCapacity;
 
-        public SplitBill()
-        {
-            InitializeComponent();
-            
-            ChangeSplitGrid.Visibility = Visibility.Hidden;
-            backToBills.Visibility = Visibility.Hidden;
-            backArrowBills.Visibility = Visibility.Hidden;
-
-            backArrowTable.MouseDown += new MouseButtonEventHandler(backArrowPressed);
-        }
 
         public SplitBill(int newIndex)
         {
@@ -117,7 +107,7 @@ namespace OrderingProcess
 
         private void keepSplitScreen(object sender, RoutedEventArgs e)
         {
-            OneBill one = new OneBill();
+            OneBill one = new OneBill(index);
             one.Show();
             this.Close();
         }
