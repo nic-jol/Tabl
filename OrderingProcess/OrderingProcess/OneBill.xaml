@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid Background="#FFEFF4EF" Margin="0,0,-2,-42" MinWidth="0.3" Width="450">
         <TextBlock HorizontalAlignment="Center" Height="47" Margin="112.5,23.5,121.5,0" TextWrapping="Wrap" Text="Table 1 Total: $34.57" VerticalAlignment="Top" Width="216" FontSize="22" Foreground="#FF293835" FontWeight="Bold"/>
-        <Button Content="Cash" HorizontalAlignment="Left" Height="57" Margin="127.5,70.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+        <Button x:Name="OneBillCash" Content="Cash" HorizontalAlignment="Left" Height="57" Margin="127.5,70.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource Color2}"/>
             </Button.Foreground>
@@ -24,7 +24,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Credit" HorizontalAlignment="Left" Height="57" Margin="127.5,155.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Foreground="#FFFFF1CE" BorderBrush="{x:Null}">
+        <Button x:Name="OneBillCredit" Content="Credit" HorizontalAlignment="Left" Height="57" Margin="127.5,155.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Foreground="#FFFFF1CE" BorderBrush="{x:Null}">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FF243330" Offset="1"/>
@@ -32,7 +32,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Debit" HorizontalAlignment="Left" Height="57" Margin="127.5,241.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+        <Button x:Name="OneBillDebit" Content="Debit" HorizontalAlignment="Left" Height="57" Margin="127.5,241.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FF243330" Offset="1"/>
@@ -44,7 +44,7 @@
             </Button.Foreground>
         </Button>
 
-        <Button Content="Gift Card" HorizontalAlignment="Left" Height="57" Margin="127.5,328,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
+        <Button x:Name="OneBillGiftCard" Content="Gift Card" HorizontalAlignment="Left" Height="57" Margin="127.5,328,0,0" VerticalAlignment="Top" Width="201" FontSize="36">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource Color4}"/>
             </Button.Foreground>
@@ -63,5 +63,9 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
+        <Grid x:Name="PaymentGrid" HorizontalAlignment="Center" Height="533.684" Margin="0,0,10,0" VerticalAlignment="Center" Width="440" Background="#FFEFF4EF">
+            <TextBlock x:Name="PaymentStatus" HorizontalAlignment="Left" Height="121.137" Margin="0,0,0,100" TextWrapping="Wrap" VerticalAlignment="Center" Width="440" FontSize="36" Foreground="#FF1B2023" TextAlignment="Center"><Run Text="Payment"/><LineBreak/><Run Text="Processing"/></TextBlock>
+            <Button x:Name="PaymentCancel" Content="Cancel" HorizontalAlignment="Center" Height="75" Margin="0,200,0,0" VerticalAlignment="Center" Width="280.5" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Background="#FF243330" FontSize="24"/>
+        </Grid>
     </Grid>
 </Window>

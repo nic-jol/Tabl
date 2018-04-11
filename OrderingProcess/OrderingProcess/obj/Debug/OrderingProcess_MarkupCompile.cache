@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablSource\OrderingProcess\OrderingProcess\obj\Debug\
+C:\Users\austi\OneDrive\CPSC 481\project\p4\Tabl\OrderingProcess\OrderingProcess\obj\Debug\
 OrderingProcess
 none
 false
 DEBUG;TRACE
-\\samba.cs.ucalgary.ca\aiwanisz\Documents\GitHub\TablSource\OrderingProcess\OrderingProcess\App.xaml
-111329754866
+C:\Users\austi\OneDrive\CPSC 481\project\p4\Tabl\OrderingProcess\OrderingProcess\App.xaml
+12-1401680760
 
-17-1331043267
-141925774474
-AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;OneBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SplitBill.xaml;TableOIcon.xaml;TablePIcon.xaml;UnassignTable.xaml;
+19928990845
+141669707010
+AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;OneBill.xaml;OneSeatBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SplitBill.xaml;TableOIcon.xaml;TablePIcon.xaml;UnassignTable.xaml;
 
 False
 

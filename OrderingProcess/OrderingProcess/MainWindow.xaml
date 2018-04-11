@@ -69,7 +69,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Bottom">
+    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
@@ -332,7 +332,7 @@
             <TextBlock x:Name="textBlock1" Margin="31.5,6,-12.24,0" TextWrapping="Wrap" Text="Item Added to Order" FontSize="32" RenderTransformOrigin="0.497,0.993" Foreground="#FF0B0B0B" FontWeight="Bold" Grid.ColumnSpan="2" Height="42.564" VerticalAlignment="Top" />
             <TextBlock x:Name="textBlock" Height="37.5" Margin="148.164,0,140.536,10" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Background="#FF243330" Foreground="#FFEFF4EF" HorizontalAlignment="Center" Width="86.014" Cursor="Hand"><Run Text=" "/><Run Text=" "/><Run Text="Close"/><Run Text=" "/></TextBlock>
         </Grid>
-        <UniformGrid x:Name="OrderSentGrid" Margin="-4,60,0,0" HorizontalAlignment="Center" Columns="1" VerticalAlignment="Center" Height="680" Width="1022" Background="#FF243330">
+        <UniformGrid x:Name="OrderSentGrid" Margin="-4,60,0,0" HorizontalAlignment="Center" Columns="1" VerticalAlignment="Center" Height="680" Width="1022" Background="#FF243330" d:IsHidden="True">
             <TextBlock x:Name="textBlock2" TextWrapping="Wrap" FontSize="96" Foreground="#FFEFF4EF" Width="471" Margin="20,102.313,20,-17.687" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Order Sent"/><LineBreak/><Run Text=" to "/><Run Text="Kitchen"/></TextBlock>
             <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Foreground="#FF243330" Background="#FFEFF4EF" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center"><Run FontSize="48" Text=" To Tables "/></TextBlock>
         </UniformGrid>
@@ -433,12 +433,12 @@
             </Button>
         </Grid>
         <Grid x:Name="ConfirmationGrid" Margin="-0.671,39,0,2.668" d:IsHidden="True">
-            <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B">
+            <Grid Margin="319.336,255.531,319.335,257.863" Background="#FF0B0B0B" d:IsHidden="True" d:IsEffectDisabled="True">
                 <Grid.Effect>
                     <DropShadowEffect/>
                 </Grid.Effect>
-                <TextBlock x:Name="textBlock7" Height="70" Margin="10,10,10,0" TextWrapping="Wrap" Text="Are you sure you want to add this Item?" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" FontWeight="Bold"/>
-                <Button x:Name="yesButton" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom">
+                <TextBlock x:Name="textBlock7" Height="70" Margin="10,10,10,0" TextWrapping="Wrap" Text="Are you sure you want to add this Item?" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" FontWeight="Bold" d:IsHidden="True"/>
+                <Button x:Name="yesButton" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" d:IsHidden="True">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="#FE90A8A4" Offset="0"/>
@@ -446,7 +446,7 @@
                         </RadialGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="noButton" Content="No" HorizontalAlignment="Right" Margin="0,0,42,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom">
+                <Button x:Name="noButton" Content="No" HorizontalAlignment="Right" Margin="0,0,42,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" d:IsHidden="True">
                     <Button.Background>
                         <RadialGradientBrush>
                             <GradientStop Color="#FE90A8A4" Offset="0"/>
@@ -496,7 +496,7 @@
             <Button x:Name="cancelButtonF" Content="Cancel" Height="44.079" Margin="10,0,10,10" VerticalAlignment="Bottom" Background="#FF7B7A7B" FontSize="26.667" Foreground="#FF313031"/>
         </Grid>
         <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
-            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" d:IsHidden="True" >
+            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -507,8 +507,8 @@
                     </LinearGradientBrush>
                 </ed:Arc.Stroke>
             </ed:Arc>
-            <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand" d:IsHidden="True"/>
-            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423" d:IsHidden="True"/>
+            <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand"/>
+            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
         </Grid>
         <UniformGrid x:Name="PickUpGrid" Margin="0,60,0,0" Columns="1" d:IsHidden="True">
             <Grid x:Name="PickUpMessage" Margin="321.105,233.687,317.159,284.26" RenderTransformOrigin="0.5,0.5" Background="#FF0B0B0B">
