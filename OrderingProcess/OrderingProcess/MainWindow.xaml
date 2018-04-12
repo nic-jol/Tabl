@@ -432,10 +432,18 @@
 
             </TabItem>
             <TabItem Header="Queue" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="95.5,0,-95.5,0" FontSize="28">
-                <Grid Background="#FF597C77"/>
+                <Grid Background="#FF597C77">
+                    <TextBlock HorizontalAlignment="Center" Height="620" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="970" Background="Black" Opacity="0.6" Foreground="#FF7E7E7E" FontSize="22"><Run Text="Number&#x9;"/><Run Text="&#x9;"/><Run Text="Tablenum&#x9;Contents&#x9;&#x9;&#x9;Time Received&#x9;&#x9;Status"/><LineBreak/><Run Text=""/></TextBlock>
+                </Grid>
             </TabItem>
             <TabItem Header="Reports" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="99.666,0,-99.667,0" FontSize="28">
-                <Grid Background="#FF597C77"/>
+                <Grid Background="#FF597C77">
+                    <TextBlock HorizontalAlignment="Center" Height="57" Margin="223.25,118.068,223.25,504.569" TextWrapping="Wrap" Text="Daily Report: April 1st, 2018" VerticalAlignment="Center" Width="565.5" TextAlignment="Center" FontSize="36"/>
+                    <Button Content="Print Report" HorizontalAlignment="Left" Height="80" Margin="297,200,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="Email Report" HorizontalAlignment="Left" Height="80" Margin="297,290,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="Save Report" HorizontalAlignment="Left" Height="80" Margin="297,380,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="View Report History" HorizontalAlignment="Left" Height="80" Margin="297,470,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                </Grid>
             </TabItem>
         </TabControl>
         <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031" d:IsHidden="True">
@@ -450,7 +458,7 @@
             <Button x:Name="unassignButtonF" Content="Unassign" Margin="10,119.5,10,86" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60"/>
             <Button x:Name="cancelButtonF" Content="Cancel" Height="44.079" Margin="10,0,10,10" VerticalAlignment="Bottom" Background="#FF7B7A7B" FontSize="26.667" Foreground="#FF313031"/>
         </Grid>
-        <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143">
+        <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
             <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
