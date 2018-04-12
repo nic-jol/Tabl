@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Forms;
@@ -24,6 +25,7 @@ namespace OrderingProcess
         public MainWindow()
         {
             InitializeComponent();
+            InfoGrid.Visibility = Visibility.Hidden;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
@@ -42,12 +44,15 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
+            InfoButton.Visibility = Visibility.Hidden;
             LogoutButton.Visibility = Visibility.Hidden;
 
-            // Logout controls
-            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(logoutAppear);
-            tabControl.MouseDown += new MouseButtonEventHandler(logout_ClickAway);
+            //  // Dropdown menu controls
+            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
+            tabControl.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             LogoutButton.Click += logout_Click;
+            InfoButton.Click += info_Click;
+            InfoClose.Click += info_Close;
 
             //###TABLES###//
             //String newState, int newTableNum, int newCurrentCount, int newCapacity
@@ -58,18 +63,22 @@ namespace OrderingProcess
 
             Table0_O.updateIndex(0);
             Table0_O.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table0_O.setPayTableReference(Table0_P);
             Table0_P.updateIndex(0);
 
             Table1_O.updateIndex(1);
             Table1_O.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table1_O.setPayTableReference(Table1_P);
             Table1_P.updateIndex(1);
 
             Table2_O.updateIndex(2);
             Table2_O.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table2_O.setPayTableReference(Table2_P);
             Table2_P.updateIndex(2);
 
             Table3_O.updateIndex(3);
             Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table3_O.setPayTableReference(Table3_P);
             Table3_P.updateIndex(3);
 
 
@@ -537,15 +546,17 @@ namespace OrderingProcess
         }
 
         //#### Logout Controls ####//
-        private void logoutAppear(object sender, MouseButtonEventArgs e)
+        private void menuAppear(object sender, MouseButtonEventArgs e)
         {
             if (LogoutButton.Visibility == Visibility.Hidden)
             {
                 LogoutButton.Visibility = Visibility.Visible;
+                InfoButton.Visibility = Visibility.Visible;
             }
             else
             {
                 LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -556,15 +567,33 @@ namespace OrderingProcess
             this.Close();
         }
 
-        private void logout_ClickAway(object sender, RoutedEventArgs e)
+        private void info_Click(object sender, RoutedEventArgs e)
         {
-            if (LogoutButton.Visibility == Visibility.Visible)
-                LogoutButton.Visibility = Visibility.Hidden;
+            InfoGrid.Visibility = Visibility.Visible;
         }
 
-    //#### TODO: Pick Up Order PopUP ####//
-    private void buttonOkClick(object sender, RoutedEventArgs e)
+        private void info_Close(object sender, RoutedEventArgs e)
         {
+            InfoGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void menu_ClickAway(object sender, RoutedEventArgs e)
+        {
+            if (LogoutButton.Visibility == Visibility.Visible)
+            {
+                LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
+            }
+                
+        }
+
+        //#### TODO: Pick Up Order PopUP ####//
+        private void buttonOkClick(object sender, RoutedEventArgs e)
+        {
+            tables[curTable.getIndex()].setState("Full");
+            curTable.updateFormWithTable();
+            curTable.getPayTableReference().updateFormWithTable();
+
             PickUpGrid.Visibility = Visibility.Hidden;
         }
 
@@ -581,6 +610,7 @@ namespace OrderingProcess
             tables[curTable.getIndex()].setState("Empty");
             tables[curTable.getIndex()].setCurrentCount(0);
             curTable.updateFormWithTable();
+            curTable.getPayTableReference().updateFormWithTable();
 
             // TODO: clear previous orders
 
@@ -607,6 +637,7 @@ namespace OrderingProcess
             tables[curTable.getIndex()].setState("Full");
             tables[curTable.getIndex()].setCurrentCount((int)slider.Value);
             curTable.updateFormWithTable();
+            curTable.getPayTableReference().updateFormWithTable();
 
             AssignGrid.Visibility = Visibility.Hidden;
         }

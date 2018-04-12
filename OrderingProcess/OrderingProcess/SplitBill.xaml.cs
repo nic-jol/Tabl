@@ -38,6 +38,7 @@ namespace OrderingProcess
             //curCount = 6;
 
             titleText.Text = "Table " + tableNum + " Current Split ";
+            multiTitle.Text = "Table " + tableNum + ": Outstanding Bills";
 
             int seatCount = 1;
             // Loop through and create an item for each
@@ -93,6 +94,7 @@ namespace OrderingProcess
             backArrowBills.Visibility = Visibility.Hidden;
             SplitSliderGrid.Visibility = Visibility.Hidden;
             SplitWarningGrid.Visibility = Visibility.Hidden;
+            MultipleBills.Visibility = Visibility.Hidden;
 
             backArrowTable.MouseDown += new MouseButtonEventHandler(backArrowPressed);
         }
@@ -186,9 +188,31 @@ namespace OrderingProcess
 
         private void keepSplitScreen(object sender, RoutedEventArgs e)
         {
-            OneBill one = new OneBill(index);
-            one.Show();
-            this.Close();
+            MultipleBills.Visibility = Visibility.Visible;
+            AllFourGrid.Visibility = Visibility.Hidden;
+
+            foreach (OneSeatBill bill in eachSeatGrid.Children)
+            {
+                // If they actually have items to pay for
+                if (bill.seatScrollerGrid.Children.Count > 0)
+                {
+                    Button payingBill = new Button();
+
+                    payingBill.Content = " " + bill.seatTitle.Text + " Bill          $27.00";
+
+                    payingBill.Width = 800;
+                    payingBill.Height = 100;
+                    payingBill.FontSize = 48;
+                    payingBill.BorderBrush = new SolidColorBrush(Color.FromRgb(89, 124, 119));
+                    payingBill.Background = new SolidColorBrush(Color.FromRgb(144, 168, 164));
+                    payingBill.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+
+                    // click function- open one bill, delete itself
+                    payingBill.Click += payingBill_Click;
+
+                    BillListGrid.Children.Add(payingBill);
+                }
+            }
         }
 
         private void notChange(object e, MouseButtonEventArgs a)
@@ -199,9 +223,15 @@ namespace OrderingProcess
             backArrowBills.Visibility = Visibility.Hidden;
             backArrowTable.Visibility = Visibility.Visible;
             backToTables.Visibility = Visibility.Visible;
+        }
 
-            // For each seat, add a split possibility
+        private void payingBill_Click(object sender, RoutedEventArgs e)
+        {
+            ((Button)sender).Visibility = Visibility.Hidden;
 
+            OneBill one = new OneBill(index);
+            one.Show();
+            //this.Close();
         }
 
         private void backArrowPressed(object e, MouseButtonEventArgs a)
@@ -209,7 +239,6 @@ namespace OrderingProcess
             this.Close();
         }
 
-        
 
         // For slider - updates number display on popup when slider changes
         private void updateCount(object sender, RoutedPropertyChangedEventArgs<double> e)

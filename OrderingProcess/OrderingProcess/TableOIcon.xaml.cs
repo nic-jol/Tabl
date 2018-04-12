@@ -21,6 +21,7 @@ namespace OrderingProcess
     public partial class TableOIcon : UserControl
     {
         int index;
+        TablePIcon associated;
  
         public TableOIcon()
         {
@@ -61,51 +62,15 @@ namespace OrderingProcess
             seatsFilled.Text = MainWindow.tables[index].getCurrentCount().ToString() + "/" + MainWindow.tables[index].getCapacity().ToString();
             tableState.Text = MainWindow.tables[index].getState().ToString();
         }
-        /*
-        //This function decides which method to call depending on the state of the table objects state
-        private void TableClick(object sender, MouseButtonEventArgs e)
+        
+        public TablePIcon getPayTableReference()
         {
-            if (MainWindow.tables[index].getState() == "Empty")
-            {
-                emptyClick();
-            }
-            else if (MainWindow.tables[index].getState() == "Reserved")
-            {
-                reservedClick();
-            }
-            
-            else if (MainWindow.tables[index].getState() == "Full")
-            {
-                MainWindow.
-            }
-            else if (MainWindow.tables[index].getState() == "Ready")
-            {
-                readyClick();
-            }
-            updateFormWithTable();
+            return associated;
         }
 
-        private void reservedClick()
+        public void setPayTableReference(TablePIcon newPayTable)
         {
-            UnassignTable assign = new UnassignTable(index, this);
-            assign.Show();
+            associated = newPayTable;
         }
-
-        private void emptyClick()
-        {
-            UnassignTable assign = new UnassignTable(index, this);
-            assign.Show();
-        }
-        private void readyClick()
-        {
-            PickUpOrder pickUp = new PickUpOrder(index);
-            pickUp.Show();
-        }
-        private void fullClick()
-        {
-            UnassignTable assign = new UnassignTable(index, this);
-            assign.Show();
-        }
-        */
     }
 }
