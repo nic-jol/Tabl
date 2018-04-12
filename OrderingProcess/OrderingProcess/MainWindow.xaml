@@ -357,9 +357,9 @@
             <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
                 <UniformGrid x:Name="UniformGrid1" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
                     <local:TablePIcon x:Name="Table0_P1" Width="462.5" Height="329.819" UseLayoutRounding="False" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-0.001"/>
-                    <local:TablePIcon x:Name="Table3_P1" Width="500" Height="329.8185" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                    <local:TablePIcon x:Name="Table1_P1" Width="462.5" FontSize="12" Height="329.818" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-                    <local:TablePIcon x:Name="Table2_P1" Width="500" Height="Auto" FontSize="12" HorizontalAlignment="Left" Margin="0,6.356,0,12.713"/>
+                    <local:TablePIcon x:Name="Table1_P1" Width="500" Height="329.8185" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <local:TablePIcon x:Name="Table2_P1" Width="462.5" FontSize="12" Height="329.818" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <local:TablePIcon x:Name="Table3_P1" Width="500" Height="Auto" FontSize="12" HorizontalAlignment="Left" Margin="0,6.356,0,12.713"/>
                 </UniformGrid>
                 <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
