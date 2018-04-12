@@ -21,6 +21,7 @@ namespace OrderingProcess
     public partial class SplitBill : Window
     {
         private int index;
+        private string splittingItem;
         //private int tableNum;
         //private int curCapacity;
 
@@ -173,7 +174,8 @@ namespace OrderingProcess
                     itemDisplay.FontSize = 24;
 
                     itemDisplay.MouseMove += text_MouseMove;  // Get drag and drop ready
-
+                    itemDisplay.MouseDown += new MouseButtonEventHandler(itemToSplit_Click);
+                    
                     ItemsGrid.Children.Add(itemDisplay);
                 }
             }
@@ -402,6 +404,68 @@ namespace OrderingProcess
         {
             // Just close warning box
             SplitWarningGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void itemToSplit_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Double clicks only
+            if (e.ClickCount == 2)
+            {
+                // Show slider for selecting number of splits
+                SplitSliderGrid.Visibility = Visibility.Visible;
+
+                splittingItem = ((TextBlock)sender).Text;
+            }
+                
+        }
+
+        private void okSplit_Click(object sender, RoutedEventArgs e)
+        {
+            // Get value from slider
+            int numSplits = (int)splitSlider.Value;
+
+            // Make that many copies and place in items grid
+            for (int i=0; i<numSplits; ++i)
+            {
+                TextBlock copy = new TextBlock();
+
+                copy.Text = splittingItem;
+
+                RadialGradientBrush radialGradient = new RadialGradientBrush();
+                radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
+                radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
+
+                copy.Background = radialGradient;
+                copy.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+                copy.Height = 70;
+                copy.Width = 300;
+                copy.TextAlignment = TextAlignment.Center;
+                copy.FontSize = 24;
+
+                copy.MouseMove += text_MouseMove;  // Get drag and drop ready
+
+                ItemsGrid.Children.Add(copy);
+            }
+
+            // Delete original (or one of them)
+            //TODO: When cost invovled, check price too
+            foreach (TextBlock child in ItemsGrid.Children)
+            {
+                if (child.Text.Equals(splittingItem))
+                {
+                    ItemsGrid.Children.Remove(child);
+                    break;
+                }
+            }
+
+            // Close slider window
+            SplitSliderGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void cancelSplit_Click(object sender, RoutedEventArgs e)
+        {
+            // Just close window with split slider
+            SplitSliderGrid.Visibility = Visibility.Hidden;
         }
     }
 }
