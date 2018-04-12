@@ -31,7 +31,6 @@ namespace OrderingProcess
             {
                 tabControl.Visibility = Visibility.Hidden;
                 ServerName.Text = "Mike";
-                //BROKEN CODE HERE
 
                 ServerPic.Fill = new ImageBrush
                 {

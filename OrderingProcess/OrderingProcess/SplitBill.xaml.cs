@@ -28,6 +28,18 @@ namespace OrderingProcess
         public SplitBill(int newIndex)
         {
             InitializeComponent();
+            if (MainWindow.userType == 'm')
+            {
+                ServerName.Text = "Mike";
+
+                serverPic.Fill = new ImageBrush
+                {
+                    ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
+                };
+            }
+
+
+
             index = newIndex;
 
             int tableNum = MainWindow.tables[index].getTableNumber();
