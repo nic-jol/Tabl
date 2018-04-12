@@ -15,7 +15,7 @@ namespace OrderingProcess
     public partial class MainWindow : Window
     {
         public static CustomerTable[] tables = new CustomerTable[4];
-        public static char userType = 'm';
+        public static char userType;
         public TableOIcon curTable;
         private String foodName;  // For transfering food name to side function
         private String sideName;

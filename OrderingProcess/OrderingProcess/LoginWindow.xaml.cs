@@ -27,15 +27,18 @@ namespace OrderingProcess
 
         private void checkCredentials(object sender, RoutedEventArgs e)
         {
-            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("s"))
+            MainWindow main;
+            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals('s'))
             {
-                MainWindow main = new MainWindow();
+                MainWindow.userType = 's';
+                main = new MainWindow();
                 main.Show();
                 this.Close();
 
             }
-            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("m"))) {
-                ManagerWindow main = new ManagerWindow();
+            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals('m'))) {
+                MainWindow.userType = 'm';
+                main = new MainWindow();
                 main.Show();
                 this.Close();
             }
