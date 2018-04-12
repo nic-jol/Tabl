@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\Mac\Home\Documents\Tabl\OrderingProcess\OrderingProcess\obj\Debug\
+C:\Users\austi\OneDrive\CPSC 481\project\lidlp4\Tabl\OrderingProcess\OrderingProcess\obj\Debug\
 OrderingProcess
 none
 false
 DEBUG;TRACE
-\\Mac\Home\Documents\Tabl\OrderingProcess\OrderingProcess\App.xaml
+C:\Users\austi\OneDrive\CPSC 481\project\lidlp4\Tabl\OrderingProcess\OrderingProcess\App.xaml
 14-743148931
 
-25-143593373
-16-1321827144
+252099590351
+16-1184676245
 AssignTable.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerWindow.xaml;MenuItemWithDelete.xaml;OneBill.xaml;OneSeatBill.xaml;OrderNotification.xaml;PickUpOrder.xaml;SeatMenuDisplayControl.xaml;SplitBill.xaml;TableOIcon.xaml;TablePIcon.xaml;UnassignTable.xaml;
 
-True
+False
 

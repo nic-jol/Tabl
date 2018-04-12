@@ -63,9 +63,9 @@ namespace OrderingProcess.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LoadingGif {
+        internal static System.Drawing.Bitmap Mike {
             get {
-                object obj = ResourceManager.GetObject("LoadingGif", resourceCulture);
+                object obj = ResourceManager.GetObject("Mike", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

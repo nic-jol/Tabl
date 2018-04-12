@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Forms;
 
 namespace OrderingProcess
@@ -14,6 +15,7 @@ namespace OrderingProcess
     public partial class MainWindow : Window
     {
         public static CustomerTable[] tables = new CustomerTable[4];
+        public static char userType = 'm';
         public TableOIcon curTable;
         private String foodName;  // For transfering food name to side function
         private String sideName;
@@ -24,6 +26,20 @@ namespace OrderingProcess
         public MainWindow()
         {
             InitializeComponent();
+
+            // *** Determines if manager tabs or server tabs displayed depending on static variable userType ***
+            if (userType == 'm')
+            {
+                tabControl.Visibility = Visibility.Hidden;
+                ServerName.Text = "Mike";
+                ServerPic.Fill = new ImageBrush
+                {
+                    ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
+                };
+            }
+            else
+                tabControl_Manager.Visibility = Visibility.Hidden;
+
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
@@ -42,11 +58,13 @@ namespace OrderingProcess
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
+            InfoButton.Visibility = Visibility.Hidden;
             LogoutButton.Visibility = Visibility.Hidden;
 
             // Logout controls
-            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(logoutAppear);
-            tabControl.MouseDown += new MouseButtonEventHandler(logout_ClickAway);
+            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
+            tabControl.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
+            tabControl_Manager.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             LogoutButton.Click += logout_Click;
 
             //###TABLES###//
@@ -56,6 +74,7 @@ namespace OrderingProcess
             tables[2] = new CustomerTable("Full", 22, 2, 4);
             tables[3] = new CustomerTable("Pick Up", 23, 4, 4);
 
+            // Server tables
             Table0_O.updateIndex(0);
             Table0_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table0_P.updateIndex(0);
@@ -71,6 +90,24 @@ namespace OrderingProcess
             Table3_O.updateIndex(3);
             Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_P.updateIndex(3);
+
+
+            // Manager tables
+            Table0_O1.updateIndex(0);
+            Table0_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table0_P1.updateIndex(0);
+
+            Table1_O1.updateIndex(1);
+            Table1_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table1_P1.updateIndex(1);
+
+            Table2_O1.updateIndex(2);
+            Table2_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table2_P1.updateIndex(2);
+
+            Table3_O1.updateIndex(3);
+            Table3_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table3_P1.updateIndex(3);
 
 
             //###SEATS###//
@@ -537,15 +574,17 @@ namespace OrderingProcess
         }
 
         //#### Logout Controls ####//
-        private void logoutAppear(object sender, MouseButtonEventArgs e)
+        private void menuAppear(object sender, MouseButtonEventArgs e)
         {
             if (LogoutButton.Visibility == Visibility.Hidden)
             {
                 LogoutButton.Visibility = Visibility.Visible;
+                InfoButton.Visibility = Visibility.Visible;
             }
             else
             {
                 LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -556,10 +595,13 @@ namespace OrderingProcess
             this.Close();
         }
 
-        private void logout_ClickAway(object sender, RoutedEventArgs e)
+        private void menu_ClickAway(object sender, RoutedEventArgs e)
         {
             if (LogoutButton.Visibility == Visibility.Visible)
+            {
                 LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
+            }
         }
 
     //#### TODO: Pick Up Order PopUP ####//

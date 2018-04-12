@@ -78,7 +78,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
+        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A" d:IsHidden="True">
             <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,-0.671,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
             <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105" Columns="1"/>
             <Button x:Name="Seat1Button" Content="Seat 1" HorizontalAlignment="Left" Width="344.5" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Margin="-439.5,-109.158,0,0"
@@ -150,7 +150,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:IsLocked="True">
+        <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="foodButton" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFEFF4EF">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -168,7 +168,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsLocked="True">
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,30.5,10,-5" FontSize="32" BorderBrush="{x:Null}" Foreground="White" 
                     MouseMove="item_MouseMove"
                     AllowDrop="True">
@@ -225,7 +225,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <Grid x:Name="Header" Height="60" Margin="-4,0,0,0" VerticalAlignment="Top" d:IsLocked="True">
+        <Grid x:Name="Header" Height="60" Margin="-4,0,0,0" VerticalAlignment="Top" d:IsLocked="True" d:IsHidden="True">
             <Rectangle x:Name="TopBack" Margin="0,0,-3.667,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -251,7 +251,7 @@
                 </ed:BlockArrow.Fill>
             </ed:BlockArrow>
         </Grid>
-        <UniformGrid x:Name="DrinksGrid" Margin="363.829,39,0,2.668" Columns="1" Rows="6">
+        <UniformGrid x:Name="DrinksGrid" Margin="363.829,39,0,2.668" Columns="1" Rows="6" d:IsHidden="True">
             <Button x:Name="cokeButton" Content="Coke" Margin="10,31.865,10,-6.365" FontSize="32" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Background>
                     <RadialGradientBrush>
@@ -378,7 +378,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0" d:IsLocked="True" d:IsHidden="True">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0" d:IsHidden="True" d:IsLocked="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto"/>
@@ -387,7 +387,7 @@
                     <local:TableOIcon x:Name="Table3_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
-            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-109.898,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
                     <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" FontSize="12"/>
                     <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
@@ -405,6 +405,39 @@
 
             </TabItem>
         </TabControl>
+        <TabControl x:Name="tabControl_Manager" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
+                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
+                    <local:TableOIcon x:Name="Table0_O1" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table1_O1" Width="Auto" Height="Auto"/>
+                    <local:TableOIcon x:Name="Table2_O1" Width="Auto" Height="Auto" />
+                    <local:TableOIcon x:Name="Table3_O1" Width="Auto" Height="Auto"/>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
+                <UniformGrid x:Name="UniformGrid1" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
+                    <local:TablePIcon x:Name="Table0_P1" Width="Auto" Height="Auto" UseLayoutRounding="False" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table3_P1" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table1_P1" Width="Auto" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table2_P1" Width="Auto" Height="Auto" FontSize="12"/>
+                </UniformGrid>
+                <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="73*"/>
+                        <RowDefinition Height="156*"/>
+                    </Grid.RowDefinitions>
+                    <local:OneBill x:Name ="OneBill" HorizontalAlignment="Left" Height="450.73" VerticalAlignment="Top" Width="483.5" Margin="-223.5,-459.5,0,0" Visibility="Hidden"/>
+                </Grid>
+                -->
+
+            </TabItem>
+            <TabItem Header="Queue" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="95.5,0,-95.5,0" FontSize="28">
+                <Grid Background="#FF597C77"/>
+            </TabItem>
+            <TabItem Header="Reports" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="99.666,0,-99.667,0" FontSize="28">
+                <Grid Background="#FF597C77"/>
+            </TabItem>
+        </TabControl>
         <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031" d:IsHidden="True">
             <TextBlock x:Name="reserveTitle" Height="33.5" Margin="23.5,10,25,0" TextWrapping="Wrap" Text="Reserved Table ##" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF"/>
             <Button x:Name="assignButtonR" Content="Assign" Margin="10,48.5,10,0" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
@@ -417,8 +450,8 @@
             <Button x:Name="unassignButtonF" Content="Unassign" Margin="10,119.5,10,86" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60"/>
             <Button x:Name="cancelButtonF" Content="Cancel" Height="44.079" Margin="10,0,10,10" VerticalAlignment="Bottom" Background="#FF7B7A7B" FontSize="26.667" Foreground="#FF313031"/>
         </Grid>
-        <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
-            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" >
+        <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143">
+            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -430,7 +463,8 @@
                 </ed:Arc.Stroke>
             </ed:Arc>
             <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand"/>
-            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
+            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-78.674" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
+            <Button x:Name="InfoButton" Content="Info" HorizontalAlignment="Left" Height="43.423" Margin="0,50,0,-36.423" VerticalAlignment="Top" Width="143" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Background="#FF1C2225" FontSize="24"/>
         </Grid>
         <UniformGrid x:Name="PickUpGrid" Margin="0,60,0,0" Columns="1" d:IsLocked="True" d:IsHidden="True">
             <Grid x:Name="PickUpMessage" Margin="321.105,233.687,317.159,284.26" RenderTransformOrigin="0.5,0.5" Background="#FF0B0B0B">
