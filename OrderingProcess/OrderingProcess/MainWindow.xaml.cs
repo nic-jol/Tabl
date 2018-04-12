@@ -40,6 +40,7 @@ namespace OrderingProcess
             else
                 tabControl_Manager.Visibility = Visibility.Hidden;
 
+            InfoGrid.Visibility = Visibility.Hidden;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
@@ -61,11 +62,13 @@ namespace OrderingProcess
             InfoButton.Visibility = Visibility.Hidden;
             LogoutButton.Visibility = Visibility.Hidden;
 
-            // Logout controls
+            // Dropdown menu controls
             ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
             tabControl.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             tabControl_Manager.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             LogoutButton.Click += logout_Click;
+            InfoButton.Click += info_Click;
+            InfoClose.Click += info_Close;
 
             //###TABLES###//
             //String newState, int newTableNum, int newCurrentCount, int newCapacity
@@ -588,13 +591,6 @@ namespace OrderingProcess
             }
         }
 
-        private void logout_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow login = new LoginWindow();
-            login.Show();
-            this.Close();
-        }
-
         private void menu_ClickAway(object sender, RoutedEventArgs e)
         {
             if (LogoutButton.Visibility == Visibility.Visible)
@@ -604,8 +600,25 @@ namespace OrderingProcess
             }
         }
 
-    //#### TODO: Pick Up Order PopUP ####//
-    private void buttonOkClick(object sender, RoutedEventArgs e)
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            this.Close();
+        }
+
+        private void info_Click(object sender, RoutedEventArgs e)
+        {
+            InfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void info_Close(object sender, RoutedEventArgs e)
+        {
+            InfoGrid.Visibility = Visibility.Hidden;
+        }
+
+        //#### TODO: Pick Up Order PopUP ####//
+        private void buttonOkClick(object sender, RoutedEventArgs e)
         {
             PickUpGrid.Visibility = Visibility.Hidden;
         }
