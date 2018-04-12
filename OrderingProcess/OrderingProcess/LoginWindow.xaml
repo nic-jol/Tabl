@@ -75,10 +75,10 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="LoginButton" Content="Login" Margin="381.867,566.185,344.035,0" VerticalAlignment="Top" Background="#FF858685" Click="checkCredentials" Height="34.96" BorderBrush="{x:Null}" Foreground="#FF161616" FontSize="18.667"/>
-        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Height="27" Margin="381.867,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291.348"/>
-        <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="27" Margin="381.867,507,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291.348"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Height="27" Margin="381.867,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291.348" FontSize="18.667"/>
+        <TextBox x:Name="PasswordBox" HorizontalAlignment="Left" Height="27" Margin="381.867,507,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291.348" FontSize="18.667"/>
         <Image x:Name="LogoImage" Margin="268.24,123.66,268.953,0" Source="tablLogo.png" VerticalAlignment="Top"/>
-        <TextBlock x:Name="invalidUser" HorizontalAlignment="Left" Height="45.272" Margin="534.966,571.97,0,0" TextWrapping="Wrap" Text="Invalid username or password" VerticalAlignment="Top" Width="238.331" Foreground="#FF858685" FontSize="18" Visibility="Hidden"/>
+        <TextBlock x:Name="invalidUser" Margin="381.867,0,344.035,176.482" TextWrapping="Wrap" Text="Invalid username or password" VerticalAlignment="Bottom" Foreground="#FF858685" FontSize="18" Height="22.185" TextAlignment="Center" Visibility="Hidden"/>
         <TextBlock x:Name="usernameLabel" HorizontalAlignment="Left" Height="27" Margin="381.867,0,0,324.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="119.383" Foreground="#FF858685" FontSize="21.333"><Run FontWeight="Bold" Text="Username"/></TextBlock>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="27" Margin="381.867,0,0,235.667" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="119.383" FontSize="21.333" Foreground="#FF858685"><Run FontWeight="Bold" Text="Password"/></TextBlock>
     </Grid>

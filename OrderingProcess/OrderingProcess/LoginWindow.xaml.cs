@@ -27,6 +27,7 @@ namespace OrderingProcess
 
         private void checkCredentials(object sender, RoutedEventArgs e)
         {
+            invalidUser.Visibility = Visibility.Hidden;
             if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("s"))
             {
                 MainWindow main = new MainWindow();
@@ -41,8 +42,9 @@ namespace OrderingProcess
             }
             else
             {
-                MessageBox.Show("Username or password do not match, please try again");
+                //MessageBox.Show("Username or password do not match, please try again");
                 invalidUser.Visibility = Visibility.Visible;
+                PasswordBox.Text = "";
             }
         }
 

@@ -66,7 +66,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsHidden="True">
+        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsHidden="True" d:IsLocked="True">
             <TextBlock x:Name="titleText" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
             <Button x:Name="changeButton" Content="Change Split" HorizontalAlignment="Left" Height="103.5" Margin="0,0,0,18" VerticalAlignment="Bottom" Width="493" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="changeSplitScreen">
                 <Button.Background>
@@ -104,7 +104,7 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <UniformGrid x:Name="SplitSliderGrid" Margin="10,59,-10,0">
+        <UniformGrid x:Name="SplitSliderGrid" Margin="10,59,-10,0" d:IsHidden="True">
             <Grid x:Name="SplitPopup" Margin="233,199,233,175" Background="#FF0B0B0B">
                 <Grid.Effect>
                     <DropShadowEffect/>
@@ -130,6 +130,10 @@
                 </Button>
             </Grid>
         </UniformGrid>
+        <Grid x:Name="MultipleBills" Margin="0,59,-10,-0.585">
+            <TextBlock x:Name="multiTitle" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
+            <UniformGrid x:Name="BillListGrid" Margin="10,95,18,10" HorizontalAlignment="Left" VerticalAlignment="Top" Columns="1"/>
+        </Grid>
 
     </Grid>
 </Window>

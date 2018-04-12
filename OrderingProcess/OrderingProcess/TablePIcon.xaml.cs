@@ -21,6 +21,7 @@ namespace OrderingProcess
     public partial class TablePIcon : UserControl
     {
         private int index;
+
         public TablePIcon()
         {
             InitializeComponent();
@@ -42,18 +43,26 @@ namespace OrderingProcess
             if (MainWindow.tables[index].getState() == "Empty")
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+                oneBill.Visibility = Visibility.Hidden;
+                splitBill.Visibility = Visibility.Hidden;
             }
             else if (MainWindow.tables[index].getState() == "Reserved")
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(45, 71, 90));
+                oneBill.Visibility = Visibility.Hidden;
+                splitBill.Visibility = Visibility.Hidden;
             }
             else if (MainWindow.tables[index].getState() == "Pick Up")
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(110, 94, 123));
+                oneBill.Visibility = Visibility.Visible;
+                splitBill.Visibility = Visibility.Visible;
             }
             else if (MainWindow.tables[index].getState() == "Full")
             {
                 tableRectangle.Fill = new SolidColorBrush(Color.FromRgb(49, 48, 49));
+                oneBill.Visibility = Visibility.Visible;
+                splitBill.Visibility = Visibility.Visible;
             }
 
             tableNum.Text = MainWindow.tables[index].getTableNumber().ToString();
