@@ -457,7 +457,7 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Height="300" Margin="0" VerticalAlignment="Center" Width="480" Background="#FF0B0B0B" d:IsHidden="True">
+        <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Height="400" Margin="0" VerticalAlignment="Center" Width="480" Background="#FF0B0B0B">
 
             <TextBlock x:Name="HoursWorked" HorizontalAlignment="Center" Height="39" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF"><Run Text="Hours worked today:"/><Run Text=" 5.2"/><Run Text=" "/></TextBlock>
 
@@ -467,7 +467,9 @@
 
             <TextBlock x:Name="OvertimeHoursWeek" HorizontalAlignment="Center" Height="39" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Overtime hours worked this week: 2.3"/>
 
-            <Button x:Name="InfoClose" Content="Close" HorizontalAlignment="Center" Height="50" Margin="0,200,0,0" VerticalAlignment="Center" Width="160" BorderBrush="{x:Null}" Foreground="#FF0B0B0B" FontSize="24"/>
+            <TextBlock x:Name="OrderHistory" HorizontalAlignment="Center" Height="80" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Orders taken this shift: "/>
+
+            <Button x:Name="InfoClose" Content="Close" HorizontalAlignment="Center" Height="50" Margin="0,300,0,0" VerticalAlignment="Center" Width="160" BorderBrush="{x:Null}" Foreground="#FF0B0B0B" FontSize="24"/>
 
         </Grid>
 
