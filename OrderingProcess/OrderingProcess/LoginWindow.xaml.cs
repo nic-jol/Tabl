@@ -27,18 +27,15 @@ namespace OrderingProcess
 
         private void checkCredentials(object sender, RoutedEventArgs e)
         {
-            MainWindow main;
-            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals('s'))
+            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("s"))
             {
-                MainWindow.userType = 's';
-                main = new MainWindow();
+                MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
 
             }
-            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals('m'))) {
-                MainWindow.userType = 'm';
-                main = new MainWindow();
+            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("m"))) {
+                ManagerWindow main = new ManagerWindow();
                 main.Show();
                 this.Close();
             }
@@ -49,6 +46,7 @@ namespace OrderingProcess
             }
         }
 
+        //TODO
         private void orderNotification(object sender, RoutedEventArgs e)
         {
             OrderNotification order = new OrderNotification();
