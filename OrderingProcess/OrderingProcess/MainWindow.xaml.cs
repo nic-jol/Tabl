@@ -33,10 +33,10 @@ namespace OrderingProcess
                 ServerName.Text = "Mike";
                 //BROKEN CODE HERE
 
-                //ServerPic.Fill = new ImageBrush
-                //{
-                   // ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
-                //};
+                ServerPic.Fill = new ImageBrush
+                {
+                    ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
+                };
             }
             else
                 tabControl_Manager.Visibility = Visibility.Hidden;
@@ -67,6 +67,7 @@ namespace OrderingProcess
             //  // Dropdown menu controls
             ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
             tabControl.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
+            tabControl_Manager.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             LogoutButton.Click += logout_Click;
             InfoButton.Click += info_Click;
             InfoClose.Click += info_Close;
@@ -97,7 +98,7 @@ namespace OrderingProcess
             Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_O.setPayTableReference(Table3_P);
             Table3_P.updateIndex(3);
-
+            
             //manager tables
             Table0_O1.updateIndex(0);
             Table0_O1.MouseDown += new MouseButtonEventHandler(tableClick);
@@ -119,7 +120,7 @@ namespace OrderingProcess
             Table3_O1.setPayTableReference(Table3_P);
             Table3_P1.updateIndex(3);
 
-
+            
 
             //###SEATS###//
             //Seat1Button.Click += seatButton_Click;
@@ -253,6 +254,7 @@ namespace OrderingProcess
             // Show Ordering
             SeatsGrid.Visibility = Visibility.Visible;
             tabControl.Visibility = Visibility.Hidden;
+            tabControl_Manager.Visibility = Visibility.Hidden;
             //CategoriesGrid.Visibility = Visibility.Visible;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
@@ -567,8 +569,10 @@ namespace OrderingProcess
             {
                 SeatButtonsGrid.Children.Remove(ch as Button);
             }
-
-            tabControl.Visibility = Visibility.Visible;
+            if (userType == 'm')
+                tabControl_Manager.Visibility = Visibility.Visible;
+            else
+                tabControl.Visibility = Visibility.Visible;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
