@@ -496,5 +496,10 @@ namespace OrderingProcess
             // Just close window with split slider
             SplitSliderGrid.Visibility = Visibility.Hidden;
         }
+
+        private void donePayButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

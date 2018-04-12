@@ -69,7 +69,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Bottom">
+    <Grid x:Name="MainViewGrid" Margin="0,0,0,-3" Height="740" VerticalAlignment="Bottom" ToolTip="First select a seat, then select a food item for that seat">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="0*"/>
@@ -78,8 +78,8 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A" d:IsHidden="True">
-            <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,-0.671,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
+        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
+            <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,105.329,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
             <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105" Columns="1"/>
             <Button x:Name="KitchenButton" Content="See Full Order" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="364.5" FontSize="48" Foreground="#FF313031" BorderBrush="{x:Null}" BorderThickness="2">
                 <Button.Background>
@@ -89,6 +89,7 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
+            <Button x:Name="helpOrdering" Content="?" HorizontalAlignment="Right" Height="54" Margin="0,10,10,0" VerticalAlignment="Top" Width="54" BorderThickness="1,0,1,1" FontSize="40" FontWeight="Bold" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FFFF7900"/>
         </Grid>
         <UniformGrid x:Name="CategoriesGrid" Margin="368.829,60,0,0" Rows="2" Columns="1" d:IsLocked="True" d:IsHidden="True">
             <Button x:Name="foodButton" Content="Food" Margin="30,51,33,17.042" BorderBrush="{x:Null}" FontSize="64" Foreground="#FFEFF4EF">
@@ -317,7 +318,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10.955,-0.671,-0.955" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10.955,-0.671,-0.955" Grid.RowSpan="2" Grid.ColumnSpan="2" d:IsHidden="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0.5,-90.62,-0.259" FontSize="28" d:IsLocked="True">
                 <UniformGrid x:Name="orderUniGrid" Margin="0,0,0,-2" Rows="2" Columns="2" Width="1012" Height="682">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto" d:IsLocked="True"/>
