@@ -30,13 +30,15 @@ namespace OrderingProcess
             invalidUser.Visibility = Visibility.Hidden;
             if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("s"))
             {
+                MainWindow.userType = 's';
                 MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
 
             }
             else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("m"))) {
-                ManagerWindow main = new ManagerWindow();
+                MainWindow.userType = 'm';
+                MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
             }

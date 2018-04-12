@@ -345,6 +345,47 @@
 
             </TabItem>
         </TabControl>
+        <TabControl x:Name="tabControl_Manager" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+            <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
+                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
+                    <local:TableOIcon x:Name="Table0_O1" Width="500" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <local:TableOIcon x:Name="Table1_O1" Width="500" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <local:TableOIcon x:Name="Table2_O1" Width="500" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <local:TableOIcon x:Name="Table3_O1" Width="500" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
+                <UniformGrid x:Name="UniformGrid1" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
+                    <local:TablePIcon x:Name="Table0_P1" Width="462.5" Height="329.819" UseLayoutRounding="False" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-0.001"/>
+                    <local:TablePIcon x:Name="Table3_P1" Width="500" Height="329.8185" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <local:TablePIcon x:Name="Table1_P1" Width="462.5" FontSize="12" Height="329.818" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <local:TablePIcon x:Name="Table2_P1" Width="500" Height="Auto" FontSize="12" HorizontalAlignment="Left" Margin="0,6.356,0,12.713"/>
+                </UniformGrid>
+                <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="73*"/>
+                        <RowDefinition Height="156*"/>
+                    </Grid.RowDefinitions>
+                    <local:OneBill x:Name ="OneBill" HorizontalAlignment="Left" Height="450.73" VerticalAlignment="Top" Width="483.5" Margin="-223.5,-459.5,0,0" Visibility="Hidden"/>
+                </Grid>
+                -->
+
+            </TabItem>
+            <TabItem Header="Queue" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="95.5,0,-95.5,0" FontSize="28">
+                <Grid Background="#FF597C77">
+                    <TextBlock HorizontalAlignment="Center" Height="620" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="970" Background="Black" Opacity="0.6" Foreground="#FF7E7E7E" FontSize="22"><Run Text="Number&#x9;"/><Run Text="&#x9;"/><Run Text="Tablenum&#x9;Contents&#x9;&#x9;&#x9;Time Received&#x9;&#x9;Status"/><LineBreak/><Run Text=""/></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Reports" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="99.666,0,-99.667,0" FontSize="28">
+                <Grid Background="#FF597C77">
+                    <TextBlock HorizontalAlignment="Center" Height="57" Margin="223.25,118.068,223.25,504.569" TextWrapping="Wrap" Text="Daily Report: April 1st, 2018" VerticalAlignment="Center" Width="565.5" TextAlignment="Center" FontSize="36"/>
+                    <Button Content="Print Report" HorizontalAlignment="Left" Height="80" Margin="297,200,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="Email Report" HorizontalAlignment="Left" Height="80" Margin="297,290,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="Save Report" HorizontalAlignment="Left" Height="80" Margin="297,380,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                    <Button Content="View Report History" HorizontalAlignment="Left" Height="80" Margin="297,470,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
         <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031" d:IsHidden="True">
             <TextBlock x:Name="reserveTitle" Height="33.5" Margin="23.5,10,25,0" TextWrapping="Wrap" Text="Reserved Table ##" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF"/>
             <Button x:Name="assignButtonR" Content="Assign" Margin="10,48.5,10,0" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60" VerticalAlignment="Top" d:LayoutOverrides="Height"/>

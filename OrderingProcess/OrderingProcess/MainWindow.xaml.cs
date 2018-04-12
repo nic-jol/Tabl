@@ -20,11 +20,28 @@ namespace OrderingProcess
         private String sideName;
         private int itemSize;
         private int seatOrder = -1;   // Keep track of what seat and order is for
+        public static char userType = 'n';
         //private 
         
         public MainWindow()
         {
             InitializeComponent();
+            // *** Determines if manager tabs or server tabs displayed depending on static variable userType ***
+            if (userType == 'm')
+            {
+                tabControl.Visibility = Visibility.Hidden;
+                ServerName.Text = "Mike";
+                //BROKEN CODE HERE
+
+                //ServerPic.Fill = new ImageBrush
+                //{
+                   // ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
+                //};
+            }
+            else
+                tabControl_Manager.Visibility = Visibility.Hidden;
+
+
             InfoGrid.Visibility = Visibility.Hidden;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
@@ -80,6 +97,28 @@ namespace OrderingProcess
             Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_O.setPayTableReference(Table3_P);
             Table3_P.updateIndex(3);
+
+            //manager tables
+            Table0_O1.updateIndex(0);
+            Table0_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table0_O1.setPayTableReference(Table0_P);
+            Table0_P1.updateIndex(0);
+
+            Table1_O1.updateIndex(1);
+            Table1_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table1_O1.setPayTableReference(Table1_P);
+            Table1_P1.updateIndex(1);
+
+            Table2_O1.updateIndex(2);
+            Table2_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table2_O1.setPayTableReference(Table2_P);
+            Table2_P1.updateIndex(2);
+
+            Table3_O1.updateIndex(3);
+            Table3_O1.MouseDown += new MouseButtonEventHandler(tableClick);
+            Table3_O1.setPayTableReference(Table3_P);
+            Table3_P1.updateIndex(3);
+
 
 
             //###SEATS###//
