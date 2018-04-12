@@ -85,7 +85,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="533.684" VerticalAlignment="Top" Width="440" Background="#FFEFF4EF">
+        <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="533.684" VerticalAlignment="Top" Width="440" Background="#FFEFF4EF" d:IsHidden="True">
             
             <TextBlock x:Name="PaymentStatus" HorizontalAlignment="Center" Height="137.998" Margin="0,0,0,100" TextWrapping="Wrap" VerticalAlignment="Center" Width="328.153" FontSize="48" TextAlignment="Center" Foreground="#FF293835"><Run Text="Payment"/><LineBreak/><Run Text="Processing"/></TextBlock>
             

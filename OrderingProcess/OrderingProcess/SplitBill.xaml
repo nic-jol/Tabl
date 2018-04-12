@@ -25,7 +25,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Stroke>
             </Rectangle>
-            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24" d:IsHidden="True"/>
+            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24"/>
             <TextBlock x:Name="backToBills" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Width="272" Foreground="#FFEFF4EF" FontSize="24"><Run Text="Back to Original S"/><Run Text="p"/><Run Text="lit"/></TextBlock>
 
             <ed:Arc x:Name="serverPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3,92.667,7" Stretch="None" StartAngle="0" Width="49" Stroke="Black">
@@ -51,14 +51,22 @@
             </ed:BlockArrow>
             <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,10.75,0,3.25" TextWrapping="Wrap" Text="Sally" Width="87.667" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFC6CFD3" FontWeight="Bold" FontSize="24" IsReadOnly="True"/>
         </Grid>
-        <Grid x:Name="ChangeSplitGrid" Margin="0,61,0,-5">
-            <TextBlock x:Name="tableTitle" Height="43" Margin="432,1.5,448,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" FontSize="32" Foreground="#FF313031" FontWeight="Bold"/>
+        <Grid x:Name="ChangeSplitGrid" Margin="0,61,0,-5" d:IsHidden="True">
+            <TextBlock x:Name="tableTitle" Height="43" Margin="4,1.5,0,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" FontSize="32" Foreground="#FF313031" FontWeight="Bold" HorizontalAlignment="Left" Width="138"/>
             <UniformGrid x:Name="SplitsGrid" Margin="0,307,0,5.25" Background="#FF313031" Columns="2"/>
             <ScrollViewer x:Name="ItemScroller" Height="262.5" Margin="4,44.5,0,0" VerticalAlignment="Top">
-                <UniformGrid x:Name="ItemsGrid" Width="994"/>
+                <UniformGrid x:Name="ItemsGrid" Width="994" d:IsHidden="True"/>
             </ScrollViewer>
+            <Button x:Name="userSplit" Content="Use This Split" HorizontalAlignment="Right" Height="44.5" Margin="0,0,10,0" VerticalAlignment="Top" Width="177" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Click="userSplit_Click">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF243330" Offset="1"/>
+                        <GradientStop Color="#FF4C5856"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
-        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsHidden="True" d:IsLocked="True">
+        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7">
             <TextBlock x:Name="titleText" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
             <Button x:Name="changeButton" Content="Change Split" HorizontalAlignment="Left" Height="103.5" Margin="0,0,0,18" VerticalAlignment="Bottom" Width="493" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="changeSplitScreen">
                 <Button.Background>
@@ -80,38 +88,48 @@
                 <UniformGrid x:Name="eachSeatGrid" Background="#FF313031" Height="457.5" Width="971.5" Columns="2" HorizontalAlignment="Left"/>
             </ScrollViewer>
         </Grid>
-        <Button x:Name="button" Content="Classic Burger &amp; Regular Fries" Height="66" Margin="318,-151,256,0" VerticalAlignment="Top" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}">
-            <Button.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FE90A8A4" Offset="0"/>
-                    <GradientStop Color="#FF597C77" Offset="1"/>
-                </RadialGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="button_Copy" Content="Sprite" HorizontalAlignment="Left" Height="66" Margin="-210,-151,0,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}">
-            <Button.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FE90A8A4" Offset="0"/>
-                    <GradientStop Color="#FF597C77" Offset="1"/>
-                </RadialGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="button_Copy1" Content="Tuna Sandwich &amp; Garden Salad" HorizontalAlignment="Right" Height="66" Margin="0,-178,-262.5,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}">
-            <Button.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FE90A8A4" Offset="0"/>
-                    <GradientStop Color="#FF597C77" Offset="1"/>
-                </RadialGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="button_Copy2" Content="Milk" HorizontalAlignment="Right" Height="66" Margin="0,103,-494.5,0" VerticalAlignment="Top" Width="444" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}">
-            <Button.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FE90A8A4" Offset="0"/>
-                    <GradientStop Color="#FF597C77" Offset="1"/>
-                </RadialGradientBrush>
-            </Button.Background>
-        </Button>
+        <UniformGrid x:Name="SplitWarningGrid" Margin="0,59,0,-4.351" d:IsHidden="True">
+            <Grid x:Name="splitOrWhole" Margin="298.268,273.537,299.839,193.263" Background="#FF0B0B0B">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <TextBlock x:Name="textBlock" Margin="10,10,10,97.911" TextWrapping="Wrap" Foreground="#FFEFF4EF" FontSize="32"><Run Text="You "/><Run Text="m"/><Run Text="ust add all items "/><Run Text="to one of the "/><Run Text="seats"/><Run Text="!"/></TextBlock>
+                <Button x:Name="splitItemButton" Content="Ok" Height="82.911" Margin="53.181,0,54,10" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" FontSize="32" BorderBrush="{x:Null}" Click="splitItemButton_Click">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF4C5856" Offset="0"/>
+                            <GradientStop Color="#FF243330" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </UniformGrid>
+        <UniformGrid x:Name="SplitSliderGrid" Margin="10,59,-10,0" d:IsLocked="True" d:IsHidden="True">
+            <Grid x:Name="SplitPopup" Margin="233,199,233,175" Background="#FF0B0B0B">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Slider x:Name="splitSlider" Height="50" Margin="66,0,66,96" VerticalAlignment="Bottom" ValueChanged="updateCount" IsSnapToTickEnabled="True" Minimum="1"/>
+                <TextBlock x:Name="promptSplit" Height="90" Margin="66,42,186,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="53.333"><Run Text="# of Split"/><Run Text="s:"/></TextBlock>
+                <TextBlock x:Name="splitCount" HorizontalAlignment="Right" Height="90" Margin="0,42,66,0" TextWrapping="Wrap" Text="##" VerticalAlignment="Top" Width="84" Foreground="#FFEFF4EF" FontSize="64" FontWeight="Bold"/>
+                <Button x:Name="okSplit" Content="OK" HorizontalAlignment="Left" Height="64" Margin="66,0,0,32" VerticalAlignment="Bottom" Width="198" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" FontSize="32">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF4C5856" Offset="0"/>
+                            <GradientStop Color="#FF243330" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="cancelSplit" Content="Cancel" HorizontalAlignment="Right" Height="64" Margin="0,0,66,32" VerticalAlignment="Bottom" Width="198" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" FontSize="32">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF4C5856" Offset="0"/>
+                            <GradientStop Color="#FF243330" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </UniformGrid>
 
     </Grid>
 </Window>
