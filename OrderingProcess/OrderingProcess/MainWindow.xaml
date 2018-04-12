@@ -78,7 +78,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A" d:IsHidden="True">
+        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
             <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,-0.671,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
             <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105" Columns="1"/>
             <Button x:Name="Seat1Button" Content="Seat 1" HorizontalAlignment="Left" Width="344.5" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Margin="-439.5,-109.158,0,0"
@@ -168,10 +168,9 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsLocked="True" d:IsHidden="True">
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6">
             <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,30.5,10,-5" FontSize="32" BorderBrush="{x:Null}" Foreground="White" 
-                    MouseMove="item_MouseMove"
-                    AllowDrop="True">
+                    MouseMove="item_MouseMove">
                 <!-- GiveFeedback="item_GiveFeedback" 
                  
                 
@@ -378,7 +377,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0" d:IsLocked="True" d:IsHidden="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto"/>
@@ -387,7 +386,7 @@
                     <local:TableOIcon x:Name="Table3_O" Width="Auto" Height="Auto"/>
                 </UniformGrid>
             </TabItem>
-            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
+            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-109.898,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
                 <UniformGrid x:Name="UniformGrid" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
                     <local:TablePIcon x:Name="Table0_P" Width="Auto" Height="Auto" UseLayoutRounding="False" FontSize="12"/>
                     <local:TablePIcon x:Name="Table3_P" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
@@ -405,47 +404,6 @@
 
             </TabItem>
         </TabControl>
-        <TabControl x:Name="tabControl_Manager" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
-            <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
-                <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
-                    <local:TableOIcon x:Name="Table0_O1" Width="500" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <local:TableOIcon x:Name="Table1_O1" Width="500" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <local:TableOIcon x:Name="Table2_O1" Width="500" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <local:TableOIcon x:Name="Table3_O1" Width="500" Height="Auto" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                </UniformGrid>
-            </TabItem>
-            <TabItem Header="Payment" Background="#FF134F66" Margin="0,0,-91.398,0" HorizontalAlignment="Right" Width="149.996" FontSize="28" Height="42.363" VerticalAlignment="Top">
-                <UniformGrid x:Name="UniformGrid1" Margin="0,-4,-2.875,-1.426" Rows="2" Columns="2" d:LayoutOverrides="VerticalAlignment">
-                    <local:TablePIcon x:Name="Table0_P1" Width="462.5" Height="329.819" UseLayoutRounding="False" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-0.001"/>
-                    <local:TablePIcon x:Name="Table3_P1" Width="500" Height="329.8185" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                    <local:TablePIcon x:Name="Table1_P1" Width="462.5" FontSize="12" Height="329.818" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-                    <local:TablePIcon x:Name="Table2_P1" Width="500" Height="Auto" FontSize="12" HorizontalAlignment="Left" Margin="0,6.356,0,12.713"/>
-                </UniformGrid>
-                <!--                <Grid Margin="0,0,204,0" Height="229.353" VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="73*"/>
-                        <RowDefinition Height="156*"/>
-                    </Grid.RowDefinitions>
-                    <local:OneBill x:Name ="OneBill" HorizontalAlignment="Left" Height="450.73" VerticalAlignment="Top" Width="483.5" Margin="-223.5,-459.5,0,0" Visibility="Hidden"/>
-                </Grid>
-                -->
-
-            </TabItem>
-            <TabItem Header="Queue" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="95.5,0,-95.5,0" FontSize="28">
-                <Grid Background="#FF597C77">
-                    <TextBlock HorizontalAlignment="Center" Height="620" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="970" Background="Black" Opacity="0.6" Foreground="#FF7E7E7E" FontSize="22"><Run Text="Number&#x9;"/><Run Text="&#x9;"/><Run Text="Tablenum&#x9;Contents&#x9;&#x9;&#x9;Time Received&#x9;&#x9;Status"/><LineBreak/><Run Text=""/></TextBlock>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Reports" HorizontalAlignment="Left" Height="42.363" VerticalAlignment="Top" Width="149.996" Margin="99.666,0,-99.667,0" FontSize="28">
-                <Grid Background="#FF597C77">
-                    <TextBlock HorizontalAlignment="Center" Height="57" Margin="223.25,118.068,223.25,504.569" TextWrapping="Wrap" Text="Daily Report: April 1st, 2018" VerticalAlignment="Center" Width="565.5" TextAlignment="Center" FontSize="36"/>
-                    <Button Content="Print Report" HorizontalAlignment="Left" Height="80" Margin="297,200,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
-                    <Button Content="Email Report" HorizontalAlignment="Left" Height="80" Margin="297,290,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
-                    <Button Content="Save Report" HorizontalAlignment="Left" Height="80" Margin="297,380,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
-                    <Button Content="View Report History" HorizontalAlignment="Left" Height="80" Margin="297,470,0,0" VerticalAlignment="Top" Width="450" Foreground="#FF212E2C" BorderBrush="{x:Null}" Background="#FFEFF4EF"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
         <Grid x:Name="ReserveClickGrid" Margin="393,249.579,367,224.921" Background="#FF313031" d:IsHidden="True">
             <TextBlock x:Name="reserveTitle" Height="33.5" Margin="23.5,10,25,0" TextWrapping="Wrap" Text="Reserved Table ##" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF"/>
             <Button x:Name="assignButtonR" Content="Assign" Margin="10,48.5,10,0" Foreground="#FF313031" BorderBrush="#FFEFF4EF" Background="#FFEFF4EF" FontSize="32" Height="60" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
@@ -459,7 +417,7 @@
             <Button x:Name="cancelButtonF" Content="Cancel" Height="44.079" Margin="10,0,10,10" VerticalAlignment="Bottom" Background="#FF7B7A7B" FontSize="26.667" Foreground="#FF313031"/>
         </Grid>
         <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
-            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" >
+            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,10,0,12" Stretch="None" StartAngle="0" Width="35" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" d:IsLocked="True" >
                 <ed:Arc.Fill>
                     <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
                 </ed:Arc.Fill>
@@ -471,11 +429,10 @@
                 </ed:Arc.Stroke>
             </ed:Arc>
             <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand"/>
-            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-78.674" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
-            <Button x:Name="InfoButton" Content="Info" HorizontalAlignment="Left" Height="43.423" Margin="0,50,0,-36.423" VerticalAlignment="Top" Width="143" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Background="#FF1C2225" FontSize="24"/>
+            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-36.424" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
         </Grid>
-        <UniformGrid x:Name="PickUpGrid" Margin="0,60,0,0" Columns="1" d:IsHidden="True">
-            <Grid x:Name="PickUpMessage" Margin="321.105,233.687,317.159,284.26" RenderTransformOrigin="0.5,0.5" Background="#FF0B0B0B" d:IsHidden="True">
+        <UniformGrid x:Name="PickUpGrid" Margin="0,60,0,0" Columns="1" d:IsLocked="True" d:IsHidden="True">
+            <Grid x:Name="PickUpMessage" Margin="321.105,233.687,317.159,284.26" RenderTransformOrigin="0.5,0.5" Background="#FF0B0B0B">
                 <TextBlock x:Name="pickTitle" Height="74.654" Margin="94.816,10,104.166,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="24" HorizontalAlignment="Center" Width="180.754"><Run Text=" "/><Run Text="Pick Up Order?"/></TextBlock>
                 <Button x:Name="yesButtonPick" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" Click="buttonOkClick">
                     <Button.Background>
@@ -495,7 +452,7 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <UniformGrid x:Name="UnassignGrid" Margin="0,60,0,0" d:IsHidden="True">
+        <UniformGrid x:Name="UnassignGrid" Margin="0,60,0,0" d:IsLocked="True" d:IsHidden="True">
             <Grid x:Name="UnassignMessage" Margin="318.687,236.105,317.159,284.26" Background="#FF0B0B0B">
                 <TextBlock x:Name="unassignTitle" Height="50.468" Margin="84.654,10,84.654,0" TextWrapping="Wrap" Text=" Unassign Table?" VerticalAlignment="Top" FontSize="24" Foreground="#FFEFF4EF" HorizontalAlignment="Center"/>
                 <Button x:Name="yesButtonUnassign" Content="Yes" HorizontalAlignment="Left" Margin="32,0,0,30.938" Width="122" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Height="50" VerticalAlignment="Bottom" Click="okUnassignClick">
@@ -548,14 +505,7 @@
                 </Button>
             </Grid>
         </UniformGrid>
-        <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Height="300" Margin="0" VerticalAlignment="Center" Width="480" Background="#FF0B0B0B" d:IsLocked="True" d:IsHidden="True">
-            <TextBlock x:Name="HoursWorked" HorizontalAlignment="Center" Height="39" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" d:IsHidden="True"><Run Text="Hours worked today:"/><Run Text=" 5.2"/><Run Text=" "/></TextBlock>
-            <TextBlock x:Name="HoursWorkedWeek" HorizontalAlignment="Center" Height="39" Margin="0,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Hours worked this week: 16.3" d:IsHidden="True"/>
-            <TextBlock x:Name="OvertimeHours" HorizontalAlignment="Center" Height="39" Margin="0,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Overtime hours worked today: 0" d:IsHidden="True"/>
-            <TextBlock x:Name="OvertimeHoursWeek" HorizontalAlignment="Center" Height="39" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Overtime hours worked this week: 2.3" d:IsHidden="True"/>
-            <Button x:Name="InfoClose" Content="Close" HorizontalAlignment="Center" Height="50" Margin="0,200,0,0" VerticalAlignment="Center" Width="160" BorderBrush="{x:Null}" Foreground="#FF0B0B0B" FontSize="24" d:IsHidden="True"/>
-        </Grid>
-        <TextBlock x:Name="errors" Margin="0,197.782,-830.829,344.218" TextWrapping="Wrap" Text="ERRORS" FontSize="48" Grid.Column="1" HorizontalAlignment="Right" Width="436"/>
+        <TextBlock x:Name="errors" Margin="0,197.782,-830.829,344.218" TextWrapping="Wrap" Text="ERRORS" FontSize="48" Grid.Column="1" HorizontalAlignment="Right" Width="436" d:IsHidden="True"/>
 
     </Grid>
 </Window>
