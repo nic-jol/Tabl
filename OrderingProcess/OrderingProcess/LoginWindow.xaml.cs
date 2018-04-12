@@ -28,14 +28,14 @@ namespace OrderingProcess
         private void checkCredentials(object sender, RoutedEventArgs e)
         {
             invalidUser.Visibility = Visibility.Hidden;
-            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("s"))
+            if (MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("s"))
             {
                 MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
 
             }
-            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Text).Equals("m"))) {
+            else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("m"))) {
                 ManagerWindow main = new ManagerWindow();
                 main.Show();
                 this.Close();
@@ -44,7 +44,8 @@ namespace OrderingProcess
             {
                 //MessageBox.Show("Username or password do not match, please try again");
                 invalidUser.Visibility = Visibility.Visible;
-                PasswordBox.Text = "";
+                //PasswordBox.Text = "";
+                PasswordBox.Password = "";
             }
         }
 
