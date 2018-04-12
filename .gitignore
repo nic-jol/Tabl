@@ -1,0 +1,5 @@
+*.lock
+*.suo
+*.ide
+OrderingProcess/OrderingProcess/bin/
+OrderingProcess/OrderingProcess/obj/Debug/App.g.cs

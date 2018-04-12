@@ -1,0 +1,15 @@
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.exe.config
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.exe
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\bin\Debug\PartialPaymentProcess.pdb
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\MainWindow.g.cs
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\App.g.cs
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess_MarkupCompile.cache
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess_MarkupCompile.lref
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\MainWindow.baml
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.g.resources
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.Properties.Resources.resources
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csproj.GenerateResource.cache
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.csproj.CoreCompileInputs.cache
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.exe
+\\Mac\Home\Documents\Tabl\PartialPaymentProcess\PartialPaymentProcess\obj\Debug\PartialPaymentProcess.pdb
