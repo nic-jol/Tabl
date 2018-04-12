@@ -24,7 +24,6 @@ namespace OrderingProcess
         //private int tableNum;
         //private int curCapacity;
 
-
         public SplitBill(int newIndex)
         {
             InitializeComponent();
@@ -47,8 +46,30 @@ namespace OrderingProcess
 
                 eachSeatGrid.Children.Add(bill);
 
-                // TODO: Add items on bill to scroller
-                // bill.seatScrollerGrid
+                // Loop through each menu item for that seat and add to its uniform grid
+                List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
+                List<MenuItem> orderForSeat = orderForAll[i];
+                //errors.Text = "" + orderForSeat.Count;
+                foreach (MenuItem item in orderForSeat)
+                {
+                    // change title
+                    MenuItemWithDelete itemDisplay = new MenuItemWithDelete();
+
+                    string title = item.getName();
+
+                    if (item.getSide() != null)
+                    {
+                        title += "\n    " + item.getSide();
+                    }
+
+                    itemDisplay.itemName.Text = title;
+
+                    // Add each item to uniform grid
+                    bill.seatScrollerGrid.Children.Add(itemDisplay);
+                    //.Text += "" + item.getName();
+
+                    //++itemCount;
+                }
 
                 ++seatCount;
             }
@@ -82,9 +103,9 @@ namespace OrderingProcess
             //TODO: remove this
             //curCount = 2;
 
-            SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
-
-            // Loop through and create an item for each
+            //SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
+            SplitsGrid.Children.Clear();
+            // Loop through and create an item for each seat
             for (int i = 0; i < curCount; ++i)
             {
                 OneSeatBill bill = new OneSeatBill();
@@ -92,6 +113,7 @@ namespace OrderingProcess
 
                 //bill.seatTitle.FontSize = 16;
                 //bill.seatTitle.Height = 20;
+                
 
                 SplitsGrid.Children.Add(bill);
 
@@ -99,6 +121,52 @@ namespace OrderingProcess
                 // bill.seatScrollerGrid
 
                 ++seatCount;
+            }
+
+            // Loop and add all menu items to top of screen
+            ItemsGrid.Children.Clear();
+            int numSeats = MainWindow.tables[index].getCurrentCount();
+            for (int i = 0; i < numSeats; ++i)
+            {
+                int itemCount = 0;   // count how many items were ordered for that seat
+
+                // Loop through each menu item for that seat and add to its uniform grid
+                List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
+                List<MenuItem> orderForSeat = orderForAll[i];
+                //errors.Text = "" + orderForSeat.Count;
+                foreach (MenuItem item in orderForSeat)
+                {
+                    // change title
+                    MenuItemWithDelete itemDisplay = new MenuItemWithDelete();
+
+                    string title = item.getName();
+
+                    if (item.getSide() != null)
+                    {
+                        title += "\n    " + item.getSide();
+                    }
+
+                    itemDisplay.itemName.Text = title;
+
+                    // Add each item to uniform grid
+                    ItemsGrid.Children.Add(itemDisplay);
+                    //.Text += "" + item.getName();
+
+                    ++itemCount;
+                }
+
+                // Adjust height based on number of items
+                /*
+                seat.Height = 90 + 70 * itemCount;
+
+                if (((90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2))) > OrderScrollerGrid.Height)
+                {
+                    OrderScrollerGrid.Height = (90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2));
+                }
+
+                // Actually add to uniform grid
+                OrderScrollerGrid.Children.Add(seat);
+    */
             }
 
             backArrowBills.MouseDown += new MouseButtonEventHandler(notChange);

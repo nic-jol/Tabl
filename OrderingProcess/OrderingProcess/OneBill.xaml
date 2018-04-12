@@ -4,16 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OrderingProcess"
-             mc:Ignorable="d" Width="448" Height="522.684">
+             mc:Ignorable="d" Width="448" Height="570.547">
     <Window.Resources>
         <Color x:Key="Color1">#FF4C5856</Color>
         <Color x:Key="Color2">#FFFFF1CE</Color>
         <Color x:Key="Color3">#FFFFF1CE</Color>
         <Color x:Key="Color4">#FFFFF1CE</Color>
     </Window.Resources>
-    <Grid Background="#FFEFF4EF" Margin="0,0,-2,-42" MinWidth="0.3" Width="450">
-        <TextBlock HorizontalAlignment="Center" Height="47" Margin="112.5,23.5,121.5,0" TextWrapping="Wrap" Text="Table 1 Total: $34.57" VerticalAlignment="Top" Width="216" FontSize="22" Foreground="#FF293835" FontWeight="Bold"/>
-        <Button x:Name="CashButton" Content="Cash" HorizontalAlignment="Left" Height="57" Margin="127.5,70.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Click="showPayment">
+    <Grid x:Name="ButtonsGrid" Background="#FFEFF4EF" Margin="0,0,2,-2.342" MinWidth="0.3">
+        <TextBlock x:Name="TableTitle" Height="31.957" Margin="73.991,19.218,190.688,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26.667" Foreground="#FF293835"><Run Text="Table "/><Run Text="##"/><Run Text=" Total: "/></TextBlock>
+        <Button x:Name="CashButton" Content="Cash" HorizontalAlignment="Left" Height="73.5" Margin="73.5,70.5,0,0" VerticalAlignment="Top" Width="292.991" FontSize="36" Click="showPayment">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource Color2}"/>
             </Button.Foreground>
@@ -24,7 +24,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="CreditButton" Content="Credit" HorizontalAlignment="Left" Height="57" Margin="127.5,155.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Foreground="#FFFFF1CE" BorderBrush="{x:Null}" Click="showPayment">
+        <Button x:Name="CreditButton" Content="Credit" HorizontalAlignment="Left" Height="73.5" Margin="73.5,155.5,0,0" VerticalAlignment="Top" Width="292.991" FontSize="36" Foreground="#FFFFF1CE" BorderBrush="{x:Null}" Click="showPayment">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FF243330" Offset="1"/>
@@ -32,7 +32,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="DebitButton" Content="Debit" HorizontalAlignment="Left" Height="57" Margin="127.5,241.5,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Click="showPayment">
+        <Button x:Name="DebitButton" Content="Debit" HorizontalAlignment="Left" Height="73.5" Margin="73.5,241.5,0,0" VerticalAlignment="Top" Width="292.991" FontSize="36" Click="showPayment">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FF243330" Offset="1"/>
@@ -44,7 +44,7 @@
             </Button.Foreground>
         </Button>
 
-        <Button x:Name="GiftCardButton" Content="Gift Card" HorizontalAlignment="Left" Height="57" Margin="127.5,328,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Click="showPayment">
+        <Button x:Name="GiftCardButton" Content="Gift Card" HorizontalAlignment="Left" Height="73.5" Margin="73.991,328,0,0" VerticalAlignment="Top" Width="292.5" FontSize="36" Click="showPayment">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource Color4}"/>
             </Button.Foreground>
@@ -55,7 +55,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Cancel" x:Name="cancelButton" HorizontalAlignment="Left" Height="57" Margin="127.5,407,0,0" VerticalAlignment="Top" Width="201" FontSize="36" Click="cancelButton_Click" Foreground="#FFFF7900">
+        <Button Content="Cancel" x:Name="cancelButton" HorizontalAlignment="Right" Height="73.5" VerticalAlignment="Bottom" Width="194.188" FontSize="36" Click="cancelButton_Click" Foreground="#FFFF7900" Margin="0,0,10,13.655">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FF243330" Offset="1"/>
@@ -63,10 +63,34 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
+        <TextBlock x:Name="totalDollars" HorizontalAlignment="Right" Height="31.957" Margin="0,19.218,77.444,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113.244" FontSize="26.667" FontWeight="Bold" Foreground="#FF293835"><Run Text="$"/><Run Text="27.98"/></TextBlock>
+        <Button x:Name="viewBillButton" Content="View Bill" HorizontalAlignment="Left" Height="73.5" Margin="10,0,0,13.655" VerticalAlignment="Bottom" Width="201.056" FontSize="36" Foreground="#FFFF7900" BorderBrush="{x:Null}" ToolTip="See Full Order" Click="viewFullBill">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF4C5856" Offset="0"/>
+                    <GradientStop Color="#FF243330" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Grid x:Name="ViewOrderGrid" Background="#FFEFF4EF" d:IsLocked="True" d:IsHidden="True">
+            <ScrollViewer x:Name="ItemsScroller" Margin="10,10,10,81.389" Background="#FF313031">
+                <UniformGrid x:Name="ItemsUniGrid" Width="395.5" Columns="1"/>
+            </ScrollViewer>
+            <Button x:Name="backPaymenetBtn" Content="Back To Payment" Height="53.389" Margin="10,0,10,10" VerticalAlignment="Bottom" FontSize="36" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="backPaymenetBtn_Click">
+                <Button.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF4C5856" Offset="0"/>
+                        <GradientStop Color="#FF243330" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
         <Grid x:Name="PaymentGrid" HorizontalAlignment="Left" Height="533.684" VerticalAlignment="Top" Width="440" Background="#FFEFF4EF">
-            <TextBlock x:Name="PaymentStatus" HorizontalAlignment="Center" Height="137.998" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="328.153" FontSize="48" TextAlignment="Center" Foreground="#FF293835"><Run Text="Payment"/><LineBreak/><Run Text="Processing"/></TextBlock>
-            <Button x:Name="PaymentCancel" Content="Cancel" HorizontalAlignment="Center" Height="81.974" Margin="0,250,0,0" VerticalAlignment="Center" Width="203.194" FontSize="24" BorderBrush="{x:Null}" Background="#FF2B3A37" Foreground="#FFEFF4EF" Click="cancelPayment"/>
-            <Image x:Name="LoadingGif" Margin="121.597,52.949,118.403,280.735" Source="Spinner-1s-200px.gif" Stretch="Fill"/>
+            
+            <TextBlock x:Name="PaymentStatus" HorizontalAlignment="Center" Height="137.998" Margin="0,0,0,100" TextWrapping="Wrap" VerticalAlignment="Center" Width="328.153" FontSize="48" TextAlignment="Center" Foreground="#FF293835"><Run Text="Payment"/><LineBreak/><Run Text="Processing"/></TextBlock>
+            
+            <Button x:Name="PaymentCancel" Content="Cancel" HorizontalAlignment="Center" Height="81.974" Margin="0,150,0,0" VerticalAlignment="Center" Width="203.194" FontSize="24" BorderBrush="{x:Null}" Background="#FF2B3A37" Foreground="#FFEFF4EF" Click="cancelPayment"/>
+            
         </Grid>
     </Grid>
 </Window>

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Timers;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Timers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,8 +26,11 @@ namespace OrderingProcess
         public OneBill(int newIndex)
         {
             InitializeComponent();
-            PaymentGrid.Visibility = Visibility.Hidden;
             this.index = newIndex;
+            ViewOrderGrid.Visibility = Visibility.Hidden;
+            PaymentGrid.Visibility = Visibility.Hidden;
+            int tableNum = MainWindow.tables[index].getTableNumber();
+            TableTitle.Text = "Table " + tableNum + " Total:";
 
             TimerList = new List<Timer>();
             Timer timer1 = new Timer();
@@ -43,6 +46,7 @@ namespace OrderingProcess
             TimerList[0].Interval = 3000;
             TimerList[0].Start();
         }
+
         private void FirstTimedEvent(object source, ElapsedEventArgs e)
         {
             TimerList[0].Stop();
@@ -50,7 +54,9 @@ namespace OrderingProcess
             {
                 PaymentStatus.Text = "Payment Complete!";
                 PaymentCancel.Visibility = Visibility.Hidden;
+                //this.Close();
             });
+            
             TimerList[1].Elapsed += new ElapsedEventHandler(SecondTimedEvent);
             TimerList[1].Interval = 1000;
             TimerList[1].Start();
@@ -68,17 +74,72 @@ namespace OrderingProcess
             });
         }
 
-    private void cancelPayment(object sender, RoutedEventArgs e)
+        private void cancelPayment(object sender, RoutedEventArgs e)
         {
             TimerList[0].Stop();
             TimerList[1].Stop();
             PaymentGrid.Visibility = Visibility.Hidden;
         }
 
-
-    private void cancelButton_Click(object sender, RoutedEventArgs e)
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void viewFullBill(object sender, RoutedEventArgs e)
+        {
+            ViewOrderGrid.Visibility = Visibility.Visible;
+
+            ItemsUniGrid.Children.Clear();
+
+            int numSeats = MainWindow.tables[index].getCurrentCount();
+            for (int i = 0; i < numSeats; ++i)
+            {
+                int itemCount = 0;   // count how many items were ordered for that seat
+
+                // Loop through each menu item for that seat and add to its uniform grid
+                List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
+                List<MenuItem> orderForSeat = orderForAll[i];
+                //errors.Text = "" + orderForSeat.Count;
+                foreach (MenuItem item in orderForSeat)
+                {
+                    // change title
+                    MenuItemWithDelete itemDisplay = new MenuItemWithDelete();
+
+                    string title = item.getName();
+
+                    if (item.getSide() != null)
+                    {
+                        title += "\n    " + item.getSide();
+                    }
+
+                    itemDisplay.itemName.Text = title;
+
+                    // Add each item to uniform grid
+                    ItemsUniGrid.Children.Add(itemDisplay);
+                    //.Text += "" + item.getName();
+
+                    ++itemCount;
+                }
+
+                // Adjust height based on number of items
+                /*
+                seat.Height = 90 + 70 * itemCount;
+
+                if (((90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2))) > OrderScrollerGrid.Height)
+                {
+                    OrderScrollerGrid.Height = (90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2));
+                }
+
+                // Actually add to uniform grid
+                OrderScrollerGrid.Children.Add(seat);
+    */
+            }
+        }
+
+        private void backPaymenetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ViewOrderGrid.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -4,11 +4,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Forms;
 
 namespace OrderingProcess
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml 
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -18,6 +19,7 @@ namespace OrderingProcess
         private String sideName;
         private int itemSize;
         private int seatOrder = -1;   // Keep track of what seat and order is for
+        //private 
         
         public MainWindow()
         {
@@ -504,6 +506,7 @@ namespace OrderingProcess
 
         private void goBack(object e, MouseButtonEventArgs a)
         {
+            seatOrder = -1;
             List<Button> remove = new List<Button>();
             foreach (var children in SeatButtonsGrid.Children)
             {
@@ -537,9 +540,13 @@ namespace OrderingProcess
         private void logoutAppear(object sender, MouseButtonEventArgs e)
         {
             if (LogoutButton.Visibility == Visibility.Hidden)
+            {
                 LogoutButton.Visibility = Visibility.Visible;
+            }
             else
+            {
                 LogoutButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)
@@ -555,8 +562,8 @@ namespace OrderingProcess
                 LogoutButton.Visibility = Visibility.Hidden;
         }
 
-        //#### TODO: Pick Up Order PopUP ####//
-        private void buttonOkClick(object sender, RoutedEventArgs e)
+    //#### TODO: Pick Up Order PopUP ####//
+    private void buttonOkClick(object sender, RoutedEventArgs e)
         {
             PickUpGrid.Visibility = Visibility.Hidden;
         }
