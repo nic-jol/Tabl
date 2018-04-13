@@ -78,7 +78,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A" d:IsHidden="True">
+        <Grid x:Name="SeatsGrid" Margin="-0.671,60,0,2.668" Height="Auto" HorizontalAlignment="Left" Width="364.5" Background="#FE0A0A0A">
             <TextBlock x:Name="tableNumTitle" Height="51.5" Margin="0,0,105.329,0" TextWrapping="Wrap" Text="[Table]" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="32"/>
             <UniformGrid x:Name="SeatButtonsGrid" Margin="0,51.5,0,105" Columns="1"/>
             <Button x:Name="KitchenButton" Content="See Full Order" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="364.5" FontSize="48" Foreground="#FF313031" BorderBrush="{x:Null}" BorderThickness="2">
@@ -110,7 +110,7 @@
                 </Button.Background>
             </Button>
         </UniformGrid>
-        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6">
+        <UniformGrid x:Name="FoodGrid" Margin="363.829,39,0,0" Columns="1" Rows="6" d:IsHidden="True">
             <Button x:Name="rotiButton" Content="Rotisserie Chicken" Margin="10,30.5,10,-5" FontSize="32" BorderBrush="{x:Null}" Foreground="White" 
                     MouseMove="item_MouseMove">
                 <!-- GiveFeedback="item_GiveFeedback" 
@@ -308,7 +308,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10.955,-0.671,-0.955" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <TabControl x:Name="tabControl" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10.955,-0.671,-0.955" Grid.RowSpan="2" Grid.ColumnSpan="2" d:IsHidden="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0.167,-90.62,0.074" FontSize="28">
                 <UniformGrid x:Name="orderUniGrid" Margin="0,0,0,-2" Rows="2" Columns="2" Width="1012" Height="682">
                     <local:TableOIcon x:Name="Table0_O" Width="Auto" Height="Auto" d:IsLocked="True"/>
@@ -336,7 +336,7 @@
             </TabItem>
         </TabControl>
 
-        <TabControl x:Name="tabControl_Manager" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0">
+        <TabControl x:Name="tabControl_Manager" Background="#FF597C77" BorderBrush="#FF597C77" Margin="0,10,0,0" d:IsHidden="True">
             <TabItem Header="Orders" Background="#FF134F66" Margin="48.62,0,-90.62,0.241" FontSize="28">
                 <UniformGrid Margin="20,10,0,10" Rows="2" Columns="2">
                     <local:TableOIcon x:Name="Table0_O1" Width="500" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center"/>

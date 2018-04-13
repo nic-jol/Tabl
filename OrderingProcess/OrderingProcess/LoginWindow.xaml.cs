@@ -38,7 +38,7 @@ namespace OrderingProcess
             }
             else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("m"))) {
                 MainWindow.userType = 'm';
-                ManagerWindow main = new ManagerWindow();
+                MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
             }
