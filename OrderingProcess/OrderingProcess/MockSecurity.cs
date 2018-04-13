@@ -16,11 +16,11 @@ namespace OrderingProcess
         public static String canLogin(String userName, String password)
         {
             
-            if((userName.Equals("server", StringComparison.OrdinalIgnoreCase)) && (password.Equals("server", StringComparison.OrdinalIgnoreCase)))
+            if(((userName.Trim()).Equals("server", StringComparison.OrdinalIgnoreCase)) && ((password.Trim()).Equals("server", StringComparison.OrdinalIgnoreCase)))
             {
                 return "s";
             }
-            else if ((userName.Equals("manager", StringComparison.OrdinalIgnoreCase)) && (password.Equals("manager", StringComparison.OrdinalIgnoreCase)))
+            else if (((userName.Trim()).Equals("manager", StringComparison.OrdinalIgnoreCase)) && ((password.Trim()).Equals("manager", StringComparison.OrdinalIgnoreCase)))
             {
                 return "m";
             }

@@ -9,7 +9,7 @@
     <Grid>
         <Grid x:Name="SeatMenuDisplay" Background="#FFEFF4EF">
             <TextBlock x:Name="seatLabel" Height="30" TextWrapping="Wrap" Text="Seat 1" FontSize="21.333" FontWeight="Bold" VerticalAlignment="Top" Margin="5,0,-514.877,0" Foreground="#FF313031" HorizontalAlignment="Left"/>
-            <UniformGrid x:Name="orderItemsGrid" Margin="10,35,10,10" Columns="1"/>
+            <UniformGrid x:Name="orderItemsGrid" Margin="10,35,10,10" Columns="1" MaxWidth="430" MaxHeight="255" VerticalAlignment="Top"/>
         </Grid>
 
     </Grid>

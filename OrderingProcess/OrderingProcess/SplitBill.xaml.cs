@@ -31,14 +31,12 @@ namespace OrderingProcess
             if (MainWindow.userType == 'm')
             {
                 ServerName.Text = "Mike";
-
-                serverPic.Fill = new ImageBrush
+                
+                ServerPic.Fill = new ImageBrush
                 {
                     ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Resources/Mike.jpg"))
                 };
             }
-
-
 
             index = newIndex;
 
@@ -46,8 +44,6 @@ namespace OrderingProcess
             int curCount = MainWindow.tables[index].getCurrentCount();
 
             splitSlider.Maximum = curCount;
-            //TODO: remove this
-            //curCount = 6;
 
             titleText.Text = "Table " + tableNum + " Current Split ";
             multiTitle.Text = "Table " + tableNum + ": Outstanding Bills";
@@ -102,23 +98,36 @@ namespace OrderingProcess
             eachSeatGrid.Height = (int) Math.Ceiling((double) curCount / 2) * 400;
 
             ChangeSplitGrid.Visibility = Visibility.Hidden;
-            backToBills.Visibility = Visibility.Hidden;
-            backArrowBills.Visibility = Visibility.Hidden;
             SplitSliderGrid.Visibility = Visibility.Hidden;
             SplitWarningGrid.Visibility = Visibility.Hidden;
             MultipleBills.Visibility = Visibility.Hidden;
+            InfoButton.Visibility = Visibility.Hidden;
+            LogoutButton.Visibility = Visibility.Hidden;
+            InfoGrid.Visibility = Visibility.Hidden;
+            helpMsg.Visibility = Visibility.Hidden;
 
-            backArrowTable.MouseDown += new MouseButtonEventHandler(backArrowPressed);
+            backTables.Visibility = Visibility.Visible;
+            backOriginal.Visibility = Visibility.Hidden;
+
+            // Arrows Ready
+            backToTableArrow.MouseDown += new MouseButtonEventHandler(backArrowTable);
+            backArrowOriginal.MouseDown += new MouseButtonEventHandler(backArrowOriginal_Click);
+
+            //  // Dropdown menu controls
+            ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
+            MainGrid.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
+            LogoutButton.Click += logout_Click;
+            InfoButton.Click += info_Click;
+            InfoClose.Click += info_Close;
         }
 
         private void changeSplitScreen(object sender, RoutedEventArgs e)
         {
             ChangeSplitGrid.Visibility = Visibility.Visible;
             AllFourGrid.Visibility = Visibility.Hidden;
-            backArrowBills.Visibility = Visibility.Visible;
-            backArrowTable.Visibility = Visibility.Visible;
-            backToBills.Visibility = Visibility.Visible;
-            backToTables.Visibility = Visibility.Hidden;
+
+            backTables.Visibility = Visibility.Hidden;
+            backOriginal.Visibility = Visibility.Visible;
 
             tableTitle.Text = "Table " + MainWindow.tables[index].getTableNumber();
 
@@ -193,8 +202,6 @@ namespace OrderingProcess
                     ItemsGrid.Children.Add(itemDisplay);
                 }
             }
-
-            backArrowBills.MouseDown += new MouseButtonEventHandler(notChange);
         }
 
 
@@ -202,6 +209,9 @@ namespace OrderingProcess
         {
             MultipleBills.Visibility = Visibility.Visible;
             AllFourGrid.Visibility = Visibility.Hidden;
+
+            backTables.Visibility = Visibility.Hidden;
+            backOriginal.Visibility = Visibility.Visible;
 
             foreach (OneSeatBill bill in eachSeatGrid.Children)
             {
@@ -215,9 +225,17 @@ namespace OrderingProcess
                     payingBill.Width = 800;
                     payingBill.Height = 100;
                     payingBill.FontSize = 48;
-                    payingBill.BorderBrush = new SolidColorBrush(Color.FromRgb(89, 124, 119));
-                    payingBill.Background = new SolidColorBrush(Color.FromRgb(144, 168, 164));
+                    //payingBill.BorderBrush = new SolidColorBrush(Color.FromRgb(89, 124, 119));
+                    //payingBill.Background = new SolidColorBrush(Color.FromRgb(144, 168, 164));
+
+                    RadialGradientBrush radialGradient = new RadialGradientBrush();
+                    radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
+                    radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
+
+                    payingBill.Background = radialGradient;
                     payingBill.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+                    // 89 124 119
+                    // 144 168 164
 
                     // click function- open one bill, delete itself
                     payingBill.Click += payingBill_Click;
@@ -226,16 +244,7 @@ namespace OrderingProcess
                 }
             }
         }
-
-        private void notChange(object e, MouseButtonEventArgs a)
-        {
-            ChangeSplitGrid.Visibility = Visibility.Hidden;
-            backToBills.Visibility = Visibility.Hidden;
-            AllFourGrid.Visibility = Visibility.Visible;
-            backArrowBills.Visibility = Visibility.Hidden;
-            backArrowTable.Visibility = Visibility.Visible;
-            backToTables.Visibility = Visibility.Visible;
-        }
+        
 
         private void payingBill_Click(object sender, RoutedEventArgs e)
         {
@@ -246,9 +255,19 @@ namespace OrderingProcess
             //this.Close();
         }
 
-        private void backArrowPressed(object e, MouseButtonEventArgs a)
+        private void backArrowTable(object e, MouseButtonEventArgs a)
         {
             this.Close();
+        }
+
+        private void backArrowOriginal_Click(object e, MouseButtonEventArgs a)
+        {
+            ChangeSplitGrid.Visibility = Visibility.Hidden;
+            AllFourGrid.Visibility = Visibility.Visible;
+            MultipleBills.Visibility = Visibility.Hidden;
+
+            backTables.Visibility = Visibility.Visible;
+            backOriginal.Visibility = Visibility.Hidden;
         }
 
 
@@ -259,53 +278,6 @@ namespace OrderingProcess
             {
                 splitCount.Text = splitSlider.Value.ToString();
             }
-        }
-
-        /*
-        private void itemClick(object sender, MouseButtonEventArgs e)
-        {
-            // Show options grid
-            SplitOptionsGrid.Visibility = Visibility.Visible;
-
-            // Populate seats
-            int curCount = MainWindow.tables[index].getCurrentCount();
-
-            //TODO: remove this
-            //curCount = 2;
-
-            //SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
-            whichSeatGrid.Children.Clear();
-            // Loop through and create an item for each seat
-            for (int i = 0; i < curCount; ++i)
-            {
-                Button btn = new Button();
-                btn.Content = "" + (i+1);
-
-                btn.FontSize = 36;
-                btn.Height = 100;
-                btn.Width = 200;
-                btn.Click += chooseSeat;
-                //bill.seatTitle.FontSize = 16;
-                //bill.seatTitle.Height = 20;
-                
-                whichSeatGrid.Children.Add(btn);
-            }
-
-            // Get Name so know what is being split
-            menuItem = ((MenuItemWithDelete)sender).itemName.Text;
-        }
-        */
-
-        private void chooseSeat(object sender, RoutedEventArgs e)
-        {
-            // Get num from button clicked so you know which grid to add it to
-            string btnName = (string) ((Button)sender).Content;
-
-            // Add to appropriate grid seat
-
-
-            // Remove from top part
-
         }
 
         private void text_MouseMove(object sender, MouseEventArgs e)
@@ -363,24 +335,6 @@ namespace OrderingProcess
         private void text_DragEnter(object sender, DragEventArgs e)
         {
             e.Effects = DragDropEffects.Move;
-            /*
-            Button btn = sender as Button;
-
-            if (btn != null)
-            {
-                // If the DataObject contains string data, extract it.
-                if (e.Data.GetDataPresent(DataFormats.StringFormat))
-                {
-                    string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
-
-                    foodName = dataString;
-                    itemSize = -1;
-                    // Side menu pop up
-                    SidesGrid.Visibility = Visibility.Visible;
-                    //private String sideName;
-                }
-            }
-            */
         }
 
         private void userSplit_Click(object sender, RoutedEventArgs e)
@@ -390,6 +344,9 @@ namespace OrderingProcess
                 // Return to main split screen
                 ChangeSplitGrid.Visibility = Visibility.Hidden;
                 AllFourGrid.Visibility = Visibility.Visible;
+
+                backTables.Visibility = Visibility.Visible;
+                backOriginal.Visibility = Visibility.Hidden;
 
                 // Change the lists for each seat
                 // Clear it
@@ -454,6 +411,8 @@ namespace OrderingProcess
             {
                 // Show slider for selecting number of splits
                 SplitSliderGrid.Visibility = Visibility.Visible;
+                sliderMin.Text = "" + splitSlider.Minimum;
+                sliderMax.Text = "" + splitSlider.Maximum;
 
                 splittingItem = ((TextBlock)sender).Text;
             }
@@ -512,6 +471,59 @@ namespace OrderingProcess
         private void donePayButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+
+        //#### Server Info Controls ####//
+        private void menuAppear(object sender, MouseButtonEventArgs e)
+        {
+            if (LogoutButton.Visibility == Visibility.Hidden)
+            {
+                LogoutButton.Visibility = Visibility.Visible;
+                InfoButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void menu_ClickAway(object sender, RoutedEventArgs e)
+        {
+            if (LogoutButton.Visibility == Visibility.Visible)
+            {
+                LogoutButton.Visibility = Visibility.Hidden;
+                InfoButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            this.Close();
+        }
+
+        private void info_Click(object sender, RoutedEventArgs e)
+        {
+            InfoGrid.Visibility = Visibility.Visible;
+        }
+
+        private void info_Close(object sender, RoutedEventArgs e)
+        {
+            InfoGrid.Visibility = Visibility.Hidden;
+        }
+
+        // Help button
+        private void helpbtn_Click(object sender, RoutedEventArgs e)
+        {
+            helpMsg.Visibility = Visibility.Visible;
+        }
+
+        private void closeHelpMsg(object sender, MouseButtonEventArgs e)
+        {
+            helpMsg.Visibility = Visibility.Hidden;
         }
     }
 }

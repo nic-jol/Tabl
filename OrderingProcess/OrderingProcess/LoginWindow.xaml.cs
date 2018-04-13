@@ -38,7 +38,7 @@ namespace OrderingProcess
             }
             else if ((MockSecurity.canLogin(AddressBox.Text, PasswordBox.Password.ToString()).Equals("m"))) {
                 MainWindow.userType = 'm';
-                MainWindow main = new MainWindow();
+                ManagerWindow main = new ManagerWindow();
                 main.Show();
                 this.Close();
             }
@@ -46,7 +46,6 @@ namespace OrderingProcess
             {
                 //MessageBox.Show("Username or password do not match, please try again");
                 invalidUser.Visibility = Visibility.Visible;
-                //PasswordBox.Text = "";
                 PasswordBox.Password = "";
             }
         }

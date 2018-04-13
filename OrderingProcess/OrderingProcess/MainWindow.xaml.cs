@@ -21,11 +21,11 @@ namespace OrderingProcess
         private int itemSize;
         private int seatOrder = -1;   // Keep track of what seat and order is for
         public static char userType = 'n';
-        //private 
-        
+
         public MainWindow()
         {
             InitializeComponent();
+
             // *** Determines if manager tabs or server tabs displayed depending on static variable userType ***
             if (userType == 'm')
             {
@@ -38,8 +38,10 @@ namespace OrderingProcess
                 };
             }
             else
+            {
                 tabControl_Manager.Visibility = Visibility.Hidden;
-
+            }
+                
 
             InfoGrid.Visibility = Visibility.Hidden;
             SeatsGrid.Visibility = Visibility.Hidden;
@@ -47,7 +49,6 @@ namespace OrderingProcess
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -56,6 +57,7 @@ namespace OrderingProcess
             PickUpGrid.Visibility = Visibility.Hidden;
             UnassignGrid.Visibility = Visibility.Hidden;
             AssignGrid.Visibility = Visibility.Hidden;
+            helpOrderingMsg.Visibility = Visibility.Hidden;
 
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
@@ -97,29 +99,27 @@ namespace OrderingProcess
             Table3_O.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_O.setPayTableReference(Table3_P);
             Table3_P.updateIndex(3);
-            
+
             //manager tables
             Table0_O1.updateIndex(0);
             Table0_O1.MouseDown += new MouseButtonEventHandler(tableClick);
             Table0_O1.setPayTableReference(Table0_P);
             Table0_P1.updateIndex(0);
-
+            
             Table1_O1.updateIndex(1);
             Table1_O1.MouseDown += new MouseButtonEventHandler(tableClick);
             Table1_O1.setPayTableReference(Table1_P);
             Table1_P1.updateIndex(1);
-
+            
             Table2_O1.updateIndex(2);
             Table2_O1.MouseDown += new MouseButtonEventHandler(tableClick);
             Table2_O1.setPayTableReference(Table2_P);
             Table2_P1.updateIndex(2);
-
+            
             Table3_O1.updateIndex(3);
             Table3_O1.MouseDown += new MouseButtonEventHandler(tableClick);
             Table3_O1.setPayTableReference(Table3_P);
             Table3_P1.updateIndex(3);
-
-            
 
             //###SEATS###//
             //Seat1Button.Click += seatButton_Click;
@@ -139,14 +139,14 @@ namespace OrderingProcess
             pizzaButton.Click += addFood_Click;
             cancelFButton.Click += orderFull_Click;
 
-            // These are temporary
+            // Add side
             regFriesButton.Click += sideAddedButton_Click;
             yamFriesButton.Click += sideAddedButton_Click;
             gardenButton.Click += sideAddedButton_Click;
             caesarButton.Click += sideAddedButton_Click;
             closeSidesButton.Click += closeSides_Click;
 
-            // These are temporary
+            // Add Drink
             cokeButton.Click += addDrink_Click;
             orangeButton.Click += addDrink_Click;
             spriteButton.Click += addDrink_Click;
@@ -162,11 +162,11 @@ namespace OrderingProcess
             yesButton.Click += addItem_Click;
             noButton.Click += closeSides_Click;
 
-            ItemAddedGrid.MouseDown += new MouseButtonEventHandler(itemAddedMouse);
             backArrow.MouseDown += new MouseButtonEventHandler(goBack);
             OrderSentGrid.MouseDown += new MouseButtonEventHandler(goBack);
+            helpOrderingMsg.MouseDown += new MouseButtonEventHandler(closeHelp);
         }
-
+        
         //This function decides which method to call depending on the state of the table objects state
         private void tableClick(object sender, MouseButtonEventArgs e)
         {
@@ -174,6 +174,8 @@ namespace OrderingProcess
             {
                 curTable = (TableOIcon)sender;
                 AssignGrid.Visibility = Visibility.Visible;
+                sliderMin.Text = "" + slider.Minimum;
+                sliderMax.Text = "" + slider.Maximum;
                 // Assign only
                 /*
                 AssignTable assign = new AssignTable((((TableOIcon)sender).getIndex()), ((TableOIcon)sender));
@@ -225,6 +227,8 @@ namespace OrderingProcess
         {
             //TODO: pass curTable (see Unassign below)
             AssignGrid.Visibility = Visibility.Visible;
+            sliderMin.Text = "" + slider.Minimum;
+            sliderMax.Text = "" + slider.Maximum;
 
             /*
             AssignTable assign = new AssignTable(curTable.getIndex(), curTable);
@@ -258,7 +262,6 @@ namespace OrderingProcess
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -328,7 +331,6 @@ namespace OrderingProcess
                 FoodGrid.Visibility = Visibility.Hidden;
                 DrinksGrid.Visibility = Visibility.Hidden;
                 SidesGrid.Visibility = Visibility.Hidden;
-                ItemAddedGrid.Visibility = Visibility.Hidden;
                 OrderSentGrid.Visibility = Visibility.Hidden;
                 ViewOrderGrid.Visibility = Visibility.Hidden;
                 ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -432,22 +434,12 @@ namespace OrderingProcess
             ConfirmationGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
-
-            //ToolTip added = new ToolTip();
-            //added.Show("Item Added", this, 512, 384, 1000);
-            ItemAddedGrid.Visibility = Visibility.Visible;
         }
 
         private void closeSides_Click(object sender, RoutedEventArgs e)
         {
             ConfirmationGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-        }
-
-        // TODO: timed popup or popup on seat
-        private void itemAddedMouse(object e, MouseButtonEventArgs a)
-        {
-            ItemAddedGrid.Visibility = Visibility.Hidden;
         }
 
         private void viewOrder_Click(object e, RoutedEventArgs a)
@@ -474,7 +466,6 @@ namespace OrderingProcess
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Visible;
             ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -535,7 +526,6 @@ namespace OrderingProcess
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Visible;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -548,7 +538,6 @@ namespace OrderingProcess
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
         }
@@ -568,16 +557,21 @@ namespace OrderingProcess
             {
                 SeatButtonsGrid.Children.Remove(ch as Button);
             }
+
             if (userType == 'm')
+            {
                 tabControl_Manager.Visibility = Visibility.Visible;
+            }
             else
+            {
                 tabControl.Visibility = Visibility.Visible;
+            }
+            
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
-            ItemAddedGrid.Visibility = Visibility.Hidden;
             OrderSentGrid.Visibility = Visibility.Hidden;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Hidden;
@@ -687,6 +681,17 @@ namespace OrderingProcess
         private void cancelAssignClick(object sender, RoutedEventArgs e)
         {
             AssignGrid.Visibility = Visibility.Hidden;
+        }
+
+        // Help Message
+        private void helpOrdering_Click(object sender, RoutedEventArgs e)
+        {
+            helpOrderingMsg.Visibility = Visibility.Visible;
+        }
+
+        private void closeHelp(object sender, MouseButtonEventArgs e)
+        {
+            helpOrderingMsg.Visibility = Visibility.Hidden;
         }
 
         //#### Drag and Drop ####//
