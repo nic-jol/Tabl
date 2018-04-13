@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:OrderingProcess"
              mc:Ignorable="d" 
              d:DesignHeight="457.5" d:DesignWidth="468">
-    <Grid>
+    <Grid Background="#FF313031">
         <Grid x:Name="oneSeatGrid">
-            <TextBlock x:Name="seatTitle" TextWrapping="Wrap" Text="Seat " VerticalAlignment="Top" FontSize="48" Foreground="#FF597C77" RenderTransformOrigin="-0.33,0.653" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="seatTitle" TextWrapping="Wrap" Text="Seat " VerticalAlignment="Top" FontSize="48" Foreground="#FFEFF4EF" RenderTransformOrigin="-0.33,0.653" Height="67" Background="#FF9E9E9E"/>
             <ScrollViewer x:Name="seatScroller" Margin="0,67,0,0" Foreground="#FFFFF1CE" Background="#FF313031" FlowDirection="RightToLeft">
-                <UniformGrid x:Name="seatScrollerGrid" Columns="1"/>
+                <UniformGrid x:Name="seatScrollerGrid" VerticalAlignment="Top" Columns="1" HorizontalAlignment="Right"/>
             </ScrollViewer>
         </Grid>
 

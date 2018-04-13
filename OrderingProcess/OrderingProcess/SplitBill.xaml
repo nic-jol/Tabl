@@ -25,37 +25,34 @@
                     </LinearGradientBrush>
                 </Rectangle.Stroke>
             </Rectangle>
-            <TextBlock x:Name="backToTables" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Text="Back to Tables" Width="160" Foreground="#FFEFF4EF" FontSize="24"/>
-            <TextBlock x:Name="backToBills" HorizontalAlignment="Left" Margin="139.88,12,0,10" TextWrapping="Wrap" Width="272" Foreground="#FFEFF4EF" FontSize="24"><Run Text="Back to Original S"/><Run Text="p"/><Run Text="lit"/></TextBlock>
-
-            <ed:Arc x:Name="serverPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Right" Margin="0,3,92.667,7" Stretch="None" StartAngle="0" Width="49" Stroke="Black">
-                <ed:Arc.Fill>
-                    <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
-                </ed:Arc.Fill>
-            </ed:Arc>
-            <ed:BlockArrow x:Name="backArrowTable" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand">
-                <ed:BlockArrow.Fill>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FF597C77" Offset="1"/>
-                        <GradientStop Color="#FFA7B9B7"/>
-                    </RadialGradientBrush>
-                </ed:BlockArrow.Fill>
-            </ed:BlockArrow>
-            <ed:BlockArrow x:Name="backArrowBills" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand">
-                <ed:BlockArrow.Fill>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FF597C77" Offset="1"/>
-                        <GradientStop Color="#FFA7B9B7"/>
-                    </RadialGradientBrush>
-                </ed:BlockArrow.Fill>
-            </ed:BlockArrow>
-            <TextBox x:Name="ServerName" HorizontalAlignment="Right" Margin="0,10.75,0,3.25" TextWrapping="Wrap" Text="Sally" Width="87.667" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFC6CFD3" FontWeight="Bold" FontSize="24" IsReadOnly="True"/>
+            <Grid x:Name="backTables" HorizontalAlignment="Left" Margin="10,3,0,0" Width="380.333">
+                <ed:BlockArrow x:Name="backToTableArrow" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand">
+                    <ed:BlockArrow.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF597C77" Offset="1"/>
+                            <GradientStop Color="#FFA7B9B7"/>
+                        </RadialGradientBrush>
+                    </ed:BlockArrow.Fill>
+                </ed:BlockArrow>
+                <TextBlock x:Name="backToTableMsg" Margin="139.88,12,65.787,7" TextWrapping="Wrap" Text="Back to Tables" Foreground="#FFEFF4EF" FontSize="24" d:IsHidden="True"/>
+            </Grid>
+            <Grid x:Name="backOriginal" HorizontalAlignment="Left" Margin="10,3,0,0" Width="380.333" d:IsHidden="True">
+                <ed:BlockArrow x:Name="backArrowOriginal" HorizontalAlignment="Left" Orientation="Left" Width="100" Margin="15,3,0,4.25" Cursor="Hand">
+                    <ed:BlockArrow.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF597C77" Offset="1"/>
+                            <GradientStop Color="#FFA7B9B7"/>
+                        </RadialGradientBrush>
+                    </ed:BlockArrow.Fill>
+                </ed:BlockArrow>
+                <TextBlock x:Name="backToOriginal" Margin="139.88,12,65.787,7" TextWrapping="Wrap" Foreground="#FFEFF4EF" FontSize="24"><Run Text="Back to Original S"/><Run Text="p"/><Run Text="lit"/></TextBlock>
+            </Grid>
         </Grid>
-        <Grid x:Name="ChangeSplitGrid" Margin="0,61,0,-5">
+        <Grid x:Name="ChangeSplitGrid" Margin="0,56,0,-5" d:IsHidden="True">
             <TextBlock x:Name="tableTitle" Height="43" Margin="4,1.5,0,0" TextWrapping="Wrap" Text="Table 20" VerticalAlignment="Top" FontSize="32" Foreground="#FF313031" FontWeight="Bold" HorizontalAlignment="Left" Width="138"/>
-            <UniformGrid x:Name="SplitsGrid" Margin="0,307,0,5.25" Background="#FF313031" Columns="2"/>
+            <UniformGrid x:Name="SplitsGrid" Margin="0,307,0,0" Background="#FF313031" Columns="2" MaxHeight="375" MaxWidth="1018"/>
             <ScrollViewer x:Name="ItemScroller" Height="262.5" Margin="4,44.5,0,0" VerticalAlignment="Top">
-                <UniformGrid x:Name="ItemsGrid" Width="994" d:IsHidden="True"/>
+                <UniformGrid x:Name="ItemsGrid" Width="994"/>
             </ScrollViewer>
             <Button x:Name="userSplit" Content="Use This Split" HorizontalAlignment="Right" Height="44.5" Margin="0,0,10,0" VerticalAlignment="Top" Width="177" FontSize="26.667" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Click="userSplit_Click">
                 <Button.Background>
@@ -65,9 +62,10 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="helpOrdering" Content="?" HorizontalAlignment="Left" Margin="142,4,0,0" Width="44" BorderThickness="1,0,1,1" FontSize="26.667" FontWeight="Bold" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FFFF7900" Height="39.5" VerticalAlignment="Top" ToolTip="Drag and drop items into the seat below. Double tap an item to split it into multiple pieces for splitting across seats"/>
+            <Button x:Name="helpOrdering" Content="?" HorizontalAlignment="Left" Margin="142,2.515,0,0" Width="44" BorderThickness="1,1,1,1" FontSize="26.667" FontWeight="Bold" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FFFF7900" Height="38.833" VerticalAlignment="Top" Click="helpbtn_Click"/>
+            <TextBlock x:Name="helpMsg" Height="48.652" Margin="142,44.5,331.666,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Background="#FFFF7900" Foreground="#FFEFF4EF" MouseDown="closeHelpMsg"><Run Text="Drag and drop items into one of the seats below. Double tap an item"/><Run Text=" "/><Run Text="     X"/><LineBreak/><Run Text="to split it into multiple pieces to share across a bill."/></TextBlock>
         </Grid>
-        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsLocked="True" d:IsHidden="True">
+        <Grid x:Name="AllFourGrid" Margin="10,61,-10,-7" d:IsHidden="True">
             <TextBlock x:Name="titleText" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
             <Button x:Name="changeButton" Content="Change Split" HorizontalAlignment="Left" Height="103.5" Margin="0,0,0,18" VerticalAlignment="Bottom" Width="493" FontSize="48" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Click="changeSplitScreen">
                 <Button.Background>
@@ -85,8 +83,8 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
-            <ScrollViewer x:Name="eachSeatScroller" Margin="0,95,20,130.5">
-                <UniformGrid x:Name="eachSeatGrid" Background="#FF313031" Height="457.5" Width="971.5" Columns="2" HorizontalAlignment="Left"/>
+            <ScrollViewer x:Name="eachSeatScroller" Margin="0,95,20,130.5" Background="#FF313031">
+                <UniformGrid x:Name="eachSeatGrid" Background="#FF313031" Width="971.5" Columns="2" HorizontalAlignment="Left" MaxHeight="460" MaxWidth="971.5" VerticalAlignment="Top"/>
             </ScrollViewer>
         </Grid>
         <UniformGrid x:Name="SplitWarningGrid" Margin="0,59,0,-4.351" d:IsHidden="True">
@@ -110,7 +108,7 @@
                 <Grid.Effect>
                     <DropShadowEffect/>
                 </Grid.Effect>
-                <Slider x:Name="splitSlider" Height="50" Margin="66,0,66,96" VerticalAlignment="Bottom" ValueChanged="updateCount" IsSnapToTickEnabled="True" Minimum="1"/>
+                <Slider x:Name="splitSlider" Margin="66,137,66,119" ValueChanged="updateCount" IsSnapToTickEnabled="True" Minimum="1" TickPlacement="BottomRight" TickFrequency="1"/>
                 <TextBlock x:Name="promptSplit" Height="90" Margin="66,42,186,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFEFF4EF" FontSize="53.333"><Run Text="# of Split"/><Run Text="s:"/></TextBlock>
                 <TextBlock x:Name="splitCount" HorizontalAlignment="Right" Height="90" Margin="0,42,66,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="84" Foreground="#FFEFF4EF" FontSize="64" FontWeight="Bold"/>
                 <Button x:Name="okSplit" Content="OK" HorizontalAlignment="Left" Height="64" Margin="66,0,0,32" VerticalAlignment="Bottom" Width="198" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" FontSize="32" Click="okSplit_Click">
@@ -129,12 +127,14 @@
                         </RadialGradientBrush>
                     </Button.Background>
                 </Button>
+                <TextBlock x:Name="sliderMin" HorizontalAlignment="Left" Height="30" Margin="66,0,0,119" TextWrapping="Wrap" Text="#" VerticalAlignment="Bottom" Width="31" FontSize="24" Foreground="#FFEFF4EF"/>
+                <TextBlock x:Name="sliderMax" HorizontalAlignment="Right" Height="30" Margin="0,0,49,119" TextWrapping="Wrap" Text="#" VerticalAlignment="Bottom" Width="31" FontSize="24" Foreground="#FFEFF4EF"/>
             </Grid>
         </UniformGrid>
         <Grid x:Name="MultipleBills" Margin="0,59,-10,-0.585" d:IsHidden="True">
-            <TextBlock x:Name="multiTitle" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
-            <UniformGrid x:Name="BillListGrid" Margin="10,95,18,10" HorizontalAlignment="Left" VerticalAlignment="Top" Columns="1"/>
-            <Button x:Name="donePayButton" Content="Done Payments" Height="115.585" Margin="261,0,261,10" VerticalAlignment="Bottom" FontSize="64" Foreground="#FFEFF4EF" Click="donePayButton_Click">
+            <TextBlock x:Name="multiTitle" Height="95" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="64" Foreground="#FF313031" HorizontalAlignment="Left" Width="1000" d:IsLocked="True"><Run Text="["/><Run Text="table"/><Run Text="]"/></TextBlock>
+            <UniformGrid x:Name="BillListGrid" Margin="10,100,18,130.585" Columns="1" MaxHeight="450" MaxWidth="1000" d:LayoutOverrides="VerticalAlignment"/>
+            <Button x:Name="donePayButton" Content="Done Payments" Height="115.585" Margin="261,0,261,10" VerticalAlignment="Bottom" FontSize="64" Foreground="#FFEFF4EF" Click="donePayButton_Click" d:IsLocked="True">
                 <Button.Background>
                     <RadialGradientBrush>
                         <GradientStop Color="#FF243330" Offset="1"/>
@@ -142,6 +142,36 @@
                     </RadialGradientBrush>
                 </Button.Background>
             </Button>
+        </Grid>
+        <Grid x:Name="ServerInfoGrid" Cursor="Hand" Height="57" VerticalAlignment="Top" Margin="0,3,0,0" HorizontalAlignment="Right" Width="143" d:IsHidden="True">
+            <ed:Arc x:Name="ServerPic" ArcThickness="30" ArcThicknessUnit="Pixel" EndAngle="360" HorizontalAlignment="Left" Margin="0,1,0,7" Stretch="None" StartAngle="0" Width="49" Cursor="Hand" RenderTransformOrigin="-0.7,0.2" Height="49" >
+                <ed:Arc.Fill>
+                    <ImageBrush ImageSource="regular - Copy.jpg" Stretch="UniformToFill"/>
+                </ed:Arc.Fill>
+                <ed:Arc.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0F1213" Offset="0.389"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </ed:Arc.Stroke>
+            </ed:Arc>
+            <TextBox x:Name="ServerName" Margin="50,10,7,1" TextWrapping="Wrap" Text="Sally" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF8D8D8D" FontWeight="Bold" FontSize="24" IsReadOnly="True" IsEnabled="False" Cursor="Hand"/>
+            <Button x:Name="LogoutButton" Content="Logout" Margin="0,0,0,-78.674" VerticalAlignment="Bottom" Foreground="#FFEFF4EF" BorderBrush="{x:Null}" Background="#FF1C2225" FontSize="24" Height="43.423"/>
+
+            <Button x:Name="InfoButton" Content="Info" HorizontalAlignment="Left" Height="43.423" Margin="0,50,0,-36.423" VerticalAlignment="Top" Width="143" BorderBrush="{x:Null}" Foreground="#FFEFF4EF" Background="#FF1C2225" FontSize="24"/>
+        </Grid>
+        <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Height="300" Margin="269,220,269,219" VerticalAlignment="Center" Width="480" Background="#FF0B0B0B" d:IsHidden="True">
+
+            <TextBlock x:Name="HoursWorked" HorizontalAlignment="Center" Height="39" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF"><Run Text="Hours worked today:"/><Run Text=" 5.2"/><Run Text=" "/></TextBlock>
+
+            <TextBlock x:Name="HoursWorkedWeek" HorizontalAlignment="Center" Height="39" Margin="0,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Hours worked this week: 16.3"/>
+
+            <TextBlock x:Name="OvertimeHours" HorizontalAlignment="Center" Height="39" Margin="0,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Overtime hours worked today: 0"/>
+
+            <TextBlock x:Name="OvertimeHoursWeek" HorizontalAlignment="Center" Height="39" Margin="0,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="418" FontSize="24" Foreground="#FFEFF4EF" Text="Overtime hours worked this week: 2.3"/>
+
+            <Button x:Name="InfoClose" Content="Close" HorizontalAlignment="Center" Height="50" Margin="0,200,0,0" VerticalAlignment="Center" Width="160" BorderBrush="{x:Null}" Foreground="#FF0B0B0B" FontSize="24"/>
+
         </Grid>
 
     </Grid>

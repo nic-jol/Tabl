@@ -121,11 +121,11 @@
                     
                     <local:TablePIcon x:Name="Table0_P1" Width="Auto" Height="Auto" UseLayoutRounding="False" FontSize="12"/>
                     
-                    <local:TablePIcon x:Name="Table3_P1" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table1_P1" Width="Auto" Height="Auto" UseLayoutRounding="False" Margin="0,0,0,-0.001" FontSize="12"/>
                     
-                    <local:TablePIcon x:Name="Table1_P1" Width="Auto" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table2_P1" Width="Auto" FontSize="12"/>
                     
-                    <local:TablePIcon x:Name="Table2_P1" Width="Auto" Height="Auto" FontSize="12"/>
+                    <local:TablePIcon x:Name="Table3_P1" Width="Auto" Height="Auto" FontSize="12"/>
                     
                 </UniformGrid>
                 
