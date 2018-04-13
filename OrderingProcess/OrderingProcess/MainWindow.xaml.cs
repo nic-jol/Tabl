@@ -208,6 +208,8 @@ namespace OrderingProcess
                 orderButtonF.Click += orderFull_Click;
                 unassignButtonF.Click += unassignFull_Click;
                 cancelButtonF.Click += hide_fullOptions;
+
+                
             }
             else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Pick Up")
             {
@@ -273,6 +275,9 @@ namespace OrderingProcess
 
             //Show Table Number
             tableNumTitle.Text = "Table " + tables[curTable.getIndex()].getTableNumber();
+
+            // Allow ordering for any seat again
+            seatOrder = -1;
 
             // Setup Back Arrow
             SeatButtonsGrid.Children.Clear();
