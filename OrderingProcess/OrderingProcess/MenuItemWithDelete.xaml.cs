@@ -23,6 +23,7 @@ namespace OrderingProcess
         public MenuItemWithDelete()
         {
             InitializeComponent();
+            deleteButton.Visibility = Visibility.Hidden;
         }
 
         // TODO: Delete button

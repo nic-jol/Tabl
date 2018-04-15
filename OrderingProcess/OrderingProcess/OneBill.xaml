@@ -11,7 +11,7 @@
         <Color x:Key="Color3">#FFFFF1CE</Color>
         <Color x:Key="Color4">#FFFFF1CE</Color>
     </Window.Resources>
-    <Grid x:Name="ButtonsGrid" Background="#FFEFF4EF" Margin="0,0,2,-2.342" MinWidth="0.3">
+    <Grid x:Name="ButtonsGrid" Background="#FFEFF4EF" Margin="0,0,2,-2.342" MinWidth="0.3" d:IsHidden="True">
         <TextBlock x:Name="TableTitle" Height="31.957" Margin="73.991,19.218,190.688,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26.667" Foreground="#FF293835"><Run Text="Table "/><Run Text="##"/><Run Text=" Total: "/></TextBlock>
         <Button x:Name="CashButton" Content="Cash" HorizontalAlignment="Left" Height="73.5" Margin="73.5,70.5,0,0" VerticalAlignment="Top" Width="292.991" FontSize="36" Click="showPayment">
             <Button.Foreground>
@@ -72,7 +72,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Grid x:Name="ViewOrderGrid" Background="#FFEFF4EF" d:IsLocked="True" d:IsHidden="True">
+        <Grid x:Name="ViewOrderGrid" Background="#FFEFF4EF">
             <ScrollViewer x:Name="ItemsScroller" Margin="10,10,10,81.389" Background="#FF313031">
                 <UniformGrid x:Name="ItemsUniGrid" Width="395.5" Columns="1"/>
             </ScrollViewer>

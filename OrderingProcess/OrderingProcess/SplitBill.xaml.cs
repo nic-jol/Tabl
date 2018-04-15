@@ -22,8 +22,6 @@ namespace OrderingProcess
     {
         private int index;
         private string splittingItem;
-        //private int tableNum;
-        //private int curCapacity;
 
         public SplitBill(int newIndex)
         {
@@ -60,7 +58,7 @@ namespace OrderingProcess
                 // Loop through each menu item for that seat and add to its uniform grid
                 List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
                 List<MenuItem> orderForSeat = orderForAll[i];
-                //errors.Text = "" + orderForSeat.Count;
+
                 foreach (MenuItem item in orderForSeat)
                 {
                     // change title
@@ -74,11 +72,12 @@ namespace OrderingProcess
                     }
 
                     itemDisplay.Text = title;
-                    RadialGradientBrush radialGradient = new RadialGradientBrush();
-                    radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
-                    radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
+                    //RadialGradientBrush radialGradient = new RadialGradientBrush();
+                    //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
+                    //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
 
-                    itemDisplay.Background = radialGradient;
+                    itemDisplay.Background = new SolidColorBrush(Color.FromRgb(49, 48, 49));
+                    //itemDisplay.Background = radialGradient;
                     itemDisplay.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
                     itemDisplay.Height = 70;
                     itemDisplay.Width = 300;
@@ -87,9 +86,6 @@ namespace OrderingProcess
 
                     // Add each item to uniform grid
                     bill.seatScrollerGrid.Children.Add(itemDisplay);
-                    //.Text += "" + item.getName();
-
-                    //++itemCount;
                 }
 
                 ++seatCount;
@@ -136,29 +132,21 @@ namespace OrderingProcess
 
             int tableNum = MainWindow.tables[index].getTableNumber();
             int curCount = MainWindow.tables[index].getCurrentCount();
-
-            //TODO: remove this
-            //curCount = 2;
-
-            //SplitsGrid.Rows = (int)Math.Ceiling((double)curCount / 2);
+            
             SplitsGrid.Children.Clear();
+
             // Loop through and create an item for each seat
             for (int i = 0; i < curCount; ++i)
             {
                 OneSeatBill bill = new OneSeatBill();
                 bill.seatTitle.Text = "" + (seatCount + 1);
 
-                //bill.seatTitle.FontSize = 16;
-                //bill.seatTitle.Height = 20;
-
                 bill.AllowDrop = true;
                 bill.Drop += text_Drop;
                 bill.DragEnter += text_DragEnter;
+                bill.seatScrollerGrid.HorizontalAlignment = HorizontalAlignment.Center;
 
                 SplitsGrid.Children.Add(bill);
-
-                // TODO: Add items on bill to item scroller
-                // bill.seatScrollerGrid
 
                 ++seatCount;
             }
@@ -171,7 +159,7 @@ namespace OrderingProcess
                 // Loop through each menu item for that seat and add to its uniform grid
                 List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
                 List<MenuItem> orderForSeat = orderForAll[i];
-                //errors.Text = "" + orderForSeat.Count;
+
                 foreach (MenuItem item in orderForSeat)
                 {
                     TextBlock itemDisplay = new TextBlock();
@@ -213,6 +201,8 @@ namespace OrderingProcess
             backTables.Visibility = Visibility.Hidden;
             backOriginal.Visibility = Visibility.Visible;
 
+            BillListGrid.Children.Clear();
+
             foreach (OneSeatBill bill in eachSeatGrid.Children)
             {
                 // If they actually have items to pay for
@@ -225,8 +215,6 @@ namespace OrderingProcess
                     payingBill.Width = 800;
                     payingBill.Height = 100;
                     payingBill.FontSize = 48;
-                    //payingBill.BorderBrush = new SolidColorBrush(Color.FromRgb(89, 124, 119));
-                    //payingBill.Background = new SolidColorBrush(Color.FromRgb(144, 168, 164));
 
                     RadialGradientBrush radialGradient = new RadialGradientBrush();
                     radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
@@ -234,8 +222,6 @@ namespace OrderingProcess
 
                     payingBill.Background = radialGradient;
                     payingBill.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
-                    // 89 124 119
-                    // 144 168 164
 
                     // click function- open one bill, delete itself
                     payingBill.Click += payingBill_Click;
@@ -250,9 +236,10 @@ namespace OrderingProcess
         {
             ((Button)sender).Visibility = Visibility.Hidden;
 
-            OneBill one = new OneBill(index);
+            int whichSeat = Convert.ToInt32( ((Button)sender).Content.ToString().Substring(5, 2) );
+            //errors.Text = "" + ((Button)sender).Content.ToString().Substring(5, 2);
+            OneBill one = new OneBill(index, true, whichSeat);
             one.Show();
-            //this.Close();
         }
 
         private void backArrowTable(object e, MouseButtonEventArgs a)
@@ -279,6 +266,8 @@ namespace OrderingProcess
                 splitCount.Text = splitSlider.Value.ToString();
             }
         }
+
+
 
         private void text_MouseMove(object sender, MouseEventArgs e)
         {
@@ -358,9 +347,6 @@ namespace OrderingProcess
                 foreach (OneSeatBill oldBill in SplitsGrid.Children)
                 {
                     // Loop through each menu item for that seat and add to its uniform grid
-                    //List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
-                    //List<MenuItem> orderForSeat = orderForAll[i];
-
                     OneSeatBill newBill = new OneSeatBill();
                     newBill.seatTitle.Text = "Seat " + seatCount;
 
@@ -372,15 +358,16 @@ namespace OrderingProcess
                         TextBlock newTB = new TextBlock();
 
                         newTB.Text = tb.Text;
-                        RadialGradientBrush radialGradient = new RadialGradientBrush();
-                        radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
-                        radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
+                        //RadialGradientBrush radialGradient = new RadialGradientBrush();
+                        //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(89, 124, 119), 1.0));
+                        //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(144, 168, 164), 0.0));
 
-                        newTB.Background = radialGradient;
+                        //newTB.Background = radialGradient;
+                        newTB.Background = new SolidColorBrush(Color.FromRgb(49, 48, 49));
                         newTB.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+                        //newTB.HorizontalAlignment = HorizontalAlignment.Left;
                         newTB.Height = 70;
                         newTB.Width = 300;
-                        newTB.TextAlignment = TextAlignment.Center;
                         newTB.FontSize = 24;
 
                         // Add each item to uniform grid

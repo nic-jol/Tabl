@@ -124,37 +124,33 @@ namespace OrderingProcess
             Table3_O1.setPayTableReference(Table3_P);
             Table3_P1.updateIndex(3);
 
-            //###SEATS###//
-            //Seat1Button.Click += seatButton_Click;
-            //Seat2Button.Click += seatButton_Click;
-            //Seat3Button.Click += seatButton_Click;
-            //Seat4Button.Click += seatButton_Click;
-
+            // Selecting a category
             foodButton.Click += foodButton_Click;
             drinkButton.Click += drinkButton_Click;
 
-            // TODO: Move button clicks to XAML? -> Maybe move all of these things there, even in function
-            // Food clicks (maybe add to xaml?)
-            rotiButton.Click += addFood_Click;
-            tunaButton.Click += addFood_Click;
-            steakButton.Click += addFood_Click;
-            burgerButton.Click += addFood_Click;
-            pizzaButton.Click += addFood_Click;
+            // Make food text boxes drag and drop
+            rotiText.MouseMove += food_MouseMove;
+            tunaText.MouseMove += food_MouseMove;
+            steakText.MouseMove += food_MouseMove;
+            pizzaText.MouseMove += food_MouseMove;
+            burgerText.MouseMove += food_MouseMove;
             cancelFButton.Click += orderFull_Click;
+
 
             // Add side
             regFriesButton.Click += sideAddedButton_Click;
             yamFriesButton.Click += sideAddedButton_Click;
             gardenButton.Click += sideAddedButton_Click;
             caesarButton.Click += sideAddedButton_Click;
+
             closeSidesButton.Click += closeSides_Click;
 
-            // Add Drink
-            cokeButton.Click += addDrink_Click;
-            orangeButton.Click += addDrink_Click;
-            spriteButton.Click += addDrink_Click;
-            milkButton.Click += addDrink_Click;
-            coffeeButton.Click += addDrink_Click;
+            // Make drink text boxes drag and drop
+            cokeText.MouseMove += food_MouseMove;
+            orangeText.MouseMove += food_MouseMove;
+            spriteText.MouseMove += food_MouseMove;
+            milkText.MouseMove += food_MouseMove;
+            coffeeText.MouseMove += food_MouseMove;
             cancelDButton.Click += orderFull_Click;
 
             KitchenButton.Click += viewOrder_Click;   // from order screen
@@ -179,11 +175,6 @@ namespace OrderingProcess
                 AssignGrid.Visibility = Visibility.Visible;
                 sliderMin.Text = "" + slider.Minimum;
                 sliderMax.Text = "" + slider.Maximum;
-                // Assign only
-                /*
-                AssignTable assign = new AssignTable((((TableOIcon)sender).getIndex()), ((TableOIcon)sender));
-                assign.Show();
-                */
             }
             else if (tables[(((TableOIcon)sender).getIndex())].getState() == "Reserved")
             {
@@ -218,10 +209,6 @@ namespace OrderingProcess
             {
                 PickUpGrid.Visibility = Visibility.Visible;
                 curTable = (TableOIcon)sender;
-                /*
-                PickUpOrder pickUp = new PickUpOrder((((TableOIcon)sender).getIndex()));
-                pickUp.Show();
-                */
             }
             ((TableOIcon)sender).updateFormWithTable();
         }
@@ -235,19 +222,10 @@ namespace OrderingProcess
             sliderMin.Text = "" + slider.Minimum;
             sliderMax.Text = "" + slider.Maximum;
 
-            /*
-            AssignTable assign = new AssignTable(curTable.getIndex(), curTable);
-            assign.Show();
-            */
-
             ReserveClickGrid.Visibility = Visibility.Hidden;
         }
         private void unassignRes_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
-            assign.Show();
-            */
             UnassignGrid.Visibility = Visibility.Visible;
             ReserveClickGrid.Visibility = Visibility.Hidden;
         }
@@ -263,7 +241,7 @@ namespace OrderingProcess
             SeatsGrid.Visibility = Visibility.Visible;
             tabControl.Visibility = Visibility.Hidden;
             tabControl_Manager.Visibility = Visibility.Hidden;
-            //CategoriesGrid.Visibility = Visibility.Visible;
+            CategoriesGrid.Visibility = Visibility.Visible;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
@@ -295,11 +273,16 @@ namespace OrderingProcess
                 Button button = new Button();
                 button.Content = "Seat " + seatCount;
                 button.Name = "Seat" + seatCount;   //Use later for ordering
-                button.Click += seatButton_Click;
+                //button.Click += seatButton_Click;
                 RadialGradientBrush radialGradient = new RadialGradientBrush();
                 radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(36, 51, 48), 1.0));
                 radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(76, 88, 86), 0.0));
                 
+                button.AllowDrop = true;
+                button.Drop += item_Drop;
+                button.DragEnter += item_DragEnter;
+
+
                 button.Background = radialGradient;
                 button.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
                 button.FontSize = 36;
@@ -314,10 +297,6 @@ namespace OrderingProcess
         private void unassignFull_Click(object sender, RoutedEventArgs e)
         {
             UnassignGrid.Visibility = Visibility.Visible;
-            /*
-            UnassignTable assign = new UnassignTable(curTable.getIndex(), curTable);
-            assign.Show();
-            */
 
             FullClickGrid.Visibility = Visibility.Hidden;
         }
@@ -326,35 +305,9 @@ namespace OrderingProcess
             FullClickGrid.Visibility = Visibility.Hidden;
         }
 
-
-
-
+        
 
         //#### Ordering Process ####//
-        private void seatButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (seatOrder == -1)
-            {
-                CategoriesGrid.Visibility = Visibility.Visible;
-                FoodGrid.Visibility = Visibility.Hidden;
-                DrinksGrid.Visibility = Visibility.Hidden;
-                SidesGrid.Visibility = Visibility.Hidden;
-                OrderSentGrid.Visibility = Visibility.Hidden;
-                ViewOrderGrid.Visibility = Visibility.Hidden;
-                ConfirmationGrid.Visibility = Visibility.Hidden;
-
-                tableNumTitle.Text = "Table " + tables[curTable.getIndex()].getTableNumber();
-
-                // Highlight seat
-                ((Button)sender).Background = new SolidColorBrush(Color.FromRgb(181, 255, 240));
-                //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(181, 255, 240), 1.0));
-                //radialGradient.GradientStops.Add(new GradientStop(Color.FromRgb(181, 255, 240), 0.0));
-                
-                // Update variable
-                seatOrder = Convert.ToInt32(((Button)sender).Name.Substring(4));
-            }
-        }
-
         private void foodButton_Click(object sender, RoutedEventArgs e)
         {
             CategoriesGrid.Visibility = Visibility.Hidden;
@@ -378,17 +331,10 @@ namespace OrderingProcess
         private void sideAddedButton_Click(object sender, RoutedEventArgs e)
         {
             // Create Menu Item for that seat
-            // Might change around with drag
             sideName = ((Button)sender).Content.ToString();
-
-            //MenuItem foodItem = new MenuItem(foodName, itemSize, sideName);
-
+            
             SidesGrid.Visibility = Visibility.Hidden;
-            //ItemAddedGrid.Visibility = Visibility.Visible;
-            //CategoriesGrid.Visibility = Visibility.Hidden;
             ConfirmationGrid.Visibility = Visibility.Visible;
-            //DrinksGrid.Visibility = Visibility.Hidden;
-            //FoodGrid.Visibility = Visibility.Hidden;
         }
 
         private void addDrink_Click(object sender, RoutedEventArgs e)
@@ -397,25 +343,14 @@ namespace OrderingProcess
             sideName = null;
             itemSize = -1;
 
-            //MenuItem drinkItem = new MenuItem(drinkName, -1, null);
-
             SidesGrid.Visibility = Visibility.Hidden;
-            //ItemAddedGrid.Visibility = Visibility.Visible;
-            //CategoriesGrid.Visibility = Visibility.Visible;
             ConfirmationGrid.Visibility = Visibility.Visible;
-            //DrinksGrid.Visibility = Visibility.Hidden;
-            //FoodGrid.Visibility = Visibility.Hidden;
         }
 
         private void addItem_Click(object sender, RoutedEventArgs e)
         {
             // Create Menu Item for that seat
-            // TODO: Might change around with drag
             MenuItem orderItem = new MenuItem(foodName, itemSize, sideName);
-
-            //errors.Text = "" + foodName + itemSize + sideName;
-            //errors.Text = orderItem.ToString();
-            //errors.Text = "" + curTable.getIndex();
 
             // Add to appropriate list in tables array
             tables[curTable.getIndex()].setSeatOrder(seatOrder, orderItem);
@@ -433,15 +368,10 @@ namespace OrderingProcess
                 }
             }
 
-            //SeatsGrid.Children.Count
-            //button.Background = radialGradient;
-
             // Reset seat variable
             seatOrder = -1;
-
+            
             ConfirmationGrid.Visibility = Visibility.Hidden;
-            DrinksGrid.Visibility = Visibility.Hidden;
-            FoodGrid.Visibility = Visibility.Hidden;
         }
 
         private void closeSides_Click(object sender, RoutedEventArgs e)
@@ -508,7 +438,6 @@ namespace OrderingProcess
                     
                     // Add each item to uniform grid
                     seat.orderItemsGrid.Children.Add(itemDisplay);
-                    //.Text += "" + item.getName();
 
                     ++itemCount;
                 }
@@ -542,7 +471,7 @@ namespace OrderingProcess
         private void backToMain_Click(object e, RoutedEventArgs a)
         {
             SeatsGrid.Visibility = Visibility.Visible;
-            //CategoriesGrid.Visibility = Visibility.Visible;
+            CategoriesGrid.Visibility = Visibility.Visible;
             FoodGrid.Visibility = Visibility.Hidden;
             DrinksGrid.Visibility = Visibility.Hidden;
             SidesGrid.Visibility = Visibility.Hidden;
@@ -631,7 +560,7 @@ namespace OrderingProcess
                 
         }
 
-        //#### TODO: Pick Up Order PopUP ####//
+        //#### Pick Up Order PopUP ####//
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
             tables[curTable.getIndex()].setState("Full");
@@ -646,8 +575,7 @@ namespace OrderingProcess
             PickUpGrid.Visibility = Visibility.Hidden;
         }
 
-        //#### TODO: Unassign PopUP ####//
-        
+        //#### Unassign PopUP ####//
         private void okUnassignClick(object sender, RoutedEventArgs e)
         {
             //code for updating
@@ -760,20 +688,7 @@ namespace OrderingProcess
         // source: https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/drag-and-drop-overview#drag-and-drop-support-in-wpf
 
         // Sender
-        private void item_MouseMove(object sender, MouseEventArgs e)
-        {
-            Button foodBtn = sender as Button;
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DataObject dragData = new DataObject(foodBtn.Content.ToString());
-
-                DragDrop.DoDragDrop(foodBtn,
-                                    dragData,
-                                    DragDropEffects.Move);
-            }
-        }
-
-        private void text_MouseMove(object sender, MouseEventArgs e)
+        private void food_MouseMove(object sender, MouseEventArgs e)
         {
             TextBlock foodBtn = sender as TextBlock;
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -789,52 +704,7 @@ namespace OrderingProcess
         // Receiver
         private void item_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effects = DragDropEffects.All;
-            /*
-            Button btn = sender as Button;
-
-            if (btn != null)
-            {
-                // If the DataObject contains string data, extract it.
-                if (e.Data.GetDataPresent(DataFormats.StringFormat))
-                {
-                    string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
-
-                    foodName = dataString;
-                    itemSize = -1;
-                    // Side menu pop up
-                    SidesGrid.Visibility = Visibility.Visible;
-                    //private String sideName;
-                }
-            }
-            */
-        }
-
-        private void item_DragOver(object sender, DragEventArgs e)
-        {
-            e.Effects = DragDropEffects.None;
-
-            // If the DataObject contains string data, extract it.
-            if (e.Data.GetDataPresent(DataFormats.StringFormat))
-            {
-                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
-
-                foodName = dataString;
-                itemSize = -1;
-                // Side menu pop up
-                SidesGrid.Visibility = Visibility.Visible;
-                //private String sideName;
-            }
-        }
-
-        private void item_DragLeave(object sender, DragEventArgs e)
-        {
-            Button btn = sender as Button;
-            if (btn != null)
-            {
-                // Hide sides grid
-                SidesGrid.Visibility = Visibility.Hidden;
-            }
+            e.Effects = DragDropEffects.Copy;
         }
 
         private void item_Drop(object sender, DragEventArgs e)
@@ -847,11 +717,24 @@ namespace OrderingProcess
                 {
                     string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
 
+                    seatOrder = Convert.ToInt32(((Button)sender).Name.Substring(4));
+
                     foodName = dataString;
                     itemSize = -1;
-                    // Side menu pop up
-                    SidesGrid.Visibility = Visibility.Visible;
-                    //private String sideName;
+
+                    if (MenuItem.isFood(foodName))
+                    {
+                        // Side menu pop up
+                        SidesGrid.Visibility = Visibility.Visible;
+                    }
+                    else {
+                        sideName = null;
+                        itemSize = -1;
+
+                        SidesGrid.Visibility = Visibility.Hidden;
+                        ConfirmationGrid.Visibility = Visibility.Visible;
+                    }
+                    
                 }
             }
         }

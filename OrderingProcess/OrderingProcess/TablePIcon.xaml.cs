@@ -71,7 +71,8 @@ namespace OrderingProcess
 
         private void oneBillProcess(object sender, RoutedEventArgs e)
         {
-            OneBill one = new OneBill(index);
+            // don't split; seat doesn't matter
+            OneBill one = new OneBill(index, false, 0);
             one.Show();
            
         }

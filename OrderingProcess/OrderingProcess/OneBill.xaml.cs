@@ -22,11 +22,14 @@ namespace OrderingProcess
     {
         int index;
         List<Timer> TimerList;
+        Boolean split;
+        int seatNum;
 
-        public OneBill(int newIndex)
+        public OneBill(int newIndex, Boolean splitIt, int newSeat)
         {
             InitializeComponent();
             this.index = newIndex;
+            split = splitIt;
             ViewOrderGrid.Visibility = Visibility.Hidden;
             PaymentGrid.Visibility = Visibility.Hidden;
             int tableNum = MainWindow.tables[index].getTableNumber();
@@ -37,6 +40,7 @@ namespace OrderingProcess
             Timer timer2 = new Timer();
             TimerList.Add(timer1);
             TimerList.Add(timer2);
+            seatNum = newSeat;
         }
 
         private void showPayment(object sender, RoutedEventArgs e)
@@ -92,15 +96,15 @@ namespace OrderingProcess
 
             ItemsUniGrid.Children.Clear();
 
-            int numSeats = MainWindow.tables[index].getCurrentCount();
-            for (int i = 0; i < numSeats; ++i)
+            // Only show items for that seat
+            if (split)
             {
                 int itemCount = 0;   // count how many items were ordered for that seat
 
                 // Loop through each menu item for that seat and add to its uniform grid
                 List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
-                List<MenuItem> orderForSeat = orderForAll[i];
-                //errors.Text = "" + orderForSeat.Count;
+                List<MenuItem> orderForSeat = orderForAll[seatNum-1];
+
                 foreach (MenuItem item in orderForSeat)
                 {
                     // change title
@@ -117,24 +121,46 @@ namespace OrderingProcess
 
                     // Add each item to uniform grid
                     ItemsUniGrid.Children.Add(itemDisplay);
-                    //.Text += "" + item.getName();
 
                     ++itemCount;
                 }
-
-                // Adjust height based on number of items
-                /*
-                seat.Height = 90 + 70 * itemCount;
-
-                if (((90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2))) > OrderScrollerGrid.Height)
-                {
-                    OrderScrollerGrid.Height = (90 + 70 * itemCount) * (Math.Ceiling(((double)numSeats) / 2));
-                }
-
-                // Actually add to uniform grid
-                OrderScrollerGrid.Children.Add(seat);
-    */
             }
+            // show all
+            else
+            {
+                int numSeats = MainWindow.tables[index].getCurrentCount();
+                for (int i = 0; i < numSeats; ++i)
+                {
+                    int itemCount = 0;   // count how many items were ordered for that seat
+
+                    // Loop through each menu item for that seat and add to its uniform grid
+                    List<MenuItem>[] orderForAll = MainWindow.tables[index].getSeatOrder();
+                    List<MenuItem> orderForSeat = orderForAll[i];
+
+                    foreach (MenuItem item in orderForSeat)
+                    {
+                        // change title
+                        MenuItemWithDelete itemDisplay = new MenuItemWithDelete();
+
+                        string title = item.getName();
+
+                        if (item.getSide() != null)
+                        {
+                            title += "\n    " + item.getSide();
+                        }
+
+                        itemDisplay.itemName.Text = title;
+
+                        // Add each item to uniform grid
+                        ItemsUniGrid.Children.Add(itemDisplay);
+
+                        ++itemCount;
+                    }
+                }
+            }
+            
+
+            
         }
 
         private void backPaymenetBtn_Click(object sender, RoutedEventArgs e)

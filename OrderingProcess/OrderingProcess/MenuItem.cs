@@ -9,6 +9,45 @@ namespace OrderingProcess
     public class MenuItem
     {
         public const int menuSize = 10;
+        public static Boolean isFood(string itemCheck)
+        {
+            List<string> foodItems = new List<string>();
+
+            foodItems.Add("Rotisserie Chicken");
+            foodItems.Add("Tuna Sandwich");
+            foodItems.Add("Steak");
+            foodItems.Add("Margherita Pizza");
+            foodItems.Add("Classic Burger");
+
+            if (foodItems.Contains(itemCheck))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static Boolean isDrink(string itemCheck)
+        {
+            List<string> drinkItems = new List<string>();
+            
+            drinkItems.Add("Coke");
+            drinkItems.Add("Orange Crush");
+            drinkItems.Add("Sprite");
+            drinkItems.Add("Milk");
+            drinkItems.Add("Coffee");
+
+            if (drinkItems.Contains(itemCheck))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         //Attributes
         string name;
