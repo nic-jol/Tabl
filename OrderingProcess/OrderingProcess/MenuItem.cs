@@ -14,14 +14,17 @@ namespace OrderingProcess
         string name;
         int size;
         string side;
+        string status;
         List<string> validMenuItem = new List<string>();
         List<string> validSide = new List<string>();
+        List<string> validStatus = new List<string>();
 
         public MenuItem()
         {
             name = null;
             size = -1;
             side = null;
+            status = "Incomplete";
             buildValidMenu();
             buildValidSides();
         }
@@ -38,12 +41,14 @@ namespace OrderingProcess
             }
             size = -1;
             side = null;
+            status = "Incomplete";
             buildValidMenu();
             buildValidSides();
         }
 
         public MenuItem(string newName, int newSize, string newSide)
         {
+            status = "Incomplete";
             buildValidMenu();
             buildValidSides();
             if (validMenuItem.Contains(newName))
@@ -91,6 +96,14 @@ namespace OrderingProcess
             validSide.Add("Garden Salad");
             validSide.Add("Caesar Salad");
             validSide.Add(null);
+        }
+
+        private void buildValidStatuses()
+        {
+            validStatus.Add("Complete");
+            validStatus.Add("Pickup Ready");
+            validStatus.Add("Payment Required");
+            validStatus.Add("Incomplete");
         }
 
 
@@ -142,6 +155,19 @@ namespace OrderingProcess
         public override String ToString()
         {
             return "" + name + side + size;
+        }
+
+        public void setStatus(string newStatus)
+        {
+            if (validStatus.Contains(newStatus))
+            {
+                status = newStatus;
+            }
+        }
+
+        public string getStatus()
+        {
+            return status;
         }
     }
 }

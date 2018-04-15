@@ -44,6 +44,7 @@ namespace OrderingProcess
                 
 
             InfoGrid.Visibility = Visibility.Hidden;
+            OrderHistoryGrid.Visibility = Visibility.Hidden;
             SeatsGrid.Visibility = Visibility.Hidden;
             CategoriesGrid.Visibility = Visibility.Hidden;
             FoodGrid.Visibility = Visibility.Hidden;
@@ -59,6 +60,7 @@ namespace OrderingProcess
             AssignGrid.Visibility = Visibility.Hidden;
             helpOrderingMsg.Visibility = Visibility.Hidden;
 
+
             // Hide parts of Header
             backArrow.Visibility = Visibility.Hidden;
             backToTables.Visibility = Visibility.Hidden;
@@ -69,6 +71,7 @@ namespace OrderingProcess
             ServerInfoGrid.MouseDown += new MouseButtonEventHandler(menuAppear);
             tabControl.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
             tabControl_Manager.MouseDown += new MouseButtonEventHandler(menu_ClickAway);
+            ToSeeOrderHistory.MouseDown += new MouseButtonEventHandler(orderHistory_Click);
             LogoutButton.Click += logout_Click;
             InfoButton.Click += info_Click;
             InfoClose.Click += info_Close;
@@ -688,6 +691,7 @@ namespace OrderingProcess
             AssignGrid.Visibility = Visibility.Hidden;
         }
 
+
         // Help Message
         private void helpOrdering_Click(object sender, RoutedEventArgs e)
         {
@@ -698,6 +702,58 @@ namespace OrderingProcess
         {
             helpOrderingMsg.Visibility = Visibility.Hidden;
         }
+
+
+        // Order History
+        private void orderHistory_Click(object sender, MouseButtonEventArgs e)
+        {
+            //InfoGrid.Visibility = Visibility.Hidden;
+            OrderHistoryGrid.Visibility = Visibility.Visible;
+            
+            AllOrderGrid.Children.Clear(); // Clear before adding more
+            foreach (CustomerTable table in tables)
+            {
+                // Loop through each seat
+                for (int i=0; i<table.getCurrentCount(); ++i)
+                {
+                    // Loop through all orders for a seat
+                    foreach (MenuItem item in table.getSeatOrder()[i])
+                    {
+                        TextBox entry = new TextBox();
+
+                        entry.Text = item.getName();
+
+                        if (item.getName().Length > 8)
+                        {
+                            entry.Text += "\t";
+                        }
+                        else
+                        {
+                            entry.Text += "\t\t";
+                        }
+
+                        entry.Text += table.getTableNumber() + "\t\t" + item.getStatus();
+
+                        entry.FontSize = 18;
+
+                        entry.Background = new SolidColorBrush(Color.FromRgb(11, 11, 11));
+                        entry.Foreground = new SolidColorBrush(Color.FromRgb(239, 244, 239));
+                        entry.BorderBrush = new SolidColorBrush(Color.FromRgb(11, 11, 11));
+
+                        AllOrderGrid.Children.Add(entry);
+                    }
+                }
+            }
+        }
+
+        private void closeOrderHistory_Click(object sender, RoutedEventArgs e)
+        {
+            OrderHistoryGrid.Visibility = Visibility.Hidden;
+        }
+
+
+        
+
 
         //#### Drag and Drop ####//
         // Idea: drag food item over to seat; once over seat, side option will popup
