@@ -31,14 +31,20 @@ namespace OrderingProcess
             InitializeComponent();
             index = newIndex;
             tableIcon = newTableIcon;
-
         }
 
         private void buttonOkClick(object sender, RoutedEventArgs e)
         {
+            // Clear orders
+            for (int i=1; i<=MainWindow.tables[index].getCurrentCount(); ++i)
+            {
+                MainWindow.tables[index].clearSeatOrder(i);
+            }
+
             //code for updating
             MainWindow.tables[index].setState("Empty");
             MainWindow.tables[index].setCurrentCount(0);
+            
             tableIcon.updateFormWithTable();
             this.Close();
         }

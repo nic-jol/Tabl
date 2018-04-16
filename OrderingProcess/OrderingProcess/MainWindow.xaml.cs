@@ -578,6 +578,12 @@ namespace OrderingProcess
         //#### Unassign PopUP ####//
         private void okUnassignClick(object sender, RoutedEventArgs e)
         {
+            // Clear orders
+            for (int i = 1; i <= MainWindow.tables[curTable.getIndex()].getCurrentCount(); ++i)
+            {
+                MainWindow.tables[curTable.getIndex()].clearSeatOrder(i);
+            }
+
             //code for updating
             tables[curTable.getIndex()].setState("Empty");
             tables[curTable.getIndex()].setCurrentCount(0);
