@@ -126,5 +126,11 @@ namespace OrderingProcess
         {
             return seatOrders;
         }
+
+        // Seat num: 1-4
+        public void clearSeatOrder (int seatNum)
+        {
+            seatOrders[seatNum-1].Clear();
+        }
     }
 }

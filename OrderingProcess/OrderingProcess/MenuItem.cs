@@ -70,14 +70,14 @@ namespace OrderingProcess
 
         public MenuItem(string newName)
         {
-            if (validMenuItem.Contains(newName))
-            {
+            //if (validMenuItem.Contains(newName))
+            //{
                 name = newName;
-            }
-            else
-            {
-                name = null;
-            }
+            //}
+//else
+            //{
+           //     name = null;
+            //}
             size = -1;
             side = null;
             status = "Incomplete";

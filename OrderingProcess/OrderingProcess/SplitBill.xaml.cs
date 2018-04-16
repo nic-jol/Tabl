@@ -343,9 +343,14 @@ namespace OrderingProcess
 
                 int seatCount = 1;
 
+                
+
                 // Loop through and create an item for each
                 foreach (OneSeatBill oldBill in SplitsGrid.Children)
                 {
+                    // Clear the order for each seat
+                    MainWindow.tables[index].clearSeatOrder(seatCount);
+
                     // Loop through each menu item for that seat and add to its uniform grid
                     OneSeatBill newBill = new OneSeatBill();
                     newBill.seatTitle.Text = "Seat " + seatCount;
@@ -372,6 +377,11 @@ namespace OrderingProcess
 
                         // Add each item to uniform grid
                         newBill.seatScrollerGrid.Children.Add(newTB);
+
+                        // Also add to that seat's order
+                        MenuItem newItem = new MenuItem(tb.Text);
+                        MainWindow.tables[index].setSeatOrder(seatCount, newItem);
+
                     }
 
                     // then update like before
